@@ -133,7 +133,6 @@ The Release check workflow runs the API and production build tests, reruns the s
 
 For another team's incident history, export one JSON object per line into `data/out/manifest.jsonl`. Use a stable `id`, `title`, and `full_text`; include `symptom_text`, service names, and incident timestamps. Runbooks use `doc_type: "runbook"`. For a replay, supply a confirmed `root_cause` and `closed_at` for evaluated incidents and keep symptom text limited to what the responder saw at alert time. Keep the manifest out of Git. Run `make setup-eval`, `make spikes`, and `make seed` with your account configuration, then restart the API before inspecting results from the new corpus.
 
-See the [recorded walkthrough](web/public/walkthrough.mp4).
 
 ## Data attribution
 
