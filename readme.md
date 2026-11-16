@@ -15,8 +15,6 @@ These criteria apply to the live GitLab walk-forward replay and were recorded be
 
 Live outcomes are pending. Synthetic results exercise the harness and cannot establish these claims.
 
-For a walkthrough of retrieval, the constellation, and engine status, see the [project guide](docs/PROJECT.md).
-
 ## Run locally
 
 Requires Python 3.11 and Node 20.9 or later.
@@ -121,7 +119,7 @@ The audited GitLab run used 96 primary queries, with 19 in the seed and 77 score
 | Random | 0.046 |
 | Label prior | 0.197 |
 
-The label prior beat MiniLM on this cohort. The hard subset contained one reachable alert and is too small for a useful comparison. The [baseline report](docs/gitlab-baseline.json) records every batch, the model revision, snapshot hash and latency. In the console, turn off **Recorded results** and open **Replay report** to see the real baseline. Reproduce its aggregate report with `make eval-cache ARGS='--baseline-only --run-id gitlab-minilm-audited'` after running the baseline under that ID.
+The label prior beat MiniLM on this cohort. The hard subset contained one reachable alert and is too small for a useful comparison. The [baseline report](data/gitlab-baseline.json) records every batch, the model revision, snapshot hash and latency. In the console, turn off **Recorded results** and open **Replay report** to see the real baseline. Reproduce its aggregate report with `make eval-cache ARGS='--baseline-only --run-id gitlab-minilm-audited'` after running the baseline under that ID.
 
 The bundled [learning report](web/public/results.json) and [SQLite cache](data/recorded-replay.sqlite) use a synthetic corpus and a sparse lexical vector fixture. Its late batches contain recurring symptom families and can saturate the score. Treat the curve and bootstrap intervals as reproducibility checks. The live GitLab comparisons and Track 1 criteria require a hosted run.
 
@@ -135,7 +133,7 @@ The Release check workflow runs the API and production build tests, reruns the s
 
 For another team's incident history, export one JSON object per line into `data/out/manifest.jsonl`. Use a stable `id`, `title`, and `full_text`; include `symptom_text`, service names, and incident timestamps. Runbooks use `doc_type: "runbook"`. For a replay, supply a confirmed `root_cause` and `closed_at` for evaluated incidents and keep symptom text limited to what the responder saw at alert time. Keep the manifest out of Git. Run `make setup-eval`, `make spikes`, and `make seed` with your account configuration, then restart the API before inspecting results from the new corpus.
 
-See the [recorded walkthrough](docs/demo.mp4), [demo script](docs/demo-script.md), [pilot plan](docs/go-to-market.md) and [submission checklist](docs/submission.md).
+See the [recorded walkthrough](web/public/walkthrough.mp4).
 
 ## Data attribution
 

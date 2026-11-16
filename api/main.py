@@ -93,7 +93,7 @@ def metrics(recorded: bool = True):
     if not recorded and not file.exists():
         file = OUT / "baseline-results.json"
         if not file.exists():
-            file = ROOT / "docs/gitlab-baseline.json"
+            file = ROOT / "data/gitlab-baseline.json"
     if not file.exists():
         raise HTTPException(404, "No replay results are available for this mode.")
     return json.loads(file.read_text())

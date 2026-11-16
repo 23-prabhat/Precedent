@@ -2,7 +2,7 @@
 
 import { Area, CartesianGrid, ComposedChart, Line, ReferenceLine, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
 import results from "../public/results.json";
-import baseline from "../../docs/gitlab-baseline.json";
+import baseline from "../../data/gitlab-baseline.json";
 
 const labels = { A: "Vector", B: "HydraDB flat", C: "Auto graph", "C+": "Declared graph", D: "Precedent", random: "Random", prior: "Label prior" };
 const criteria = [
