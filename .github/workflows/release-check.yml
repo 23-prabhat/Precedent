@@ -27,6 +27,7 @@ jobs:
       - run: make check PYTHON=python
       - run: make eval-fixture PYTHON=python ARGS="--cache $RUNNER_TEMP/replay.sqlite --output $RUNNER_TEMP/replay.json"
       - run: PRECEDENT_STATIC_DEMO=1 make build
+      - run: cp docs/demo.mp4 web/out/walkthrough.mp4
       - uses: actions/upload-artifact@v4
         with:
           name: precedent-recorded-demo
@@ -60,6 +61,7 @@ jobs:
       - run: PRECEDENT_STATIC_DEMO=1 make build
         env:
           PRECEDENT_BASE_PATH: ${{ steps.pages.outputs.base_path }}
+      - run: cp docs/demo.mp4 web/out/walkthrough.mp4
       - uses: actions/upload-pages-artifact@v4
         with:
           path: web/out/

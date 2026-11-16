@@ -1,14 +1,17 @@
 # Three-minute walkthrough
 
+The [recorded walkthrough](demo.mp4) uses the same static export as the [public demo](https://23-prabhat.github.io/Precedent/). It has on-screen captions.
+
 | Time | Screen | Action |
 | --- | --- | --- |
-| 0:00 | Incident console | Introduce Track 1 and explain why text similarity can miss a useful fix. Identify the synthetic recording. |
-| 0:20 | Retrieval comparison | Compare the gateway's capacity lookalike with the registry incident linked through a confirmed configuration recovery. |
-| 0:42 | Memory graph | Open the linked row and inspect the learned reason and declared runbook edge. |
-| 1:02 | Console | Select the CI workers learning sample and analyze before the resolution. |
-| 1:20 | Resolve | Verify the capacity cause and confirm the earlier search indexing incident. Save the outcome. |
-| 1:40 | Console and graph | Reanalyze and inspect the added edge when INC-064 brings INC-039 into the results. |
-| 2:05 | Learning report | Toggle confidence intervals and the hard subset. Explain the chronological split, ablations and pending live success criteria. |
-| 2:37 | Pilot | Offer a six-month backtest and a two-week design-partner pilot. |
+| 0:00 | Homepage | Introduce Track 1 and the recorded gateway HTTP 503 alert. |
+| 0:14 | Vector search | Trace the symptom match to INC-142. |
+| 0:28 | Graph evidence | Follow the confirmed relationship to INC-089 and compare it with the top five vector results. |
+| 0:59 | Analysis | Open the gateway sample in the console and review the evidence. |
+| 1:13 | Analysis | Analyze the repository mirror sample. The initial results omit the useful webhook precedent, INC-028. |
+| 1:26 | Resolution | Confirm INC-028 as helpful and save the outcome. |
+| 1:39 | Analysis and graph | Analyze again and inspect the learned link from INC-051 to INC-028. |
+| 2:06 | Replay report | Explain the chronological evaluation and its synthetic provenance. |
+| 2:22 | Status | The workflow and public GitLab baseline are reproducible. The hosted comparison is pending. |
 
-The gateway, CI workers and repository mirrors learning samples have stored before/after responses in [demo.json](../web/public/demo.json). With a local API, saved resolutions persist in SQLite. The static demo replays sample confirmations in the browser session.
+With the local API, resolutions persist in SQLite. The static demo replays scripted confirmations in the browser session. See the [pilot plan](go-to-market.md) for the design-partner offer.
