@@ -33,7 +33,7 @@ typography:
     letterSpacing: "-.039em"
   analysis-title:
     fontFamily: '"Bricolage Grotesque Variable", "Segoe UI", sans-serif'
-    fontSize: "clamp(3.25rem, 5.1vw, 4.6rem)"
+    fontSize: "clamp(2rem, 4vw, 3.25rem)"
     fontWeight: 600
     lineHeight: 0.95
     letterSpacing: "-.018em"
@@ -126,9 +126,9 @@ components:
 
 **Creative North Star: "Find the fix in the noise."**
 
-The homepage opens with a gateway 503 alert and follows it from the closest text match to a recorded relationship and a suggested check. In the final chapter, the repository mirror replay shows how the results change when a responder saves a fix. The full-bleed field draws or retracts each path when the comparison changes.
+The homepage opens on the gateway 503 alert. Lookalikes flash amber crosses. An orange path links the gateway match to the separately worded registry incident, with source IDs and the relationship type shown under the two endpoint cards. Scroll to regroup the same stars by root cause. The repository mirror replay then shows how a recorded resolution adds a link and changes the next search.
 
-The workspace carries that vocabulary into a focused evidence pane. Warm charcoal surfaces set off a connected precedent, source identifiers, and relationship actions.
+The analysis workspace shows both top-five rankings and a three-node evidence path. The memory graph lets responders scrub the recorded history or follow an alert through its text matches, precedents, and fixes. The report distinguishes hosted proof, measured GitLab baselines, and synthetic replay.
 
 **Key Characteristics:**
 
@@ -159,7 +159,7 @@ Bricolage Grotesque Variable carries headlines, body copy, and controls. The ope
 
 The homepage shell is capped at 1320px. Desktop copy alternates sides over a sticky full-viewport field. At 950px the gutters narrow. Below 780px, text sits above the particles and the example and project sections stack. At 370px and below, the example outcomes use one column.
 
-The workspace header and main content share a 1234px inner measure on wide screens. The alert editor and its follow-up occupy the left column, with a wider evidence pane to the right. At 760px and below, order the editor, evidence, and follow-up vertically. At 420px and below, the relationship action may take its own line. At 400px and below, navigation keeps the text labels and omits its icons. Report tables scroll inside their panel.
+The workspace header and main content share a 1234px inner measure on wide screens. The alert editor and its follow-up occupy the left column. The evidence pane to the right includes two side-by-side ranking lists. The memory graph canvas spans the page width. At 760px and below, order the editor, evidence, and follow-up vertically. At 420px and below, the relationship action may take its own line. At 400px and below, navigation keeps the text labels and omits its icons. Report tables scroll inside their panel.
 
 ## Elevation & Depth
 
@@ -181,15 +181,17 @@ Use filled orange for primary actions, dark outlined buttons for secondary actio
 
 ### Incident field
 
-One Three.js field moves through the signal, vector comparison, graph comparison, and resolution memory chapters. The scroll progress drives both the word emphasis and particle movement. A Vector only and HydraDB graph switch inside the graph chapter controls the saved path. Reduced motion removes spring lag, idle rotation, and cursor tilt. The field describes an illustrative layout and names the recorded incident IDs.
+Three.js renders one point per bundled synthetic replay incident. Opening groups come from symptom similarity to the recorded sample alerts. Scroll moves those same points into groups labeled by recorded root cause. Configuration is lilac, capacity is amber, and dependency is teal. Confirmed fix paths use orange. The alert and the moving pulse are markers. Keep node labels at 12px IBM Plex Mono. Reduced motion shows settled paths without the intro flash sequence or traveling pulse. The before-and-after meter shows recorded edge totals and labels the one confirmed outcome.
 
 ### Incident evidence
 
-Use one evidence pane with a Graph evidence and Vector baseline control. A graph result with a connected precedent shows its title, reason, endpoints, relationship type when available, and an action to inspect the relationship. Advisory checks and sources sit immediately beneath it, with other leads and runbooks below. Vector baseline uses the same pane for similarity results.
+Show Vector top 5 and Precedent top 5 side by side. Keep actual rank order and show rank movement with arrows and source IDs. Render the text similarity bar only for available scores. A confirmed-fix badge requires a recorded SAME_FIX_AS path. Show the alert, match, and precedent as three nodes on the featured evidence card, with the reason and inspect action in the same block. Recorded views use the neutral synthetic provenance pill.
 
 ### Graph and report
 
-Use labels together with edge color, width, and dash pattern. Give learned edges more weight and use a distinct dashed stroke for declared relationships. In replay charts, Precedent uses a heavier orange series stroke. Pair chart interactions with exact values and confidence intervals in a table.
+Center the radial graph on the selected incident. On narrow layouts use compact IDs and reveal the full title through node selection. Use thin neutral auto-extracted links, dashed declared links, and thick orange learned links with a traveling marker. Show reasons on hover or selection. A batch only shows edges whose endpoints and confirmation are already present. Path tree reads left to right from alert to text matches, precedents, and fixes.
+
+Lead the replay with the four pre-registered proof statuses and the audited GitLab bars. Unknown hosted results use outlined bars without a value. The synthetic curve shows paired deltas versus vector and a paired 95% confidence band. Keep the exact values and ablation table below.
 
 ## Do's and Don'ts
 

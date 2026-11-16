@@ -245,12 +245,13 @@ def report(path, run_id, output):
     series = []
     for batch in batch_ids:
         values = {}
-        for arm in arms:
-            rows = [r for b, a, r in records if b == batch and a == arm]
+        batch_rows = {arm: [r for b, a, r in records if b == batch and a == arm] for arm in arms}
+        for arm, rows in batch_rows.items():
             values[arm] = dict(aggregate(rows),
                                ci=bootstrap([r["ndcg"] for r in rows if r["reachable"]]),
                                hard_ci=bootstrap([r["ndcg"] for r in rows if r["reachable"] and r["hard"]]))
-        series.append(dict(batch=batch, arms=values))
+        delta = paired(batch_rows["D"], batch_rows["A"]) if "D" in batch_rows else None
+        series.append(dict(batch=batch, arms=values, paired_delta=delta))
     anchor = "D" if "D" in arms else "A"
     differences = {f"D−{arm}": paired(last["D"], last[arm]) for arm in ("C+", "C", "A") if arm in last and "D" in last}
     d_plus = differences.get("D−C+")

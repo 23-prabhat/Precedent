@@ -1,8 +1,8 @@
 """Refresh the bundled Console, graph and three before/after recordings."""
 from api.service import analyze, samples, graph_view
-from baseline.vector_index import Encoder
+from baseline.vector_index import Encoder, cosine, sparse
 from data.model import ROOT, write_json
-from data.recorded import corpus, initial_edges, TRIPLES
+from data.recorded import corpus, initial_edges, SAMPLES, TRIPLES
 from hydra.learn import create_edges
 
 
@@ -26,8 +26,16 @@ def build_demo():
             after=analyze(sample["alert_text"], docs, encoder, original + new, sample=sample),
             edge=new[0],
         )
+    history = [doc for doc in corpus(9) if doc.doc_type == "incident"]
+    seeds = [sparse(case["alert_text"]) for case in SAMPLES]
+    field = []
+    for doc in history:
+        vector = sparse(doc.symptom_text)
+        affinities = [cosine(vector, seed) for seed in seeds]
+        field.append(dict(id=doc.id, cause=doc.root_cause,
+                          wording=max(range(len(seeds)), key=affinities.__getitem__)))
     write_json(ROOT / "web/public/demo.json", dict(samples=samples(), analysis=recorded[samples()[0]["id"]],
-               recordings=recorded, graph=graph_view("all", docs, edges),
+               recordings=recorded, field=field, graph=graph_view("all", docs, edges),
                meter=dict(learned_edges=len(edges), rolling_hit_rate=None), triples=triples))
 
 

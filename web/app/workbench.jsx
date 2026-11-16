@@ -33,10 +33,10 @@ async function request(path, payload) {
 }
 
 function EngineStatus({ meter, recorded, liveConfigured, liveResult }) {
-  const state = liveResult ? "Live query verified" : liveConfigured ? "Live settings present" :
+  const state = recorded ? "Recorded demo · synthetic" : liveResult ? "Live query verified" : liveConfigured ? "Live settings present" :
     liveConfigured === false ? "Live connection unconfigured" : "Live connection unavailable";
   return <div className="engine-status">
-    <div><span className="mode-dot" /><strong>{state}</strong></div>
+    <div><strong className="provenance-pill">{state}</strong></div>
     <dl><div><dt>Learned links</dt><dd>{meter.learned_edges ?? "—"}</dd></div>
       <div><dt>Confirmed hit rate</dt><dd>{meter.rolling_hit_rate == null ? "—" : Math.round(meter.rolling_hit_rate * 100) + "%"}</dd></div></dl>
     {recorded && <p>Recorded mode uses synthetic incidents and supports offline resolution recording.</p>}
@@ -99,7 +99,6 @@ function Details({ item, onClose, onGraph }) {
 
 export default function Workbench() {
   const [view, setView] = useState("console");
-  const [method, setMethod] = useState("precedent");
   const [recorded, setRecorded] = useState(true);
   const [liveConfigured, setLiveConfigured] = useState(null);
   const [sample, setSample] = useState(initial);
@@ -138,6 +137,9 @@ export default function Workbench() {
   useEffect(() => {
     function readRoute() {
       const fragment = window.location.hash.slice(1);
+      if (fragment === "learning" || fragment === "graph" || fragment.startsWith("sample=")) {
+        requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: "instant" }));
+      }
       if (fragment === "learning" || fragment === "graph") {
         setView(fragment);
       } else if (fragment.startsWith("sample=")) {
@@ -169,7 +171,6 @@ export default function Workbench() {
   function toggle() {
     const next = !recorded;
     setRecorded(next);
-    setMethod("precedent");
     setMeter(next ? boot.meter : {});
     setError("");
     setStatus(null);
@@ -184,7 +185,6 @@ export default function Workbench() {
   function pick(e) {
     const chosen = examples.find(item => item.id === e.target.value);
     setSample(chosen);
-    setMethod("precedent");
     setText(chosen?.alert_text || "");
     setError("");
     setStatus(null);
@@ -196,7 +196,6 @@ export default function Workbench() {
     e?.preventDefault();
     if (pending || text.trim().length < 3) return null;
     setPending(true);
-    setMethod("precedent");
     setError("");
     setResolved(false);
     try {
@@ -247,7 +246,7 @@ export default function Workbench() {
                 : <label className="mode-switch"><input type="checkbox" checked={recorded} disabled={pending || modal} onChange={toggle} /><span className="switch-track" /><span>Recorded results</span></label>}
         </div>
       </header>
-      <main id="main" className="main">
+      <main id="main" className={"main" + (view === "graph" ? " graph-main" : "")}>
         {view === "console" && <>
           <header className="analysis-intro">
             <h1>Incident analysis</h1>
@@ -274,7 +273,7 @@ export default function Workbench() {
               {error && <p className="error banner" role="alert">{error}</p>}
               {status && <div className="success banner" role="status"><PixelIcon name="check" /> Resolution saved. {status.edges_added.length} {status.edges_added.length === 1 ? "edge" : "edges"} added. <button className="text-button" onClick={() => navigate("graph", status.incident_id)}>View graph <PixelIcon name="next" size={14} /></button><button className="icon-button dismiss" aria-label="Dismiss confirmation" onClick={() => setStatus(null)}><span aria-hidden="true">×</span></button></div>}
             </div>
-            {analyzed ? <Evidence result={result} method={method} setMethod={setMethod} pending={pending} recorded={recorded}
+            {analyzed ? <Evidence result={result} pending={pending} recorded={recorded}
               onGraph={id => navigate("graph", id)} onDetail={setDetails} />
               : <section className="evidence-pane evidence-placeholder">
                 <h2>Incident evidence</h2>
@@ -289,7 +288,7 @@ export default function Workbench() {
             </div>
           </div>
         </>}
-        {view === "graph" && <GraphView id={graphId} recorded={recorded} request={request} onConsole={() => navigate("console")} />}
+        {view === "graph" && <GraphView id={graphId} analysis={result} alert={sample?.title || text} recorded={recorded} request={request} onConsole={() => navigate("console")} />}
         {view === "learning" && <Learning recorded={recorded} request={request} />}
       </main>
       <footer className="app-footer">

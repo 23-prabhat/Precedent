@@ -32,6 +32,7 @@ const signalCase = {
   precedent: gateway.precedent.find(item => item.id === gateway.paths[0].target),
   runbook: gateway.briefing.suggested_runbooks[0],
   vectorCount: gateway.vector.length,
+  lookalikes: gateway.vector.filter(item => item.root_cause !== gateway.vector[0].root_cause).slice(0, 2).map(item => item.id),
 };
 const memoryCase = {
   sample: mirrorSample,
@@ -39,6 +40,9 @@ const memoryCase = {
   precedent: mirrorReplay.after.precedent.find(item => item.id === mirrorReplay.edge.target),
   rankAfter: mirrorReplay.after.precedent.findIndex(item => item.id === mirrorReplay.edge.target) + 1,
   beforeCount: mirrorReplay.before.precedent.length,
+  edgesBefore: demo.graph.learned_edges.length,
+  edgesAfter: new Set([...demo.graph.learned_edges, mirrorReplay.edge].map(edge => [edge.source, edge.target, edge.type].join("/"))).size,
+  confirmedHitRate: Number(mirrorReplay.after.precedent.some(item => item.id === mirrorSample.expected_precedent_id)),
 };
 
 export default function Home() {
@@ -52,7 +56,7 @@ export default function Home() {
       <Link className="home-open" href="/analysis">Open console <PixelIcon name="next" /></Link>
     </header>
     <main id="home-main">
-      <SignalStory incidentCase={signalCase} memoryCase={memoryCase} />
+      <SignalStory incidentCase={signalCase} memoryCase={memoryCase} history={demo.field} />
 
       <section className="home-example home-wrap" id="example" aria-labelledby="case-title">
         <div className="example-intro">

@@ -2,33 +2,46 @@
 
 import PixelIcon from "./pixel-icon";
 
-function EvidenceCard({ item, onGraph, onDetail }) {
-  return <article className="evidence-card">
-    <div className="evidence-source">
-      <span className="incident-id">{item.id}</span>
-      {item.services[0] && <span>{item.services[0]}</span>}
-      {item.score != null && <span className="evidence-score" title="Cosine similarity">{item.score.toFixed(2)} similarity</span>}
-    </div>
-    <h3><button onClick={() => onDetail(item)}>{item.title}</button></h3>
-    <p>{item.via ? item.why : item.description}</p>
-    {item.via && <button className="text-button" onClick={() => onGraph(item.via)}><PixelIcon name="link" size={14} /> Via {item.via}</button>}
-  </article>;
+function Similarity({ score }) {
+  if (!Number.isFinite(score)) return null;
+  return <div className="similarity-score">
+    <span>Text similarity <strong>{score.toFixed(2)}</strong></span>
+    <meter min={-1} max={1} value={score} aria-label="Text similarity" />
+  </div>;
+}
+
+function Ranking({ title, rows, opposite, scores, fixed, graph, onDetail }) {
+  return <section className={"rank-panel" + (graph ? " is-precedent" : "")}>
+    <h3><PixelIcon name={graph ? "link" : "search"} /> {title}</h3>
+    {rows.length ? <ol>{rows.map((item, i) => {
+      const previous = opposite.findIndex(lead => lead.id === item.id);
+      const from = graph ? previous : i;
+      const to = graph ? i : previous;
+      const movement = from < 0 ? `Outside top 5 ↑ #${to + 1}`
+        : to < 0 ? `#${from + 1} ↓ Outside top 5`
+        : `#${from + 1} ${from === to ? "→" : from > to ? "↑" : "↓"} #${to + 1}`;
+      return <li key={item.id} className={fixed.has(item.id) ? "has-fix" : ""}>
+        <div className="rank-meta"><span>#{i + 1} <b>{item.id}</b></span><span>{movement}</span></div>
+        <button className="rank-title" onClick={() => onDetail(item)}>{item.title}</button>
+        <Similarity score={item.score ?? scores.get(item.id)} />
+        <span className="fix-badge" data-confirmed={fixed.has(item.id)}>{fixed.has(item.id) ? "Confirmed fix" : "Unconfirmed in this search"}</span>
+      </li>;
+    })}</ol> : <p className="empty">No incidents returned.</p>}
+  </section>;
 }
 
 function FeaturedEvidence({ item, edge, onGraph, onDetail }) {
   return <article className="featured-evidence">
-    <div className="evidence-source">
-      <span className="featured-caption"><PixelIcon name="link" size={15} /> Connected precedent</span>
-      {item.services[0] && <span>{item.services[0]}</span>}
-    </div>
+    <div className="evidence-source"><span className="featured-caption"><PixelIcon name="link" size={15} /> {edge.type === "SAME_FIX_AS" ? "Confirmed fix path" : "Connected precedent"}</span>
+      {item.services[0] && <span>{item.services[0]}</span>}</div>
     <h3><button onClick={() => onDetail(item)}>{item.title}</button></h3>
-    <p>{item.why}</p>
-    <div className="featured-path">
-      <span title="Source incident">{item.via}</span>
-      <span className="featured-edge"><i />{edge?.type && <span>{edge.type}</span>}<i /></span>
-      <span title="Connected incident">{item.id}</span>
-      <button onClick={() => onGraph(item.via)}>Inspect relationship</button>
+    <p>{edge.reason}</p>
+    <div className="mini-path" aria-label={`Alert matches ${edge.source}, then ${edge.type} connects to ${edge.target}`}>
+      <span><i /><small>Query</small><strong>Alert</strong></span>
+      <span><i /><small>Text match</small><strong>{edge.source}</strong></span>
+      <span><i /><small>{edge.type}</small><strong>{edge.target}</strong></span>
     </div>
+    <button className="text-button inspect-fix" onClick={() => onGraph(edge.source)}>Inspect relationship <PixelIcon name="next" size={14} /></button>
   </article>;
 }
 
@@ -54,33 +67,28 @@ function EvidenceBrief({ data, onDetail, results, runbooks }) {
   </aside>;
 }
 
-export default function Evidence({ result, method, setMethod, pending, recorded, onGraph, onDetail }) {
-  const graph = method === "precedent";
-  const rows = graph ? result.precedent : result.vector;
-  const featured = graph ? rows.find(item => item.via) : null;
-  const other = rows.filter(item => item !== featured);
-  const edge = featured && result.paths?.find(path => path.source === featured.via && path.target === featured.id);
-  const mode = recorded ? "Synthetic example" : "Live HydraDB query";
+export default function Evidence({ result, pending, recorded, onGraph, onDetail }) {
+  const vector = result.vector.slice(0, 5);
+  const precedent = result.precedent.slice(0, 5);
+  const scores = new Map(result.vector.map(item => [item.id, item.score]));
+  const paths = result.paths || [];
+  const fixed = new Set(paths.filter(edge => edge.type === "SAME_FIX_AS").map(edge => edge.target));
+  const featured = paths.find(edge => fixed.has(edge.target)) || paths[0];
+  const featuredItem = featured && precedent.find(item => item.id === featured.target);
 
   return <section className="evidence-pane" aria-busy={pending} aria-labelledby="evidence-heading">
     <div className="evidence-toolbar">
-      <div><h2 id="evidence-heading">Incident evidence</h2><p>{mode}{!recorded && result.latency_ms != null ? " / " + result.latency_ms + " ms" : ""}</p></div>
-      <div className="evidence-methods" role="group" aria-label="Retrieval method">
-        <button aria-pressed={graph} onClick={() => setMethod("precedent")}>Graph evidence</button>
-        <button aria-pressed={!graph} onClick={() => setMethod("vector")}>Vector baseline</button>
-      </div>
+      <div><h2 id="evidence-heading">Incident evidence</h2><p>{recorded ? "Recorded demo · synthetic" : "Live HydraDB query"}</p></div>
     </div>
-    {featured && <FeaturedEvidence item={featured} edge={edge} onGraph={onGraph} onDetail={onDetail} />}
-    {graph && <EvidenceBrief data={result.briefing} onDetail={onDetail} results={result.precedent} runbooks={result.runbooks} />}
-    {other.length > 0 && <div className="other-evidence">
-      <div className="other-heading"><h3>{graph ? "More incident leads" : "Similar incidents"}</h3><span>{other.length} {other.length === 1 ? "incident" : "incidents"}</span></div>
-      {other.map(item => <EvidenceCard key={item.id} item={item} onGraph={onGraph} onDetail={onDetail} />)}
-    </div>}
-    {!rows.length && <p className="evidence-empty">No matching incidents surfaced for this alert.</p>}
-    {graph && result.runbooks?.length > 0 && <details className="evidence-runbooks">
+    {featuredItem && <FeaturedEvidence item={featuredItem} edge={featured} onGraph={onGraph} onDetail={onDetail} />}
+    <div className="rank-compare" aria-label="Top five retrieval comparison">
+      <Ranking title="Vector top 5" rows={vector} opposite={precedent} scores={scores} fixed={fixed} onDetail={onDetail} />
+      <Ranking title="Precedent top 5" rows={precedent} opposite={vector} scores={scores} fixed={fixed} graph onDetail={onDetail} />
+    </div>
+    <EvidenceBrief data={result.briefing} onDetail={onDetail} results={precedent} runbooks={result.runbooks} />
+    {result.runbooks?.length > 0 && <details className="evidence-runbooks">
       <summary>{result.runbooks.length} referenced runbook{result.runbooks.length === 1 ? "" : "s"}</summary>
       {result.runbooks.map(book => <button className="text-button" key={book.id} onClick={() => onDetail(book)}>{book.title}</button>)}
     </details>}
-    <p className="evidence-budget">{result.tokens[method]?.toLocaleString() ?? "—"} {recorded ? "approximate " : ""}context tokens</p>
   </section>;
 }

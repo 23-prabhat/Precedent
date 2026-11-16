@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { motion, useMotionValue, useMotionValueEvent, useReducedMotion, useScroll, useSpring, useTransform } from "motion/react";
+import { animate, motion, useMotionValue, useMotionValueEvent, useReducedMotion, useScroll, useSpring, useTransform } from "motion/react";
 import PixelIcon from "./pixel-icon";
 
 const chapters = [
@@ -35,7 +35,22 @@ function ScrollPhrase({ children, progress }) {
   </span>;
 }
 
-export default function SignalStory({ incidentCase, memoryCase }) {
+function MeterNumber({ value, suffix = "" }) {
+  const reduced = useReducedMotion();
+  const counter = useMotionValue(value ?? 0);
+  const text = useTransform(counter, number => Math.round(number) + suffix);
+  useEffect(() => {
+    if (reduced || value == null) {
+      counter.set(value ?? 0);
+      return;
+    }
+    const animation = animate(counter, value, { duration: .64, ease: "easeOut" });
+    return () => animation.stop();
+  }, [counter, value, reduced]);
+  return <strong aria-label={value == null ? "No confirmed outcomes" : value + suffix}>{value == null ? "—" : <motion.span aria-hidden="true">{text}</motion.span>}</strong>;
+}
+
+export default function SignalStory({ incidentCase, memoryCase, history }) {
   const { alert, match, relationship, precedent, runbook, vectorCount } = incidentCase;
   const region = useRef(null);
   const stage = useRef(null);
@@ -62,7 +77,8 @@ export default function SignalStory({ incidentCase, memoryCase }) {
     let destroy;
     const element = stage.current;
     import("./signal-field").then(({ mountField }) => {
-      if (!disposed) destroy = mountField(element, progress, reduced ? compareValue : comparison, reduced ? savedValue : savedLink);
+      if (!disposed) destroy = mountField(element, progress, reduced ? compareValue : comparison, reduced ? savedValue : savedLink, history,
+        [relationship.source, relationship.target, memoryCase.relationship.source, memoryCase.relationship.target], incidentCase.lookalikes);
     }).catch(() => {
       if (!disposed) element.dataset.renderer = "static";
     });
@@ -70,7 +86,7 @@ export default function SignalStory({ incidentCase, memoryCase }) {
       disposed = true;
       destroy?.();
     };
-  }, [progress, compareValue, comparison, reduced, savedValue, savedLink]);
+  }, [progress, compareValue, comparison, reduced, savedValue, savedLink, history, relationship, memoryCase, incidentCase.lookalikes]);
 
   function selectMethod(mode) {
     setCompare(mode);
@@ -86,6 +102,7 @@ export default function SignalStory({ incidentCase, memoryCase }) {
     <div className="signal-stage" ref={stage} aria-hidden="true">
       <div className="signal-poster" />
       <canvas />
+      {incidentCase.lookalikes.map(id => <i className="lookalike-cross" data-lookalike={id} key={id} />)}
       <div className="field-label" data-point="query">{alert.title}</div>
       <div className="field-label" data-point="source">{relationship.source} <span>{match.services[0]}</span></div>
       <div className="field-label" data-point="target">{relationship.target} <span>{precedent.services[0]}</span></div>
@@ -104,28 +121,37 @@ export default function SignalStory({ incidentCase, memoryCase }) {
         <div className="scene-inner home-wrap">
           <div className="scene-copy">
             <h1 aria-label="Find the fix. Keep the proof."><SplitLine>Find the fix.</SplitLine><SplitLine delay={.14}>Keep the proof.</SplitLine></h1>
-            <p>Precedent is incident memory for on-call engineers. Start with an alert, see which past fixes the evidence points to, and save what worked for the next responder.</p>
+            <p>Vector search finds incidents that look alike. Precedent finds the ones that were fixed alike.</p>
             <div className="signal-actions">
               <a className="signal-button" href="#how">Follow this alert <PixelIcon name="next" /></a>
               <Link className="signal-link" href={`/analysis#sample=${incidentCase.id}`}>Open alert in console <PixelIcon name="next" /></Link>
             </div>
           </div>
-          <figure className="signal-intake">
-            <span className="intake-code">HTTP <strong>503</strong></span>
-            <figcaption><strong>API gateway alert</strong><span>Multiple regions · Unstable health checks</span></figcaption>
+          <figure className="gap-overlay">
+            <div className="gap-endpoint">
+              <small>Alert</small><strong>{alert.title}</strong>
+              {Number.isFinite(match.score) && <span>Text similarity {match.score.toFixed(2)} <small>· {match.id}</small></span>}
+            </div>
+            <div className="gap-link"><svg viewBox="0 0 176 34" preserveAspectRatio="none" aria-hidden="true">
+              <path pathLength="1" d="M2 28 C65 28 105 6 174 6" />
+              <circle cx="2" cy="28" r="2.2" /><circle cx="174" cy="6" r="2.2" />
+            </svg><span>Confirmed same fix</span></div>
+            <div className="gap-endpoint">
+              <small>Precedent · {precedent.id}</small><strong>{precedent.services[0]}</strong><span>Restored prior config</span>
+            </div>
+            <figcaption>{relationship.source} → {relationship.target} · {relationship.type}</figcaption>
           </figure>
-          <div className="hero-foot"><span><i /> Recorded synthetic incident</span><span>Illustrative projection</span></div>
+          <div className="hero-foot"><span><i /> Synthetic history · {history.length} incidents</span><span>Illustrative projection</span></div>
         </div>
       </div>
 
       <article className="signal-scene signal-vector" id="how">
         <div className="scene-inner home-wrap">
           <div className="scene-copy">
-            <h2><ScrollPhrase progress={progress}>Find an alert</ScrollPhrase><br />that sounds alike.</h2>
-            <p>Precedent uses the symptoms to find similar incident reports. The first lead is another gateway outage with intermittent 503s.</p>
-            <div className="scene-evidence">
-              <span><PixelIcon name="search" /> Closest text match <strong>{match.id}</strong></span>
-              <h3>{match.title}</h3>
+            <h2><ScrollPhrase progress={progress}>Re-sort by</ScrollPhrase><br />what fixed it.</h2>
+            <p>The same incidents move from wording clusters into root-cause groups. The confirmed configuration fix spans the gateway and registry.</p>
+            <div className="field-cause-legend" aria-label="Root cause colors">
+              <span><i /> Config change</span><span><i /> Capacity</span><span><i /> Dependency</span>
             </div>
           </div>
         </div>
@@ -165,8 +191,8 @@ export default function SignalStory({ incidentCase, memoryCase }) {
             <h2>Save what<br />actually worked.</h2>
             <p>Once the incident is resolved, record the confirmed cause and choose the past incident that helped. See what that changes for a repository mirror alert.</p>
             <div className="retrieval-switch" role="group" aria-label="Compare retrieval before and after recording">
-              <button type="button" aria-pressed={!showSaved} onClick={() => selectReplay(false)}>Before recording</button>
-              <button type="button" aria-pressed={showSaved} onClick={() => selectReplay(true)}>After recording</button>
+              <button type="button" aria-pressed={!showSaved} onClick={() => selectReplay(false)}>Before</button>
+              <button type="button" aria-pressed={showSaved} onClick={() => selectReplay(true)}>After</button>
             </div>
             <div className="scene-result memory-result" aria-live="polite">
               {showSaved ? <>
@@ -176,6 +202,12 @@ export default function SignalStory({ incidentCase, memoryCase }) {
                 <h3>The helpful incident is missing.</h3>
                 <p><code>{memoryCase.relationship.target}</code> is outside the top {memoryCase.beforeCount} results for the mirror alert.</p>
               </>}
+            </div>
+            <div className="memory-meter">
+              <h3>Memory meter</h3>
+              <dl><div><dt>Learned edges</dt><dd><MeterNumber value={showSaved ? memoryCase.edgesAfter : memoryCase.edgesBefore} /></dd></div>
+                <div><dt>Confirmed hit rate</dt><dd><MeterNumber value={showSaved ? memoryCase.confirmedHitRate * 100 : null} suffix="%" /></dd></div></dl>
+              <small>{showSaved ? "One confirmed alert in this replay" : "Awaiting a confirmed outcome"}</small>
             </div>
             <Link className="signal-link" href={`/analysis#sample=${memoryCase.sample.id}`}>Record a fix in the console <PixelIcon name="next" /></Link>
           </div>

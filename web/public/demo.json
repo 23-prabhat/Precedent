@@ -1034,6 +1034,503 @@
       "upstream_request_id": null
     }
   },
+  "field": [
+    {
+      "id": "INC-028",
+      "cause": "Dependency",
+      "wording": 0
+    },
+    {
+      "id": "INC-039",
+      "cause": "Capacity",
+      "wording": 2
+    },
+    {
+      "id": "INC-051",
+      "cause": "Dependency",
+      "wording": 1
+    },
+    {
+      "id": "INC-064",
+      "cause": "Capacity",
+      "wording": 1
+    },
+    {
+      "id": "INC-076",
+      "cause": "Config change",
+      "wording": 1
+    },
+    {
+      "id": "INC-103",
+      "cause": "Dependency",
+      "wording": 0
+    },
+    {
+      "id": "INC-117",
+      "cause": "Capacity",
+      "wording": 0
+    },
+    {
+      "id": "INC-089",
+      "cause": "Config change",
+      "wording": 2
+    },
+    {
+      "id": "INC-142",
+      "cause": "Config change",
+      "wording": 0
+    },
+    {
+      "id": "fixture-1-0",
+      "cause": "Dependency",
+      "wording": 0
+    },
+    {
+      "id": "fixture-1-1",
+      "cause": "Capacity",
+      "wording": 2
+    },
+    {
+      "id": "fixture-1-2",
+      "cause": "Dependency",
+      "wording": 1
+    },
+    {
+      "id": "fixture-1-3",
+      "cause": "Capacity",
+      "wording": 1
+    },
+    {
+      "id": "fixture-1-4",
+      "cause": "Config change",
+      "wording": 1
+    },
+    {
+      "id": "fixture-1-5",
+      "cause": "Dependency",
+      "wording": 0
+    },
+    {
+      "id": "fixture-1-6",
+      "cause": "Capacity",
+      "wording": 0
+    },
+    {
+      "id": "fixture-1-7",
+      "cause": "Config change",
+      "wording": 2
+    },
+    {
+      "id": "fixture-1-8",
+      "cause": "Config change",
+      "wording": 0
+    },
+    {
+      "id": "fixture-hard-1",
+      "cause": "Config change",
+      "wording": 0
+    },
+    {
+      "id": "fixture-2-0",
+      "cause": "Dependency",
+      "wording": 0
+    },
+    {
+      "id": "fixture-2-1",
+      "cause": "Capacity",
+      "wording": 2
+    },
+    {
+      "id": "fixture-2-2",
+      "cause": "Dependency",
+      "wording": 1
+    },
+    {
+      "id": "fixture-2-3",
+      "cause": "Capacity",
+      "wording": 1
+    },
+    {
+      "id": "fixture-2-4",
+      "cause": "Config change",
+      "wording": 1
+    },
+    {
+      "id": "fixture-2-5",
+      "cause": "Dependency",
+      "wording": 0
+    },
+    {
+      "id": "fixture-2-6",
+      "cause": "Capacity",
+      "wording": 0
+    },
+    {
+      "id": "fixture-2-7",
+      "cause": "Config change",
+      "wording": 2
+    },
+    {
+      "id": "fixture-2-8",
+      "cause": "Config change",
+      "wording": 0
+    },
+    {
+      "id": "fixture-hard-2",
+      "cause": "Capacity",
+      "wording": 1
+    },
+    {
+      "id": "fixture-3-0",
+      "cause": "Dependency",
+      "wording": 0
+    },
+    {
+      "id": "fixture-3-1",
+      "cause": "Capacity",
+      "wording": 2
+    },
+    {
+      "id": "fixture-3-2",
+      "cause": "Dependency",
+      "wording": 1
+    },
+    {
+      "id": "fixture-3-3",
+      "cause": "Capacity",
+      "wording": 1
+    },
+    {
+      "id": "fixture-3-4",
+      "cause": "Config change",
+      "wording": 1
+    },
+    {
+      "id": "fixture-3-5",
+      "cause": "Dependency",
+      "wording": 0
+    },
+    {
+      "id": "fixture-3-6",
+      "cause": "Capacity",
+      "wording": 0
+    },
+    {
+      "id": "fixture-3-7",
+      "cause": "Config change",
+      "wording": 2
+    },
+    {
+      "id": "fixture-3-8",
+      "cause": "Config change",
+      "wording": 0
+    },
+    {
+      "id": "fixture-hard-3",
+      "cause": "Dependency",
+      "wording": 0
+    },
+    {
+      "id": "fixture-4-0",
+      "cause": "Dependency",
+      "wording": 0
+    },
+    {
+      "id": "fixture-4-1",
+      "cause": "Capacity",
+      "wording": 2
+    },
+    {
+      "id": "fixture-4-2",
+      "cause": "Dependency",
+      "wording": 1
+    },
+    {
+      "id": "fixture-4-3",
+      "cause": "Capacity",
+      "wording": 1
+    },
+    {
+      "id": "fixture-4-4",
+      "cause": "Config change",
+      "wording": 1
+    },
+    {
+      "id": "fixture-4-5",
+      "cause": "Dependency",
+      "wording": 0
+    },
+    {
+      "id": "fixture-4-6",
+      "cause": "Capacity",
+      "wording": 0
+    },
+    {
+      "id": "fixture-4-7",
+      "cause": "Config change",
+      "wording": 2
+    },
+    {
+      "id": "fixture-4-8",
+      "cause": "Config change",
+      "wording": 0
+    },
+    {
+      "id": "fixture-hard-4",
+      "cause": "Config change",
+      "wording": 2
+    },
+    {
+      "id": "fixture-5-0",
+      "cause": "Dependency",
+      "wording": 0
+    },
+    {
+      "id": "fixture-5-1",
+      "cause": "Capacity",
+      "wording": 2
+    },
+    {
+      "id": "fixture-5-2",
+      "cause": "Dependency",
+      "wording": 1
+    },
+    {
+      "id": "fixture-5-3",
+      "cause": "Capacity",
+      "wording": 1
+    },
+    {
+      "id": "fixture-5-4",
+      "cause": "Config change",
+      "wording": 1
+    },
+    {
+      "id": "fixture-5-5",
+      "cause": "Dependency",
+      "wording": 0
+    },
+    {
+      "id": "fixture-5-6",
+      "cause": "Capacity",
+      "wording": 0
+    },
+    {
+      "id": "fixture-5-7",
+      "cause": "Config change",
+      "wording": 2
+    },
+    {
+      "id": "fixture-5-8",
+      "cause": "Config change",
+      "wording": 0
+    },
+    {
+      "id": "fixture-hard-5",
+      "cause": "Capacity",
+      "wording": 2
+    },
+    {
+      "id": "fixture-6-0",
+      "cause": "Dependency",
+      "wording": 0
+    },
+    {
+      "id": "fixture-6-1",
+      "cause": "Capacity",
+      "wording": 2
+    },
+    {
+      "id": "fixture-6-2",
+      "cause": "Dependency",
+      "wording": 1
+    },
+    {
+      "id": "fixture-6-3",
+      "cause": "Capacity",
+      "wording": 1
+    },
+    {
+      "id": "fixture-6-4",
+      "cause": "Config change",
+      "wording": 1
+    },
+    {
+      "id": "fixture-6-5",
+      "cause": "Dependency",
+      "wording": 0
+    },
+    {
+      "id": "fixture-6-6",
+      "cause": "Capacity",
+      "wording": 0
+    },
+    {
+      "id": "fixture-6-7",
+      "cause": "Config change",
+      "wording": 2
+    },
+    {
+      "id": "fixture-6-8",
+      "cause": "Config change",
+      "wording": 0
+    },
+    {
+      "id": "fixture-hard-6",
+      "cause": "Dependency",
+      "wording": 2
+    },
+    {
+      "id": "fixture-7-0",
+      "cause": "Dependency",
+      "wording": 0
+    },
+    {
+      "id": "fixture-7-1",
+      "cause": "Capacity",
+      "wording": 2
+    },
+    {
+      "id": "fixture-7-2",
+      "cause": "Dependency",
+      "wording": 1
+    },
+    {
+      "id": "fixture-7-3",
+      "cause": "Capacity",
+      "wording": 1
+    },
+    {
+      "id": "fixture-7-4",
+      "cause": "Config change",
+      "wording": 1
+    },
+    {
+      "id": "fixture-7-5",
+      "cause": "Dependency",
+      "wording": 0
+    },
+    {
+      "id": "fixture-7-6",
+      "cause": "Capacity",
+      "wording": 0
+    },
+    {
+      "id": "fixture-7-7",
+      "cause": "Config change",
+      "wording": 2
+    },
+    {
+      "id": "fixture-7-8",
+      "cause": "Config change",
+      "wording": 0
+    },
+    {
+      "id": "fixture-hard-7",
+      "cause": "Config change",
+      "wording": 0
+    },
+    {
+      "id": "fixture-8-0",
+      "cause": "Dependency",
+      "wording": 0
+    },
+    {
+      "id": "fixture-8-1",
+      "cause": "Capacity",
+      "wording": 2
+    },
+    {
+      "id": "fixture-8-2",
+      "cause": "Dependency",
+      "wording": 1
+    },
+    {
+      "id": "fixture-8-3",
+      "cause": "Capacity",
+      "wording": 1
+    },
+    {
+      "id": "fixture-8-4",
+      "cause": "Config change",
+      "wording": 1
+    },
+    {
+      "id": "fixture-8-5",
+      "cause": "Dependency",
+      "wording": 0
+    },
+    {
+      "id": "fixture-8-6",
+      "cause": "Capacity",
+      "wording": 0
+    },
+    {
+      "id": "fixture-8-7",
+      "cause": "Config change",
+      "wording": 2
+    },
+    {
+      "id": "fixture-8-8",
+      "cause": "Config change",
+      "wording": 0
+    },
+    {
+      "id": "fixture-hard-8",
+      "cause": "Capacity",
+      "wording": 0
+    },
+    {
+      "id": "fixture-9-0",
+      "cause": "Dependency",
+      "wording": 0
+    },
+    {
+      "id": "fixture-9-1",
+      "cause": "Capacity",
+      "wording": 2
+    },
+    {
+      "id": "fixture-9-2",
+      "cause": "Dependency",
+      "wording": 1
+    },
+    {
+      "id": "fixture-9-3",
+      "cause": "Capacity",
+      "wording": 1
+    },
+    {
+      "id": "fixture-9-4",
+      "cause": "Config change",
+      "wording": 1
+    },
+    {
+      "id": "fixture-9-5",
+      "cause": "Dependency",
+      "wording": 0
+    },
+    {
+      "id": "fixture-9-6",
+      "cause": "Capacity",
+      "wording": 0
+    },
+    {
+      "id": "fixture-9-7",
+      "cause": "Config change",
+      "wording": 2
+    },
+    {
+      "id": "fixture-9-8",
+      "cause": "Config change",
+      "wording": 0
+    },
+    {
+      "id": "fixture-hard-9",
+      "cause": "Dependency",
+      "wording": 2
+    }
+  ],
   "graph": {
     "nodes": [
       {
