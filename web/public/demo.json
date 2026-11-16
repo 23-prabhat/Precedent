@@ -1,0 +1,2817 @@
+{
+  "samples": [
+    {
+      "id": "gateway",
+      "title": "API gateway 503s",
+      "expected_precedent_id": "INC-089",
+      "note": "A cross-service configuration precedent.",
+      "alert_text": "API gateway requests returned intermittent HTTP 503s across multiple regions. Health checks were flapping and error rates rose while request volume remained steady."
+    },
+    {
+      "id": "runner",
+      "title": "CI jobs pending with idle runners",
+      "expected_precedent_id": "INC-089",
+      "note": "A similar fix surfaced through the runner precedent.",
+      "alert_text": "Jobs waited in the pending queue for several minutes. Runners were idle and the job scheduler showed assignment delays."
+    },
+    {
+      "id": "registry",
+      "title": "Container registry uploads stalling",
+      "expected_precedent_id": "INC-142",
+      "note": "Traverse the confirmed configuration relationship in reverse.",
+      "alert_text": "Container image uploads stalled during manifest publication. Clients retried and the registry returned incomplete upload responses."
+    },
+    {
+      "id": "triple-gateway",
+      "title": "Learning demo · API gateway",
+      "expected_precedent_id": "INC-089",
+      "alert_text": "The API gateway returns intermittent HTTP 503s. Regional health checks are flapping while request volume remains steady.",
+      "resolution_text": "API gateway requests returned intermittent HTTP 503s across multiple regions. Health checks were flapping and error rates rose while request volume remained steady. Gateway retries used an invalid upstream setting. Restoring the previous configuration recovered requests.",
+      "root_cause": "Config change",
+      "withheld_id": "INC-142",
+      "note": "Analyze, resolve the gateway incident with INC-089, and run the same alert again."
+    },
+    {
+      "id": "triple-runners",
+      "title": "Learning demo · CI workers",
+      "expected_precedent_id": "INC-039",
+      "alert_text": "CI jobs are queued behind workers and deployment runs are delayed while the pending worker backlog rises.",
+      "resolution_text": "Deployment jobs were queued while the pending worker backlog rose steadily. Individual executions completed normally. Worker capacity was raised and the queue drained.",
+      "root_cause": "Capacity",
+      "withheld_id": "INC-064",
+      "note": "Confirm the search indexing capacity precedent and inspect the new path."
+    },
+    {
+      "id": "triple-mirrors",
+      "title": "Learning demo · Repository mirrors",
+      "expected_precedent_id": "INC-028",
+      "alert_text": "Git repository mirror requests stall and shared storage operations time out in the primary region.",
+      "resolution_text": "Git repository mirror requests were slow and shared storage operations timed out in the primary region. A shared storage dependency recovered after a provider repair.",
+      "root_cause": "Dependency",
+      "withheld_id": "INC-051",
+      "note": "Confirm the webhook dependency precedent and rerun the alert."
+    }
+  ],
+  "analysis": {
+    "vector": [
+      {
+        "id": "INC-142",
+        "title": "API requests returned intermittent 503s",
+        "description": "API gateway requests returned intermittent HTTP 503s across multiple regions. Health checks were flapping and error rates rose while request volume remained steady.",
+        "services": [
+          "API Gateway"
+        ],
+        "root_cause": "Config change",
+        "url": "",
+        "date": "2024-01-09",
+        "doc_type": "incident",
+        "why": "Matched the language of the alert.",
+        "via": null,
+        "score": 0.829
+      },
+      {
+        "id": "INC-117",
+        "title": "Regional gateway saturation",
+        "description": "API gateway requests returned intermittent HTTP 503s in one region. The active request queue grew steadily during the traffic peak.",
+        "services": [
+          "API Gateway"
+        ],
+        "root_cause": "Capacity",
+        "url": "",
+        "date": "2024-01-07",
+        "doc_type": "incident",
+        "why": "Matched the language of the alert.",
+        "via": null,
+        "score": 0.335
+      },
+      {
+        "id": "INC-103",
+        "title": "Upstream timeouts on public API",
+        "description": "Public API requests timed out across multiple regions. Upstream connections stalled and public endpoint health checks were flapping.",
+        "services": [
+          "Public API"
+        ],
+        "root_cause": "Dependency",
+        "url": "",
+        "date": "2024-01-06",
+        "doc_type": "incident",
+        "why": "Matched the language of the alert.",
+        "via": null,
+        "score": 0.304
+      },
+      {
+        "id": "INC-028",
+        "title": "Webhook deliveries retried",
+        "description": "Webhooks returned HTTP 502 and end-to-end deliveries retried across multiple regions.",
+        "services": [
+          "Webhooks"
+        ],
+        "root_cause": "Dependency",
+        "url": "",
+        "date": "2024-01-01",
+        "doc_type": "incident",
+        "why": "Matched the language of the alert.",
+        "via": null,
+        "score": 0.236
+      },
+      {
+        "id": "INC-051",
+        "title": "Mirroring requests stalled",
+        "description": "Git repository mirror requests were slow and shared storage operations timed out in the primary region.",
+        "services": [
+          "Git Storage"
+        ],
+        "root_cause": "Dependency",
+        "url": "",
+        "date": "2024-01-03",
+        "doc_type": "incident",
+        "why": "Matched the language of the alert.",
+        "via": null,
+        "score": 0.139
+      }
+    ],
+    "precedent": [
+      {
+        "id": "INC-142",
+        "title": "API requests returned intermittent 503s",
+        "description": "API gateway requests returned intermittent HTTP 503s across multiple regions. Health checks were flapping and error rates rose while request volume remained steady.",
+        "services": [
+          "API Gateway"
+        ],
+        "root_cause": "Config change",
+        "url": "",
+        "date": "2024-01-09",
+        "doc_type": "incident",
+        "why": "Retrieved from the alert symptoms.",
+        "via": null,
+        "score": null
+      },
+      {
+        "id": "INC-089",
+        "title": "Registry uploads stalled after a policy rollout",
+        "description": "Container image uploads stalled during manifest publication. Clients retried and the registry returned incomplete upload responses.",
+        "services": [
+          "Container Registry"
+        ],
+        "root_cause": "Config change",
+        "url": "",
+        "date": "2024-01-08",
+        "doc_type": "incident",
+        "why": "A responder confirmed both incidents recovered after restoring the previous configuration.",
+        "via": "INC-142",
+        "score": null
+      },
+      {
+        "id": "INC-117",
+        "title": "Regional gateway saturation",
+        "description": "API gateway requests returned intermittent HTTP 503s in one region. The active request queue grew steadily during the traffic peak.",
+        "services": [
+          "API Gateway"
+        ],
+        "root_cause": "Capacity",
+        "url": "",
+        "date": "2024-01-07",
+        "doc_type": "incident",
+        "why": "Retrieved from the alert symptoms.",
+        "via": null,
+        "score": null
+      },
+      {
+        "id": "INC-103",
+        "title": "Upstream timeouts on public API",
+        "description": "Public API requests timed out across multiple regions. Upstream connections stalled and public endpoint health checks were flapping.",
+        "services": [
+          "Public API"
+        ],
+        "root_cause": "Dependency",
+        "url": "",
+        "date": "2024-01-06",
+        "doc_type": "incident",
+        "why": "Retrieved from the alert symptoms.",
+        "via": null,
+        "score": null
+      },
+      {
+        "id": "INC-028",
+        "title": "Webhook deliveries retried",
+        "description": "Webhooks returned HTTP 502 and end-to-end deliveries retried across multiple regions.",
+        "services": [
+          "Webhooks"
+        ],
+        "root_cause": "Dependency",
+        "url": "",
+        "date": "2024-01-01",
+        "doc_type": "incident",
+        "why": "Retrieved from the alert symptoms.",
+        "via": null,
+        "score": null
+      }
+    ],
+    "paths": [
+      {
+        "source": "INC-142",
+        "target": "INC-089",
+        "type": "SAME_FIX_AS",
+        "reason": "A responder confirmed both incidents recovered after restoring the previous configuration."
+      }
+    ],
+    "graph_context": [],
+    "runbooks": [
+      {
+        "id": "rb-gateway",
+        "title": "Validate a configuration rollout",
+        "description": "Compare the effective settings with their previous known-good version. Check the rollout timeline against the first errors.",
+        "services": [],
+        "root_cause": "unlabeled",
+        "url": "",
+        "date": "2023-12-31",
+        "doc_type": "runbook",
+        "why": "Retrieved as a possible diagnostic reference.",
+        "via": null,
+        "score": null
+      },
+      {
+        "id": "rb-capacity",
+        "title": "Inspect worker saturation",
+        "description": "Compare queue depth, worker utilization and request volume while errors are active.",
+        "services": [],
+        "root_cause": "unlabeled",
+        "url": "",
+        "date": "2023-12-31",
+        "doc_type": "runbook",
+        "why": "Retrieved as a possible diagnostic reference.",
+        "via": null,
+        "score": null
+      },
+      {
+        "id": "rb-dependency",
+        "title": "Check upstream service health",
+        "description": "Review the affected upstream services and compare timeout rates by region.",
+        "services": [],
+        "root_cause": "unlabeled",
+        "url": "",
+        "date": "2023-12-31",
+        "doc_type": "runbook",
+        "why": "Retrieved as a possible diagnostic reference.",
+        "via": null,
+        "score": null
+      }
+    ],
+    "briefing": {
+      "abstain": false,
+      "likely_root_cause_classes": [
+        {
+          "label": "Config change",
+          "evidence_ids": [
+            "INC-089"
+          ],
+          "confidence": "low"
+        }
+      ],
+      "precedents": [
+        {
+          "id": "INC-089",
+          "why_relevant": "Registry uploads stalled after a policy rollout was classified as Config change.",
+          "path": ""
+        }
+      ],
+      "suggested_runbooks": [
+        {
+          "id": "rb-gateway",
+          "why": "Validate a configuration rollout"
+        },
+        {
+          "id": "rb-capacity",
+          "why": "Inspect worker saturation"
+        }
+      ],
+      "check_first": [
+        "Compare current symptoms with INC-089 before using its resolution."
+      ]
+    },
+    "tokens": {
+      "vector": 205,
+      "precedent": 245
+    },
+    "latency_ms": null,
+    "provenance": "recorded",
+    "upstream_request_id": null
+  },
+  "recordings": {
+    "gateway": {
+      "vector": [
+        {
+          "id": "INC-142",
+          "title": "API requests returned intermittent 503s",
+          "description": "API gateway requests returned intermittent HTTP 503s across multiple regions. Health checks were flapping and error rates rose while request volume remained steady.",
+          "services": [
+            "API Gateway"
+          ],
+          "root_cause": "Config change",
+          "url": "",
+          "date": "2024-01-09",
+          "doc_type": "incident",
+          "why": "Matched the language of the alert.",
+          "via": null,
+          "score": 0.829
+        },
+        {
+          "id": "INC-117",
+          "title": "Regional gateway saturation",
+          "description": "API gateway requests returned intermittent HTTP 503s in one region. The active request queue grew steadily during the traffic peak.",
+          "services": [
+            "API Gateway"
+          ],
+          "root_cause": "Capacity",
+          "url": "",
+          "date": "2024-01-07",
+          "doc_type": "incident",
+          "why": "Matched the language of the alert.",
+          "via": null,
+          "score": 0.335
+        },
+        {
+          "id": "INC-103",
+          "title": "Upstream timeouts on public API",
+          "description": "Public API requests timed out across multiple regions. Upstream connections stalled and public endpoint health checks were flapping.",
+          "services": [
+            "Public API"
+          ],
+          "root_cause": "Dependency",
+          "url": "",
+          "date": "2024-01-06",
+          "doc_type": "incident",
+          "why": "Matched the language of the alert.",
+          "via": null,
+          "score": 0.304
+        },
+        {
+          "id": "INC-028",
+          "title": "Webhook deliveries retried",
+          "description": "Webhooks returned HTTP 502 and end-to-end deliveries retried across multiple regions.",
+          "services": [
+            "Webhooks"
+          ],
+          "root_cause": "Dependency",
+          "url": "",
+          "date": "2024-01-01",
+          "doc_type": "incident",
+          "why": "Matched the language of the alert.",
+          "via": null,
+          "score": 0.236
+        },
+        {
+          "id": "INC-051",
+          "title": "Mirroring requests stalled",
+          "description": "Git repository mirror requests were slow and shared storage operations timed out in the primary region.",
+          "services": [
+            "Git Storage"
+          ],
+          "root_cause": "Dependency",
+          "url": "",
+          "date": "2024-01-03",
+          "doc_type": "incident",
+          "why": "Matched the language of the alert.",
+          "via": null,
+          "score": 0.139
+        }
+      ],
+      "precedent": [
+        {
+          "id": "INC-142",
+          "title": "API requests returned intermittent 503s",
+          "description": "API gateway requests returned intermittent HTTP 503s across multiple regions. Health checks were flapping and error rates rose while request volume remained steady.",
+          "services": [
+            "API Gateway"
+          ],
+          "root_cause": "Config change",
+          "url": "",
+          "date": "2024-01-09",
+          "doc_type": "incident",
+          "why": "Retrieved from the alert symptoms.",
+          "via": null,
+          "score": null
+        },
+        {
+          "id": "INC-089",
+          "title": "Registry uploads stalled after a policy rollout",
+          "description": "Container image uploads stalled during manifest publication. Clients retried and the registry returned incomplete upload responses.",
+          "services": [
+            "Container Registry"
+          ],
+          "root_cause": "Config change",
+          "url": "",
+          "date": "2024-01-08",
+          "doc_type": "incident",
+          "why": "A responder confirmed both incidents recovered after restoring the previous configuration.",
+          "via": "INC-142",
+          "score": null
+        },
+        {
+          "id": "INC-117",
+          "title": "Regional gateway saturation",
+          "description": "API gateway requests returned intermittent HTTP 503s in one region. The active request queue grew steadily during the traffic peak.",
+          "services": [
+            "API Gateway"
+          ],
+          "root_cause": "Capacity",
+          "url": "",
+          "date": "2024-01-07",
+          "doc_type": "incident",
+          "why": "Retrieved from the alert symptoms.",
+          "via": null,
+          "score": null
+        },
+        {
+          "id": "INC-103",
+          "title": "Upstream timeouts on public API",
+          "description": "Public API requests timed out across multiple regions. Upstream connections stalled and public endpoint health checks were flapping.",
+          "services": [
+            "Public API"
+          ],
+          "root_cause": "Dependency",
+          "url": "",
+          "date": "2024-01-06",
+          "doc_type": "incident",
+          "why": "Retrieved from the alert symptoms.",
+          "via": null,
+          "score": null
+        },
+        {
+          "id": "INC-028",
+          "title": "Webhook deliveries retried",
+          "description": "Webhooks returned HTTP 502 and end-to-end deliveries retried across multiple regions.",
+          "services": [
+            "Webhooks"
+          ],
+          "root_cause": "Dependency",
+          "url": "",
+          "date": "2024-01-01",
+          "doc_type": "incident",
+          "why": "Retrieved from the alert symptoms.",
+          "via": null,
+          "score": null
+        }
+      ],
+      "paths": [
+        {
+          "source": "INC-142",
+          "target": "INC-089",
+          "type": "SAME_FIX_AS",
+          "reason": "A responder confirmed both incidents recovered after restoring the previous configuration."
+        }
+      ],
+      "graph_context": [],
+      "runbooks": [
+        {
+          "id": "rb-gateway",
+          "title": "Validate a configuration rollout",
+          "description": "Compare the effective settings with their previous known-good version. Check the rollout timeline against the first errors.",
+          "services": [],
+          "root_cause": "unlabeled",
+          "url": "",
+          "date": "2023-12-31",
+          "doc_type": "runbook",
+          "why": "Retrieved as a possible diagnostic reference.",
+          "via": null,
+          "score": null
+        },
+        {
+          "id": "rb-capacity",
+          "title": "Inspect worker saturation",
+          "description": "Compare queue depth, worker utilization and request volume while errors are active.",
+          "services": [],
+          "root_cause": "unlabeled",
+          "url": "",
+          "date": "2023-12-31",
+          "doc_type": "runbook",
+          "why": "Retrieved as a possible diagnostic reference.",
+          "via": null,
+          "score": null
+        },
+        {
+          "id": "rb-dependency",
+          "title": "Check upstream service health",
+          "description": "Review the affected upstream services and compare timeout rates by region.",
+          "services": [],
+          "root_cause": "unlabeled",
+          "url": "",
+          "date": "2023-12-31",
+          "doc_type": "runbook",
+          "why": "Retrieved as a possible diagnostic reference.",
+          "via": null,
+          "score": null
+        }
+      ],
+      "briefing": {
+        "abstain": false,
+        "likely_root_cause_classes": [
+          {
+            "label": "Config change",
+            "evidence_ids": [
+              "INC-089"
+            ],
+            "confidence": "low"
+          }
+        ],
+        "precedents": [
+          {
+            "id": "INC-089",
+            "why_relevant": "Registry uploads stalled after a policy rollout was classified as Config change.",
+            "path": ""
+          }
+        ],
+        "suggested_runbooks": [
+          {
+            "id": "rb-gateway",
+            "why": "Validate a configuration rollout"
+          },
+          {
+            "id": "rb-capacity",
+            "why": "Inspect worker saturation"
+          }
+        ],
+        "check_first": [
+          "Compare current symptoms with INC-089 before using its resolution."
+        ]
+      },
+      "tokens": {
+        "vector": 205,
+        "precedent": 245
+      },
+      "latency_ms": null,
+      "provenance": "recorded",
+      "upstream_request_id": null
+    },
+    "runner": {
+      "vector": [
+        {
+          "id": "INC-076",
+          "title": "CI jobs queued behind idle runners",
+          "description": "Jobs waited in the pending queue for several minutes. Runners were idle and the job scheduler showed assignment delays.",
+          "services": [
+            "CI Runners"
+          ],
+          "root_cause": "Config change",
+          "url": "",
+          "date": "2024-01-05",
+          "doc_type": "incident",
+          "why": "Matched the language of the alert.",
+          "via": null,
+          "score": 0.828
+        },
+        {
+          "id": "INC-064",
+          "title": "Worker backlog delayed deployments",
+          "description": "Deployment jobs were queued while the pending worker backlog rose steadily. Individual executions completed normally.",
+          "services": [
+            "CI Runners"
+          ],
+          "root_cause": "Capacity",
+          "url": "",
+          "date": "2024-01-04",
+          "doc_type": "incident",
+          "why": "Matched the language of the alert.",
+          "via": null,
+          "score": 0.323
+        },
+        {
+          "id": "INC-117",
+          "title": "Regional gateway saturation",
+          "description": "API gateway requests returned intermittent HTTP 503s in one region. The active request queue grew steadily during the traffic peak.",
+          "services": [
+            "API Gateway"
+          ],
+          "root_cause": "Capacity",
+          "url": "",
+          "date": "2024-01-07",
+          "doc_type": "incident",
+          "why": "Matched the language of the alert.",
+          "via": null,
+          "score": 0.318
+        },
+        {
+          "id": "INC-103",
+          "title": "Upstream timeouts on public API",
+          "description": "Public API requests timed out across multiple regions. Upstream connections stalled and public endpoint health checks were flapping.",
+          "services": [
+            "Public API"
+          ],
+          "root_cause": "Dependency",
+          "url": "",
+          "date": "2024-01-06",
+          "doc_type": "incident",
+          "why": "Matched the language of the alert.",
+          "via": null,
+          "score": 0.231
+        },
+        {
+          "id": "INC-051",
+          "title": "Mirroring requests stalled",
+          "description": "Git repository mirror requests were slow and shared storage operations timed out in the primary region.",
+          "services": [
+            "Git Storage"
+          ],
+          "root_cause": "Dependency",
+          "url": "",
+          "date": "2024-01-03",
+          "doc_type": "incident",
+          "why": "Matched the language of the alert.",
+          "via": null,
+          "score": 0.182
+        }
+      ],
+      "precedent": [
+        {
+          "id": "INC-076",
+          "title": "CI jobs queued behind idle runners",
+          "description": "Jobs waited in the pending queue for several minutes. Runners were idle and the job scheduler showed assignment delays.",
+          "services": [
+            "CI Runners"
+          ],
+          "root_cause": "Config change",
+          "url": "",
+          "date": "2024-01-05",
+          "doc_type": "incident",
+          "why": "Retrieved from the alert symptoms.",
+          "via": null,
+          "score": null
+        },
+        {
+          "id": "INC-064",
+          "title": "Worker backlog delayed deployments",
+          "description": "Deployment jobs were queued while the pending worker backlog rose steadily. Individual executions completed normally.",
+          "services": [
+            "CI Runners"
+          ],
+          "root_cause": "Capacity",
+          "url": "",
+          "date": "2024-01-04",
+          "doc_type": "incident",
+          "why": "Retrieved from the alert symptoms.",
+          "via": null,
+          "score": null
+        },
+        {
+          "id": "INC-117",
+          "title": "Regional gateway saturation",
+          "description": "API gateway requests returned intermittent HTTP 503s in one region. The active request queue grew steadily during the traffic peak.",
+          "services": [
+            "API Gateway"
+          ],
+          "root_cause": "Capacity",
+          "url": "",
+          "date": "2024-01-07",
+          "doc_type": "incident",
+          "why": "Retrieved from the alert symptoms.",
+          "via": null,
+          "score": null
+        },
+        {
+          "id": "INC-142",
+          "title": "API requests returned intermittent 503s",
+          "description": "API gateway requests returned intermittent HTTP 503s across multiple regions. Health checks were flapping and error rates rose while request volume remained steady.",
+          "services": [
+            "API Gateway"
+          ],
+          "root_cause": "Config change",
+          "url": "",
+          "date": "2024-01-09",
+          "doc_type": "incident",
+          "why": "Resolution cites this runbook.",
+          "via": "rb-gateway",
+          "score": null
+        },
+        {
+          "id": "INC-103",
+          "title": "Upstream timeouts on public API",
+          "description": "Public API requests timed out across multiple regions. Upstream connections stalled and public endpoint health checks were flapping.",
+          "services": [
+            "Public API"
+          ],
+          "root_cause": "Dependency",
+          "url": "",
+          "date": "2024-01-06",
+          "doc_type": "incident",
+          "why": "Retrieved from the alert symptoms.",
+          "via": null,
+          "score": null
+        }
+      ],
+      "paths": [
+        {
+          "source": "rb-gateway",
+          "target": "INC-142",
+          "type": "REFERENCES_FIX",
+          "reason": "Resolution cites this runbook."
+        }
+      ],
+      "graph_context": [],
+      "runbooks": [
+        {
+          "id": "rb-gateway",
+          "title": "Validate a configuration rollout",
+          "description": "Compare the effective settings with their previous known-good version. Check the rollout timeline against the first errors.",
+          "services": [],
+          "root_cause": "unlabeled",
+          "url": "",
+          "date": "2023-12-31",
+          "doc_type": "runbook",
+          "why": "Retrieved as a possible diagnostic reference.",
+          "via": null,
+          "score": null
+        },
+        {
+          "id": "rb-dependency",
+          "title": "Check upstream service health",
+          "description": "Review the affected upstream services and compare timeout rates by region.",
+          "services": [],
+          "root_cause": "unlabeled",
+          "url": "",
+          "date": "2023-12-31",
+          "doc_type": "runbook",
+          "why": "Retrieved as a possible diagnostic reference.",
+          "via": null,
+          "score": null
+        },
+        {
+          "id": "rb-capacity",
+          "title": "Inspect worker saturation",
+          "description": "Compare queue depth, worker utilization and request volume while errors are active.",
+          "services": [],
+          "root_cause": "unlabeled",
+          "url": "",
+          "date": "2023-12-31",
+          "doc_type": "runbook",
+          "why": "Retrieved as a possible diagnostic reference.",
+          "via": null,
+          "score": null
+        }
+      ],
+      "briefing": {
+        "abstain": false,
+        "likely_root_cause_classes": [
+          {
+            "label": "Config change",
+            "evidence_ids": [
+              "INC-142"
+            ],
+            "confidence": "low"
+          }
+        ],
+        "precedents": [
+          {
+            "id": "INC-142",
+            "why_relevant": "API requests returned intermittent 503s was classified as Config change.",
+            "path": ""
+          }
+        ],
+        "suggested_runbooks": [
+          {
+            "id": "rb-gateway",
+            "why": "Validate a configuration rollout"
+          },
+          {
+            "id": "rb-dependency",
+            "why": "Check upstream service health"
+          }
+        ],
+        "check_first": [
+          "Compare current symptoms with INC-142 before using its resolution."
+        ]
+      },
+      "tokens": {
+        "vector": 223,
+        "precedent": 238
+      },
+      "latency_ms": null,
+      "provenance": "recorded",
+      "upstream_request_id": null
+    },
+    "registry": {
+      "vector": [
+        {
+          "id": "INC-089",
+          "title": "Registry uploads stalled after a policy rollout",
+          "description": "Container image uploads stalled during manifest publication. Clients retried and the registry returned incomplete upload responses.",
+          "services": [
+            "Container Registry"
+          ],
+          "root_cause": "Config change",
+          "url": "",
+          "date": "2024-01-08",
+          "doc_type": "incident",
+          "why": "Matched the language of the alert.",
+          "via": null,
+          "score": 0.662
+        },
+        {
+          "id": "INC-028",
+          "title": "Webhook deliveries retried",
+          "description": "Webhooks returned HTTP 502 and end-to-end deliveries retried across multiple regions.",
+          "services": [
+            "Webhooks"
+          ],
+          "root_cause": "Dependency",
+          "url": "",
+          "date": "2024-01-01",
+          "doc_type": "incident",
+          "why": "Matched the language of the alert.",
+          "via": null,
+          "score": 0.236
+        },
+        {
+          "id": "INC-117",
+          "title": "Regional gateway saturation",
+          "description": "API gateway requests returned intermittent HTTP 503s in one region. The active request queue grew steadily during the traffic peak.",
+          "services": [
+            "API Gateway"
+          ],
+          "root_cause": "Capacity",
+          "url": "",
+          "date": "2024-01-07",
+          "doc_type": "incident",
+          "why": "Matched the language of the alert.",
+          "via": null,
+          "score": 0.182
+        },
+        {
+          "id": "INC-103",
+          "title": "Upstream timeouts on public API",
+          "description": "Public API requests timed out across multiple regions. Upstream connections stalled and public endpoint health checks were flapping.",
+          "services": [
+            "Public API"
+          ],
+          "root_cause": "Dependency",
+          "url": "",
+          "date": "2024-01-06",
+          "doc_type": "incident",
+          "why": "Matched the language of the alert.",
+          "via": null,
+          "score": 0.166
+        },
+        {
+          "id": "INC-076",
+          "title": "CI jobs queued behind idle runners",
+          "description": "Jobs waited in the pending queue for several minutes. Runners were idle and the job scheduler showed assignment delays.",
+          "services": [
+            "CI Runners"
+          ],
+          "root_cause": "Config change",
+          "url": "",
+          "date": "2024-01-05",
+          "doc_type": "incident",
+          "why": "Matched the language of the alert.",
+          "via": null,
+          "score": 0.146
+        }
+      ],
+      "precedent": [
+        {
+          "id": "INC-089",
+          "title": "Registry uploads stalled after a policy rollout",
+          "description": "Container image uploads stalled during manifest publication. Clients retried and the registry returned incomplete upload responses.",
+          "services": [
+            "Container Registry"
+          ],
+          "root_cause": "Config change",
+          "url": "",
+          "date": "2024-01-08",
+          "doc_type": "incident",
+          "why": "Retrieved from the alert symptoms.",
+          "via": null,
+          "score": null
+        },
+        {
+          "id": "INC-142",
+          "title": "API requests returned intermittent 503s",
+          "description": "API gateway requests returned intermittent HTTP 503s across multiple regions. Health checks were flapping and error rates rose while request volume remained steady.",
+          "services": [
+            "API Gateway"
+          ],
+          "root_cause": "Config change",
+          "url": "",
+          "date": "2024-01-09",
+          "doc_type": "incident",
+          "why": "A responder confirmed both incidents recovered after restoring the previous configuration.",
+          "via": "INC-089",
+          "score": null
+        },
+        {
+          "id": "INC-028",
+          "title": "Webhook deliveries retried",
+          "description": "Webhooks returned HTTP 502 and end-to-end deliveries retried across multiple regions.",
+          "services": [
+            "Webhooks"
+          ],
+          "root_cause": "Dependency",
+          "url": "",
+          "date": "2024-01-01",
+          "doc_type": "incident",
+          "why": "Retrieved from the alert symptoms.",
+          "via": null,
+          "score": null
+        },
+        {
+          "id": "INC-117",
+          "title": "Regional gateway saturation",
+          "description": "API gateway requests returned intermittent HTTP 503s in one region. The active request queue grew steadily during the traffic peak.",
+          "services": [
+            "API Gateway"
+          ],
+          "root_cause": "Capacity",
+          "url": "",
+          "date": "2024-01-07",
+          "doc_type": "incident",
+          "why": "Retrieved from the alert symptoms.",
+          "via": null,
+          "score": null
+        },
+        {
+          "id": "INC-103",
+          "title": "Upstream timeouts on public API",
+          "description": "Public API requests timed out across multiple regions. Upstream connections stalled and public endpoint health checks were flapping.",
+          "services": [
+            "Public API"
+          ],
+          "root_cause": "Dependency",
+          "url": "",
+          "date": "2024-01-06",
+          "doc_type": "incident",
+          "why": "Retrieved from the alert symptoms.",
+          "via": null,
+          "score": null
+        }
+      ],
+      "paths": [
+        {
+          "source": "INC-089",
+          "target": "INC-142",
+          "type": "SAME_FIX_AS",
+          "reason": "A responder confirmed both incidents recovered after restoring the previous configuration."
+        }
+      ],
+      "graph_context": [],
+      "runbooks": [
+        {
+          "id": "rb-gateway",
+          "title": "Validate a configuration rollout",
+          "description": "Compare the effective settings with their previous known-good version. Check the rollout timeline against the first errors.",
+          "services": [],
+          "root_cause": "unlabeled",
+          "url": "",
+          "date": "2023-12-31",
+          "doc_type": "runbook",
+          "why": "Retrieved as a possible diagnostic reference.",
+          "via": null,
+          "score": null
+        },
+        {
+          "id": "rb-dependency",
+          "title": "Check upstream service health",
+          "description": "Review the affected upstream services and compare timeout rates by region.",
+          "services": [],
+          "root_cause": "unlabeled",
+          "url": "",
+          "date": "2023-12-31",
+          "doc_type": "runbook",
+          "why": "Retrieved as a possible diagnostic reference.",
+          "via": null,
+          "score": null
+        },
+        {
+          "id": "rb-capacity",
+          "title": "Inspect worker saturation",
+          "description": "Compare queue depth, worker utilization and request volume while errors are active.",
+          "services": [],
+          "root_cause": "unlabeled",
+          "url": "",
+          "date": "2023-12-31",
+          "doc_type": "runbook",
+          "why": "Retrieved as a possible diagnostic reference.",
+          "via": null,
+          "score": null
+        }
+      ],
+      "briefing": {
+        "abstain": false,
+        "likely_root_cause_classes": [
+          {
+            "label": "Config change",
+            "evidence_ids": [
+              "INC-142"
+            ],
+            "confidence": "low"
+          }
+        ],
+        "precedents": [
+          {
+            "id": "INC-142",
+            "why_relevant": "API requests returned intermittent 503s was classified as Config change.",
+            "path": ""
+          }
+        ],
+        "suggested_runbooks": [
+          {
+            "id": "rb-gateway",
+            "why": "Validate a configuration rollout"
+          },
+          {
+            "id": "rb-dependency",
+            "why": "Check upstream service health"
+          }
+        ],
+        "check_first": [
+          "Compare current symptoms with INC-142 before using its resolution."
+        ]
+      },
+      "tokens": {
+        "vector": 238,
+        "precedent": 245
+      },
+      "latency_ms": null,
+      "provenance": "recorded",
+      "upstream_request_id": null
+    }
+  },
+  "graph": {
+    "nodes": [
+      {
+        "id": "rb-gateway",
+        "title": "Validate a configuration rollout",
+        "description": "Compare the effective settings with their previous known-good version. Check the rollout timeline against the first errors.",
+        "services": [],
+        "root_cause": "unlabeled",
+        "url": "",
+        "date": "2023-12-31",
+        "doc_type": "runbook",
+        "why": "",
+        "via": null,
+        "score": null
+      },
+      {
+        "id": "rb-capacity",
+        "title": "Inspect worker saturation",
+        "description": "Compare queue depth, worker utilization and request volume while errors are active.",
+        "services": [],
+        "root_cause": "unlabeled",
+        "url": "",
+        "date": "2023-12-31",
+        "doc_type": "runbook",
+        "why": "",
+        "via": null,
+        "score": null
+      },
+      {
+        "id": "rb-dependency",
+        "title": "Check upstream service health",
+        "description": "Review the affected upstream services and compare timeout rates by region.",
+        "services": [],
+        "root_cause": "unlabeled",
+        "url": "",
+        "date": "2023-12-31",
+        "doc_type": "runbook",
+        "why": "",
+        "via": null,
+        "score": null
+      },
+      {
+        "id": "INC-028",
+        "title": "Webhook deliveries retried",
+        "description": "Webhooks returned HTTP 502 and end-to-end deliveries retried across multiple regions.",
+        "services": [
+          "Webhooks"
+        ],
+        "root_cause": "Dependency",
+        "url": "",
+        "date": "2024-01-01",
+        "doc_type": "incident",
+        "why": "",
+        "via": null,
+        "score": null
+      },
+      {
+        "id": "INC-039",
+        "title": "Search indexing lag",
+        "description": "Search results showed stale content and indexing lag grew during a burst of updates.",
+        "services": [
+          "Search"
+        ],
+        "root_cause": "Capacity",
+        "url": "",
+        "date": "2024-01-02",
+        "doc_type": "incident",
+        "why": "",
+        "via": null,
+        "score": null
+      },
+      {
+        "id": "INC-051",
+        "title": "Mirroring requests stalled",
+        "description": "Git repository mirror requests were slow and shared storage operations timed out in the primary region.",
+        "services": [
+          "Git Storage"
+        ],
+        "root_cause": "Dependency",
+        "url": "",
+        "date": "2024-01-03",
+        "doc_type": "incident",
+        "why": "",
+        "via": null,
+        "score": null
+      },
+      {
+        "id": "INC-064",
+        "title": "Worker backlog delayed deployments",
+        "description": "Deployment jobs were queued while the pending worker backlog rose steadily. Individual executions completed normally.",
+        "services": [
+          "CI Runners"
+        ],
+        "root_cause": "Capacity",
+        "url": "",
+        "date": "2024-01-04",
+        "doc_type": "incident",
+        "why": "",
+        "via": null,
+        "score": null
+      },
+      {
+        "id": "INC-076",
+        "title": "CI jobs queued behind idle runners",
+        "description": "Jobs waited in the pending queue for several minutes. Runners were idle and the job scheduler showed assignment delays.",
+        "services": [
+          "CI Runners"
+        ],
+        "root_cause": "Config change",
+        "url": "",
+        "date": "2024-01-05",
+        "doc_type": "incident",
+        "why": "",
+        "via": null,
+        "score": null
+      },
+      {
+        "id": "INC-103",
+        "title": "Upstream timeouts on public API",
+        "description": "Public API requests timed out across multiple regions. Upstream connections stalled and public endpoint health checks were flapping.",
+        "services": [
+          "Public API"
+        ],
+        "root_cause": "Dependency",
+        "url": "",
+        "date": "2024-01-06",
+        "doc_type": "incident",
+        "why": "",
+        "via": null,
+        "score": null
+      },
+      {
+        "id": "INC-117",
+        "title": "Regional gateway saturation",
+        "description": "API gateway requests returned intermittent HTTP 503s in one region. The active request queue grew steadily during the traffic peak.",
+        "services": [
+          "API Gateway"
+        ],
+        "root_cause": "Capacity",
+        "url": "",
+        "date": "2024-01-07",
+        "doc_type": "incident",
+        "why": "",
+        "via": null,
+        "score": null
+      },
+      {
+        "id": "INC-089",
+        "title": "Registry uploads stalled after a policy rollout",
+        "description": "Container image uploads stalled during manifest publication. Clients retried and the registry returned incomplete upload responses.",
+        "services": [
+          "Container Registry"
+        ],
+        "root_cause": "Config change",
+        "url": "",
+        "date": "2024-01-08",
+        "doc_type": "incident",
+        "why": "",
+        "via": null,
+        "score": null
+      },
+      {
+        "id": "INC-142",
+        "title": "API requests returned intermittent 503s",
+        "description": "API gateway requests returned intermittent HTTP 503s across multiple regions. Health checks were flapping and error rates rose while request volume remained steady.",
+        "services": [
+          "API Gateway"
+        ],
+        "root_cause": "Config change",
+        "url": "",
+        "date": "2024-01-09",
+        "doc_type": "incident",
+        "why": "",
+        "via": null,
+        "score": null
+      }
+    ],
+    "edges": [
+      {
+        "source": "INC-142",
+        "target": "INC-089",
+        "type": "SAME_FIX_AS",
+        "reason": "A responder confirmed both incidents recovered after restoring the previous configuration.",
+        "confirmed_at": "2024-01-10T00:00:00+00:00",
+        "kind": "learned"
+      },
+      {
+        "source": "INC-142",
+        "target": "rb-gateway",
+        "type": "REFERENCES_FIX",
+        "reason": "Resolution cites this runbook.",
+        "confirmed_at": "2024-01-10T00:00:00+00:00",
+        "kind": "learned"
+      },
+      {
+        "source": "INC-028",
+        "target": "rb-dependency",
+        "type": "REFERENCES_FIX",
+        "reason": "Cited in the incident record.",
+        "kind": "declared"
+      },
+      {
+        "source": "INC-039",
+        "target": "rb-capacity",
+        "type": "REFERENCES_FIX",
+        "reason": "Cited in the incident record.",
+        "kind": "declared"
+      },
+      {
+        "source": "INC-051",
+        "target": "rb-dependency",
+        "type": "REFERENCES_FIX",
+        "reason": "Cited in the incident record.",
+        "kind": "declared"
+      },
+      {
+        "source": "INC-064",
+        "target": "rb-capacity",
+        "type": "REFERENCES_FIX",
+        "reason": "Cited in the incident record.",
+        "kind": "declared"
+      },
+      {
+        "source": "INC-076",
+        "target": "rb-gateway",
+        "type": "REFERENCES_FIX",
+        "reason": "Cited in the incident record.",
+        "kind": "declared"
+      },
+      {
+        "source": "INC-103",
+        "target": "rb-dependency",
+        "type": "REFERENCES_FIX",
+        "reason": "Cited in the incident record.",
+        "kind": "declared"
+      },
+      {
+        "source": "INC-117",
+        "target": "rb-capacity",
+        "type": "REFERENCES_FIX",
+        "reason": "Cited in the incident record.",
+        "kind": "declared"
+      },
+      {
+        "source": "INC-089",
+        "target": "rb-gateway",
+        "type": "REFERENCES_FIX",
+        "reason": "Cited in the incident record.",
+        "kind": "declared"
+      },
+      {
+        "source": "INC-076",
+        "target": "INC-064",
+        "type": "SAME_SERVICE",
+        "reason": "Both records mention CI Runners.",
+        "kind": "auto"
+      },
+      {
+        "source": "INC-142",
+        "target": "INC-117",
+        "type": "SAME_SERVICE",
+        "reason": "Both records mention API Gateway.",
+        "kind": "auto"
+      }
+    ],
+    "learned_edges": [
+      {
+        "source": "INC-142",
+        "target": "INC-089",
+        "type": "SAME_FIX_AS",
+        "reason": "A responder confirmed both incidents recovered after restoring the previous configuration.",
+        "confirmed_at": "2024-01-10T00:00:00+00:00",
+        "kind": "learned"
+      },
+      {
+        "source": "INC-142",
+        "target": "rb-gateway",
+        "type": "REFERENCES_FIX",
+        "reason": "Resolution cites this runbook.",
+        "confirmed_at": "2024-01-10T00:00:00+00:00",
+        "kind": "learned"
+      }
+    ]
+  },
+  "meter": {
+    "learned_edges": 2,
+    "rolling_hit_rate": null
+  },
+  "triples": {
+    "triple-gateway": {
+      "before": {
+        "vector": [
+          {
+            "id": "INC-117",
+            "title": "Regional gateway saturation",
+            "description": "API gateway requests returned intermittent HTTP 503s in one region. The active request queue grew steadily during the traffic peak.",
+            "services": [
+              "API Gateway"
+            ],
+            "root_cause": "Capacity",
+            "url": "",
+            "date": "2024-01-07",
+            "doc_type": "incident",
+            "why": "Matched the language of the alert.",
+            "via": null,
+            "score": 0.425
+          },
+          {
+            "id": "INC-103",
+            "title": "Upstream timeouts on public API",
+            "description": "Public API requests timed out across multiple regions. Upstream connections stalled and public endpoint health checks were flapping.",
+            "services": [
+              "Public API"
+            ],
+            "root_cause": "Dependency",
+            "url": "",
+            "date": "2024-01-06",
+            "doc_type": "incident",
+            "why": "Matched the language of the alert.",
+            "via": null,
+            "score": 0.257
+          },
+          {
+            "id": "INC-064",
+            "title": "Worker backlog delayed deployments",
+            "description": "Deployment jobs were queued while the pending worker backlog rose steadily. Individual executions completed normally.",
+            "services": [
+              "CI Runners"
+            ],
+            "root_cause": "Capacity",
+            "url": "",
+            "date": "2024-01-04",
+            "doc_type": "incident",
+            "why": "Matched the language of the alert.",
+            "via": null,
+            "score": 0.12
+          },
+          {
+            "id": "INC-076",
+            "title": "CI jobs queued behind idle runners",
+            "description": "Jobs waited in the pending queue for several minutes. Runners were idle and the job scheduler showed assignment delays.",
+            "services": [
+              "CI Runners"
+            ],
+            "root_cause": "Config change",
+            "url": "",
+            "date": "2024-01-05",
+            "doc_type": "incident",
+            "why": "Matched the language of the alert.",
+            "via": null,
+            "score": 0.106
+          },
+          {
+            "id": "INC-028",
+            "title": "Webhook deliveries retried",
+            "description": "Webhooks returned HTTP 502 and end-to-end deliveries retried across multiple regions.",
+            "services": [
+              "Webhooks"
+            ],
+            "root_cause": "Dependency",
+            "url": "",
+            "date": "2024-01-01",
+            "doc_type": "incident",
+            "why": "Matched the language of the alert.",
+            "via": null,
+            "score": 0.092
+          }
+        ],
+        "precedent": [
+          {
+            "id": "INC-117",
+            "title": "Regional gateway saturation",
+            "description": "API gateway requests returned intermittent HTTP 503s in one region. The active request queue grew steadily during the traffic peak.",
+            "services": [
+              "API Gateway"
+            ],
+            "root_cause": "Capacity",
+            "url": "",
+            "date": "2024-01-07",
+            "doc_type": "incident",
+            "why": "Retrieved from the alert symptoms.",
+            "via": null,
+            "score": null
+          },
+          {
+            "id": "INC-103",
+            "title": "Upstream timeouts on public API",
+            "description": "Public API requests timed out across multiple regions. Upstream connections stalled and public endpoint health checks were flapping.",
+            "services": [
+              "Public API"
+            ],
+            "root_cause": "Dependency",
+            "url": "",
+            "date": "2024-01-06",
+            "doc_type": "incident",
+            "why": "Retrieved from the alert symptoms.",
+            "via": null,
+            "score": null
+          },
+          {
+            "id": "INC-064",
+            "title": "Worker backlog delayed deployments",
+            "description": "Deployment jobs were queued while the pending worker backlog rose steadily. Individual executions completed normally.",
+            "services": [
+              "CI Runners"
+            ],
+            "root_cause": "Capacity",
+            "url": "",
+            "date": "2024-01-04",
+            "doc_type": "incident",
+            "why": "Retrieved from the alert symptoms.",
+            "via": null,
+            "score": null
+          },
+          {
+            "id": "INC-076",
+            "title": "CI jobs queued behind idle runners",
+            "description": "Jobs waited in the pending queue for several minutes. Runners were idle and the job scheduler showed assignment delays.",
+            "services": [
+              "CI Runners"
+            ],
+            "root_cause": "Config change",
+            "url": "",
+            "date": "2024-01-05",
+            "doc_type": "incident",
+            "why": "Retrieved from the alert symptoms.",
+            "via": null,
+            "score": null
+          },
+          {
+            "id": "INC-028",
+            "title": "Webhook deliveries retried",
+            "description": "Webhooks returned HTTP 502 and end-to-end deliveries retried across multiple regions.",
+            "services": [
+              "Webhooks"
+            ],
+            "root_cause": "Dependency",
+            "url": "",
+            "date": "2024-01-01",
+            "doc_type": "incident",
+            "why": "Retrieved from the alert symptoms.",
+            "via": null,
+            "score": null
+          }
+        ],
+        "paths": [],
+        "graph_context": [],
+        "runbooks": [
+          {
+            "id": "rb-capacity",
+            "title": "Inspect worker saturation",
+            "description": "Compare queue depth, worker utilization and request volume while errors are active.",
+            "services": [],
+            "root_cause": "unlabeled",
+            "url": "",
+            "date": "2023-12-31",
+            "doc_type": "runbook",
+            "why": "Retrieved as a possible diagnostic reference.",
+            "via": null,
+            "score": null
+          },
+          {
+            "id": "rb-gateway",
+            "title": "Validate a configuration rollout",
+            "description": "Compare the effective settings with their previous known-good version. Check the rollout timeline against the first errors.",
+            "services": [],
+            "root_cause": "unlabeled",
+            "url": "",
+            "date": "2023-12-31",
+            "doc_type": "runbook",
+            "why": "Retrieved as a possible diagnostic reference.",
+            "via": null,
+            "score": null
+          },
+          {
+            "id": "rb-dependency",
+            "title": "Check upstream service health",
+            "description": "Review the affected upstream services and compare timeout rates by region.",
+            "services": [],
+            "root_cause": "unlabeled",
+            "url": "",
+            "date": "2023-12-31",
+            "doc_type": "runbook",
+            "why": "Retrieved as a possible diagnostic reference.",
+            "via": null,
+            "score": null
+          }
+        ],
+        "briefing": {
+          "abstain": false,
+          "likely_root_cause_classes": [
+            {
+              "label": "Capacity",
+              "evidence_ids": [
+                "INC-117"
+              ],
+              "confidence": "low"
+            }
+          ],
+          "precedents": [
+            {
+              "id": "INC-117",
+              "why_relevant": "Regional gateway saturation was classified as Capacity.",
+              "path": ""
+            }
+          ],
+          "suggested_runbooks": [
+            {
+              "id": "rb-capacity",
+              "why": "Inspect worker saturation"
+            },
+            {
+              "id": "rb-gateway",
+              "why": "Validate a configuration rollout"
+            }
+          ],
+          "check_first": [
+            "Compare current symptoms with INC-117 before using its resolution."
+          ]
+        },
+        "tokens": {
+          "vector": 219,
+          "precedent": 219
+        },
+        "latency_ms": null,
+        "provenance": "recorded",
+        "upstream_request_id": null
+      },
+      "after": {
+        "vector": [
+          {
+            "id": "INC-142",
+            "title": "API requests returned intermittent 503s",
+            "description": "API gateway requests returned intermittent HTTP 503s across multiple regions. Health checks were flapping and error rates rose while request volume remained steady.",
+            "services": [
+              "API Gateway"
+            ],
+            "root_cause": "Config change",
+            "url": "",
+            "date": "2024-01-09",
+            "doc_type": "incident",
+            "why": "Matched the language of the alert.",
+            "via": null,
+            "score": 0.546
+          },
+          {
+            "id": "INC-117",
+            "title": "Regional gateway saturation",
+            "description": "API gateway requests returned intermittent HTTP 503s in one region. The active request queue grew steadily during the traffic peak.",
+            "services": [
+              "API Gateway"
+            ],
+            "root_cause": "Capacity",
+            "url": "",
+            "date": "2024-01-07",
+            "doc_type": "incident",
+            "why": "Matched the language of the alert.",
+            "via": null,
+            "score": 0.425
+          },
+          {
+            "id": "INC-103",
+            "title": "Upstream timeouts on public API",
+            "description": "Public API requests timed out across multiple regions. Upstream connections stalled and public endpoint health checks were flapping.",
+            "services": [
+              "Public API"
+            ],
+            "root_cause": "Dependency",
+            "url": "",
+            "date": "2024-01-06",
+            "doc_type": "incident",
+            "why": "Matched the language of the alert.",
+            "via": null,
+            "score": 0.257
+          },
+          {
+            "id": "INC-064",
+            "title": "Worker backlog delayed deployments",
+            "description": "Deployment jobs were queued while the pending worker backlog rose steadily. Individual executions completed normally.",
+            "services": [
+              "CI Runners"
+            ],
+            "root_cause": "Capacity",
+            "url": "",
+            "date": "2024-01-04",
+            "doc_type": "incident",
+            "why": "Matched the language of the alert.",
+            "via": null,
+            "score": 0.12
+          },
+          {
+            "id": "INC-076",
+            "title": "CI jobs queued behind idle runners",
+            "description": "Jobs waited in the pending queue for several minutes. Runners were idle and the job scheduler showed assignment delays.",
+            "services": [
+              "CI Runners"
+            ],
+            "root_cause": "Config change",
+            "url": "",
+            "date": "2024-01-05",
+            "doc_type": "incident",
+            "why": "Matched the language of the alert.",
+            "via": null,
+            "score": 0.106
+          }
+        ],
+        "precedent": [
+          {
+            "id": "INC-142",
+            "title": "API requests returned intermittent 503s",
+            "description": "API gateway requests returned intermittent HTTP 503s across multiple regions. Health checks were flapping and error rates rose while request volume remained steady.",
+            "services": [
+              "API Gateway"
+            ],
+            "root_cause": "Config change",
+            "url": "",
+            "date": "2024-01-09",
+            "doc_type": "incident",
+            "why": "Retrieved from the alert symptoms.",
+            "via": null,
+            "score": null
+          },
+          {
+            "id": "INC-089",
+            "title": "Registry uploads stalled after a policy rollout",
+            "description": "Container image uploads stalled during manifest publication. Clients retried and the registry returned incomplete upload responses.",
+            "services": [
+              "Container Registry"
+            ],
+            "root_cause": "Config change",
+            "url": "",
+            "date": "2024-01-08",
+            "doc_type": "incident",
+            "why": "Responder confirmed this precedent helped resolve INC-142.",
+            "via": "INC-142",
+            "score": null
+          },
+          {
+            "id": "INC-117",
+            "title": "Regional gateway saturation",
+            "description": "API gateway requests returned intermittent HTTP 503s in one region. The active request queue grew steadily during the traffic peak.",
+            "services": [
+              "API Gateway"
+            ],
+            "root_cause": "Capacity",
+            "url": "",
+            "date": "2024-01-07",
+            "doc_type": "incident",
+            "why": "Retrieved from the alert symptoms.",
+            "via": null,
+            "score": null
+          },
+          {
+            "id": "INC-103",
+            "title": "Upstream timeouts on public API",
+            "description": "Public API requests timed out across multiple regions. Upstream connections stalled and public endpoint health checks were flapping.",
+            "services": [
+              "Public API"
+            ],
+            "root_cause": "Dependency",
+            "url": "",
+            "date": "2024-01-06",
+            "doc_type": "incident",
+            "why": "Retrieved from the alert symptoms.",
+            "via": null,
+            "score": null
+          },
+          {
+            "id": "INC-064",
+            "title": "Worker backlog delayed deployments",
+            "description": "Deployment jobs were queued while the pending worker backlog rose steadily. Individual executions completed normally.",
+            "services": [
+              "CI Runners"
+            ],
+            "root_cause": "Capacity",
+            "url": "",
+            "date": "2024-01-04",
+            "doc_type": "incident",
+            "why": "Retrieved from the alert symptoms.",
+            "via": null,
+            "score": null
+          }
+        ],
+        "paths": [
+          {
+            "source": "INC-142",
+            "target": "INC-089",
+            "type": "SAME_FIX_AS",
+            "reason": "Responder confirmed this precedent helped resolve INC-142."
+          }
+        ],
+        "graph_context": [],
+        "runbooks": [
+          {
+            "id": "rb-capacity",
+            "title": "Inspect worker saturation",
+            "description": "Compare queue depth, worker utilization and request volume while errors are active.",
+            "services": [],
+            "root_cause": "unlabeled",
+            "url": "",
+            "date": "2023-12-31",
+            "doc_type": "runbook",
+            "why": "Retrieved as a possible diagnostic reference.",
+            "via": null,
+            "score": null
+          },
+          {
+            "id": "rb-gateway",
+            "title": "Validate a configuration rollout",
+            "description": "Compare the effective settings with their previous known-good version. Check the rollout timeline against the first errors.",
+            "services": [],
+            "root_cause": "unlabeled",
+            "url": "",
+            "date": "2023-12-31",
+            "doc_type": "runbook",
+            "why": "Retrieved as a possible diagnostic reference.",
+            "via": null,
+            "score": null
+          },
+          {
+            "id": "rb-dependency",
+            "title": "Check upstream service health",
+            "description": "Review the affected upstream services and compare timeout rates by region.",
+            "services": [],
+            "root_cause": "unlabeled",
+            "url": "",
+            "date": "2023-12-31",
+            "doc_type": "runbook",
+            "why": "Retrieved as a possible diagnostic reference.",
+            "via": null,
+            "score": null
+          }
+        ],
+        "briefing": {
+          "abstain": false,
+          "likely_root_cause_classes": [
+            {
+              "label": "Config change",
+              "evidence_ids": [
+                "INC-089"
+              ],
+              "confidence": "low"
+            }
+          ],
+          "precedents": [
+            {
+              "id": "INC-089",
+              "why_relevant": "Registry uploads stalled after a policy rollout was classified as Config change.",
+              "path": ""
+            }
+          ],
+          "suggested_runbooks": [
+            {
+              "id": "rb-capacity",
+              "why": "Inspect worker saturation"
+            },
+            {
+              "id": "rb-gateway",
+              "why": "Validate a configuration rollout"
+            }
+          ],
+          "check_first": [
+            "Compare current symptoms with INC-089 before using its resolution."
+          ]
+        },
+        "tokens": {
+          "vector": 238,
+          "precedent": 249
+        },
+        "latency_ms": null,
+        "provenance": "recorded",
+        "upstream_request_id": null
+      },
+      "edge": {
+        "source": "INC-142",
+        "target": "INC-089",
+        "type": "SAME_FIX_AS",
+        "reason": "Responder confirmed this precedent helped resolve INC-142.",
+        "confirmed_at": "2024-01-10T00:00:00+00:00"
+      }
+    },
+    "triple-runners": {
+      "before": {
+        "vector": [
+          {
+            "id": "INC-076",
+            "title": "CI jobs queued behind idle runners",
+            "description": "Jobs waited in the pending queue for several minutes. Runners were idle and the job scheduler showed assignment delays.",
+            "services": [
+              "CI Runners"
+            ],
+            "root_cause": "Config change",
+            "url": "",
+            "date": "2024-01-05",
+            "doc_type": "incident",
+            "why": "Matched the language of the alert.",
+            "via": null,
+            "score": 0.335
+          },
+          {
+            "id": "INC-117",
+            "title": "Regional gateway saturation",
+            "description": "API gateway requests returned intermittent HTTP 503s in one region. The active request queue grew steadily during the traffic peak.",
+            "services": [
+              "API Gateway"
+            ],
+            "root_cause": "Capacity",
+            "url": "",
+            "date": "2024-01-07",
+            "doc_type": "incident",
+            "why": "Matched the language of the alert.",
+            "via": null,
+            "score": 0.167
+          },
+          {
+            "id": "INC-039",
+            "title": "Search indexing lag",
+            "description": "Search results showed stale content and indexing lag grew during a burst of updates.",
+            "services": [
+              "Search"
+            ],
+            "root_cause": "Capacity",
+            "url": "",
+            "date": "2024-01-02",
+            "doc_type": "incident",
+            "why": "Matched the language of the alert.",
+            "via": null,
+            "score": 0.155
+          },
+          {
+            "id": "INC-103",
+            "title": "Upstream timeouts on public API",
+            "description": "Public API requests timed out across multiple regions. Upstream connections stalled and public endpoint health checks were flapping.",
+            "services": [
+              "Public API"
+            ],
+            "root_cause": "Dependency",
+            "url": "",
+            "date": "2024-01-06",
+            "doc_type": "incident",
+            "why": "Matched the language of the alert.",
+            "via": null,
+            "score": 0.122
+          },
+          {
+            "id": "INC-089",
+            "title": "Registry uploads stalled after a policy rollout",
+            "description": "Container image uploads stalled during manifest publication. Clients retried and the registry returned incomplete upload responses.",
+            "services": [
+              "Container Registry"
+            ],
+            "root_cause": "Config change",
+            "url": "",
+            "date": "2024-01-08",
+            "doc_type": "incident",
+            "why": "Matched the language of the alert.",
+            "via": null,
+            "score": 0.091
+          }
+        ],
+        "precedent": [
+          {
+            "id": "INC-076",
+            "title": "CI jobs queued behind idle runners",
+            "description": "Jobs waited in the pending queue for several minutes. Runners were idle and the job scheduler showed assignment delays.",
+            "services": [
+              "CI Runners"
+            ],
+            "root_cause": "Config change",
+            "url": "",
+            "date": "2024-01-05",
+            "doc_type": "incident",
+            "why": "Retrieved from the alert symptoms.",
+            "via": null,
+            "score": null
+          },
+          {
+            "id": "INC-117",
+            "title": "Regional gateway saturation",
+            "description": "API gateway requests returned intermittent HTTP 503s in one region. The active request queue grew steadily during the traffic peak.",
+            "services": [
+              "API Gateway"
+            ],
+            "root_cause": "Capacity",
+            "url": "",
+            "date": "2024-01-07",
+            "doc_type": "incident",
+            "why": "Retrieved from the alert symptoms.",
+            "via": null,
+            "score": null
+          },
+          {
+            "id": "INC-142",
+            "title": "API requests returned intermittent 503s",
+            "description": "API gateway requests returned intermittent HTTP 503s across multiple regions. Health checks were flapping and error rates rose while request volume remained steady.",
+            "services": [
+              "API Gateway"
+            ],
+            "root_cause": "Config change",
+            "url": "",
+            "date": "2024-01-09",
+            "doc_type": "incident",
+            "why": "Resolution cites this runbook.",
+            "via": "rb-gateway",
+            "score": null
+          },
+          {
+            "id": "INC-103",
+            "title": "Upstream timeouts on public API",
+            "description": "Public API requests timed out across multiple regions. Upstream connections stalled and public endpoint health checks were flapping.",
+            "services": [
+              "Public API"
+            ],
+            "root_cause": "Dependency",
+            "url": "",
+            "date": "2024-01-06",
+            "doc_type": "incident",
+            "why": "Retrieved from the alert symptoms.",
+            "via": null,
+            "score": null
+          },
+          {
+            "id": "INC-089",
+            "title": "Registry uploads stalled after a policy rollout",
+            "description": "Container image uploads stalled during manifest publication. Clients retried and the registry returned incomplete upload responses.",
+            "services": [
+              "Container Registry"
+            ],
+            "root_cause": "Config change",
+            "url": "",
+            "date": "2024-01-08",
+            "doc_type": "incident",
+            "why": "Retrieved from the alert symptoms.",
+            "via": null,
+            "score": null
+          }
+        ],
+        "paths": [
+          {
+            "source": "rb-gateway",
+            "target": "INC-142",
+            "type": "REFERENCES_FIX",
+            "reason": "Resolution cites this runbook."
+          }
+        ],
+        "graph_context": [],
+        "runbooks": [
+          {
+            "id": "rb-capacity",
+            "title": "Inspect worker saturation",
+            "description": "Compare queue depth, worker utilization and request volume while errors are active.",
+            "services": [],
+            "root_cause": "unlabeled",
+            "url": "",
+            "date": "2023-12-31",
+            "doc_type": "runbook",
+            "why": "Retrieved as a possible diagnostic reference.",
+            "via": null,
+            "score": null
+          },
+          {
+            "id": "rb-gateway",
+            "title": "Validate a configuration rollout",
+            "description": "Compare the effective settings with their previous known-good version. Check the rollout timeline against the first errors.",
+            "services": [],
+            "root_cause": "unlabeled",
+            "url": "",
+            "date": "2023-12-31",
+            "doc_type": "runbook",
+            "why": "Retrieved as a possible diagnostic reference.",
+            "via": null,
+            "score": null
+          },
+          {
+            "id": "rb-dependency",
+            "title": "Check upstream service health",
+            "description": "Review the affected upstream services and compare timeout rates by region.",
+            "services": [],
+            "root_cause": "unlabeled",
+            "url": "",
+            "date": "2023-12-31",
+            "doc_type": "runbook",
+            "why": "Retrieved as a possible diagnostic reference.",
+            "via": null,
+            "score": null
+          }
+        ],
+        "briefing": {
+          "abstain": false,
+          "likely_root_cause_classes": [
+            {
+              "label": "Config change",
+              "evidence_ids": [
+                "INC-142"
+              ],
+              "confidence": "low"
+            }
+          ],
+          "precedents": [
+            {
+              "id": "INC-142",
+              "why_relevant": "API requests returned intermittent 503s was classified as Config change.",
+              "path": ""
+            }
+          ],
+          "suggested_runbooks": [
+            {
+              "id": "rb-capacity",
+              "why": "Inspect worker saturation"
+            },
+            {
+              "id": "rb-gateway",
+              "why": "Validate a configuration rollout"
+            }
+          ],
+          "check_first": [
+            "Compare current symptoms with INC-142 before using its resolution."
+          ]
+        },
+        "tokens": {
+          "vector": 239,
+          "precedent": 257
+        },
+        "latency_ms": null,
+        "provenance": "recorded",
+        "upstream_request_id": null
+      },
+      "after": {
+        "vector": [
+          {
+            "id": "INC-064",
+            "title": "Worker backlog delayed deployments",
+            "description": "Deployment jobs were queued while the pending worker backlog rose steadily. Individual executions completed normally.",
+            "services": [
+              "CI Runners"
+            ],
+            "root_cause": "Capacity",
+            "url": "",
+            "date": "2024-01-04",
+            "doc_type": "incident",
+            "why": "Matched the language of the alert.",
+            "via": null,
+            "score": 0.528
+          },
+          {
+            "id": "INC-076",
+            "title": "CI jobs queued behind idle runners",
+            "description": "Jobs waited in the pending queue for several minutes. Runners were idle and the job scheduler showed assignment delays.",
+            "services": [
+              "CI Runners"
+            ],
+            "root_cause": "Config change",
+            "url": "",
+            "date": "2024-01-05",
+            "doc_type": "incident",
+            "why": "Matched the language of the alert.",
+            "via": null,
+            "score": 0.335
+          },
+          {
+            "id": "INC-117",
+            "title": "Regional gateway saturation",
+            "description": "API gateway requests returned intermittent HTTP 503s in one region. The active request queue grew steadily during the traffic peak.",
+            "services": [
+              "API Gateway"
+            ],
+            "root_cause": "Capacity",
+            "url": "",
+            "date": "2024-01-07",
+            "doc_type": "incident",
+            "why": "Matched the language of the alert.",
+            "via": null,
+            "score": 0.167
+          },
+          {
+            "id": "INC-039",
+            "title": "Search indexing lag",
+            "description": "Search results showed stale content and indexing lag grew during a burst of updates.",
+            "services": [
+              "Search"
+            ],
+            "root_cause": "Capacity",
+            "url": "",
+            "date": "2024-01-02",
+            "doc_type": "incident",
+            "why": "Matched the language of the alert.",
+            "via": null,
+            "score": 0.155
+          },
+          {
+            "id": "INC-103",
+            "title": "Upstream timeouts on public API",
+            "description": "Public API requests timed out across multiple regions. Upstream connections stalled and public endpoint health checks were flapping.",
+            "services": [
+              "Public API"
+            ],
+            "root_cause": "Dependency",
+            "url": "",
+            "date": "2024-01-06",
+            "doc_type": "incident",
+            "why": "Matched the language of the alert.",
+            "via": null,
+            "score": 0.122
+          }
+        ],
+        "precedent": [
+          {
+            "id": "INC-064",
+            "title": "Worker backlog delayed deployments",
+            "description": "Deployment jobs were queued while the pending worker backlog rose steadily. Individual executions completed normally.",
+            "services": [
+              "CI Runners"
+            ],
+            "root_cause": "Capacity",
+            "url": "",
+            "date": "2024-01-04",
+            "doc_type": "incident",
+            "why": "Retrieved from the alert symptoms.",
+            "via": null,
+            "score": null
+          },
+          {
+            "id": "INC-039",
+            "title": "Search indexing lag",
+            "description": "Search results showed stale content and indexing lag grew during a burst of updates.",
+            "services": [
+              "Search"
+            ],
+            "root_cause": "Capacity",
+            "url": "",
+            "date": "2024-01-02",
+            "doc_type": "incident",
+            "why": "Responder confirmed this precedent helped resolve INC-064.",
+            "via": "INC-064",
+            "score": null
+          },
+          {
+            "id": "INC-076",
+            "title": "CI jobs queued behind idle runners",
+            "description": "Jobs waited in the pending queue for several minutes. Runners were idle and the job scheduler showed assignment delays.",
+            "services": [
+              "CI Runners"
+            ],
+            "root_cause": "Config change",
+            "url": "",
+            "date": "2024-01-05",
+            "doc_type": "incident",
+            "why": "Retrieved from the alert symptoms.",
+            "via": null,
+            "score": null
+          },
+          {
+            "id": "INC-117",
+            "title": "Regional gateway saturation",
+            "description": "API gateway requests returned intermittent HTTP 503s in one region. The active request queue grew steadily during the traffic peak.",
+            "services": [
+              "API Gateway"
+            ],
+            "root_cause": "Capacity",
+            "url": "",
+            "date": "2024-01-07",
+            "doc_type": "incident",
+            "why": "Retrieved from the alert symptoms.",
+            "via": null,
+            "score": null
+          },
+          {
+            "id": "INC-103",
+            "title": "Upstream timeouts on public API",
+            "description": "Public API requests timed out across multiple regions. Upstream connections stalled and public endpoint health checks were flapping.",
+            "services": [
+              "Public API"
+            ],
+            "root_cause": "Dependency",
+            "url": "",
+            "date": "2024-01-06",
+            "doc_type": "incident",
+            "why": "Retrieved from the alert symptoms.",
+            "via": null,
+            "score": null
+          }
+        ],
+        "paths": [
+          {
+            "source": "INC-064",
+            "target": "INC-039",
+            "type": "SAME_FIX_AS",
+            "reason": "Responder confirmed this precedent helped resolve INC-064."
+          }
+        ],
+        "graph_context": [],
+        "runbooks": [
+          {
+            "id": "rb-capacity",
+            "title": "Inspect worker saturation",
+            "description": "Compare queue depth, worker utilization and request volume while errors are active.",
+            "services": [],
+            "root_cause": "unlabeled",
+            "url": "",
+            "date": "2023-12-31",
+            "doc_type": "runbook",
+            "why": "Retrieved as a possible diagnostic reference.",
+            "via": null,
+            "score": null
+          },
+          {
+            "id": "rb-gateway",
+            "title": "Validate a configuration rollout",
+            "description": "Compare the effective settings with their previous known-good version. Check the rollout timeline against the first errors.",
+            "services": [],
+            "root_cause": "unlabeled",
+            "url": "",
+            "date": "2023-12-31",
+            "doc_type": "runbook",
+            "why": "Retrieved as a possible diagnostic reference.",
+            "via": null,
+            "score": null
+          },
+          {
+            "id": "rb-dependency",
+            "title": "Check upstream service health",
+            "description": "Review the affected upstream services and compare timeout rates by region.",
+            "services": [],
+            "root_cause": "unlabeled",
+            "url": "",
+            "date": "2023-12-31",
+            "doc_type": "runbook",
+            "why": "Retrieved as a possible diagnostic reference.",
+            "via": null,
+            "score": null
+          }
+        ],
+        "briefing": {
+          "abstain": false,
+          "likely_root_cause_classes": [
+            {
+              "label": "Capacity",
+              "evidence_ids": [
+                "INC-039"
+              ],
+              "confidence": "low"
+            }
+          ],
+          "precedents": [
+            {
+              "id": "INC-039",
+              "why_relevant": "Search indexing lag was classified as Capacity.",
+              "path": ""
+            }
+          ],
+          "suggested_runbooks": [
+            {
+              "id": "rb-capacity",
+              "why": "Inspect worker saturation"
+            },
+            {
+              "id": "rb-gateway",
+              "why": "Validate a configuration rollout"
+            }
+          ],
+          "check_first": [
+            "Compare current symptoms with INC-039 before using its resolution."
+          ]
+        },
+        "tokens": {
+          "vector": 220,
+          "precedent": 220
+        },
+        "latency_ms": null,
+        "provenance": "recorded",
+        "upstream_request_id": null
+      },
+      "edge": {
+        "source": "INC-064",
+        "target": "INC-039",
+        "type": "SAME_FIX_AS",
+        "reason": "Responder confirmed this precedent helped resolve INC-064.",
+        "confirmed_at": "2024-01-10T00:00:00+00:00"
+      }
+    },
+    "triple-mirrors": {
+      "before": {
+        "vector": [
+          {
+            "id": "INC-117",
+            "title": "Regional gateway saturation",
+            "description": "API gateway requests returned intermittent HTTP 503s in one region. The active request queue grew steadily during the traffic peak.",
+            "services": [
+              "API Gateway"
+            ],
+            "root_cause": "Capacity",
+            "url": "",
+            "date": "2024-01-07",
+            "doc_type": "incident",
+            "why": "Matched the language of the alert.",
+            "via": null,
+            "score": 0.226
+          },
+          {
+            "id": "INC-103",
+            "title": "Upstream timeouts on public API",
+            "description": "Public API requests timed out across multiple regions. Upstream connections stalled and public endpoint health checks were flapping.",
+            "services": [
+              "Public API"
+            ],
+            "root_cause": "Dependency",
+            "url": "",
+            "date": "2024-01-06",
+            "doc_type": "incident",
+            "why": "Matched the language of the alert.",
+            "via": null,
+            "score": 0.205
+          },
+          {
+            "id": "INC-076",
+            "title": "CI jobs queued behind idle runners",
+            "description": "Jobs waited in the pending queue for several minutes. Runners were idle and the job scheduler showed assignment delays.",
+            "services": [
+              "CI Runners"
+            ],
+            "root_cause": "Config change",
+            "url": "",
+            "date": "2024-01-05",
+            "doc_type": "incident",
+            "why": "Matched the language of the alert.",
+            "via": null,
+            "score": 0.188
+          },
+          {
+            "id": "INC-142",
+            "title": "API requests returned intermittent 503s",
+            "description": "API gateway requests returned intermittent HTTP 503s across multiple regions. Health checks were flapping and error rates rose while request volume remained steady.",
+            "services": [
+              "API Gateway"
+            ],
+            "root_cause": "Config change",
+            "url": "",
+            "date": "2024-01-09",
+            "doc_type": "incident",
+            "why": "Matched the language of the alert.",
+            "via": null,
+            "score": 0.171
+          },
+          {
+            "id": "INC-064",
+            "title": "Worker backlog delayed deployments",
+            "description": "Deployment jobs were queued while the pending worker backlog rose steadily. Individual executions completed normally.",
+            "services": [
+              "CI Runners"
+            ],
+            "root_cause": "Capacity",
+            "url": "",
+            "date": "2024-01-04",
+            "doc_type": "incident",
+            "why": "Matched the language of the alert.",
+            "via": null,
+            "score": 0.127
+          }
+        ],
+        "precedent": [
+          {
+            "id": "INC-117",
+            "title": "Regional gateway saturation",
+            "description": "API gateway requests returned intermittent HTTP 503s in one region. The active request queue grew steadily during the traffic peak.",
+            "services": [
+              "API Gateway"
+            ],
+            "root_cause": "Capacity",
+            "url": "",
+            "date": "2024-01-07",
+            "doc_type": "incident",
+            "why": "Retrieved from the alert symptoms.",
+            "via": null,
+            "score": null
+          },
+          {
+            "id": "INC-103",
+            "title": "Upstream timeouts on public API",
+            "description": "Public API requests timed out across multiple regions. Upstream connections stalled and public endpoint health checks were flapping.",
+            "services": [
+              "Public API"
+            ],
+            "root_cause": "Dependency",
+            "url": "",
+            "date": "2024-01-06",
+            "doc_type": "incident",
+            "why": "Retrieved from the alert symptoms.",
+            "via": null,
+            "score": null
+          },
+          {
+            "id": "INC-076",
+            "title": "CI jobs queued behind idle runners",
+            "description": "Jobs waited in the pending queue for several minutes. Runners were idle and the job scheduler showed assignment delays.",
+            "services": [
+              "CI Runners"
+            ],
+            "root_cause": "Config change",
+            "url": "",
+            "date": "2024-01-05",
+            "doc_type": "incident",
+            "why": "Retrieved from the alert symptoms.",
+            "via": null,
+            "score": null
+          },
+          {
+            "id": "INC-142",
+            "title": "API requests returned intermittent 503s",
+            "description": "API gateway requests returned intermittent HTTP 503s across multiple regions. Health checks were flapping and error rates rose while request volume remained steady.",
+            "services": [
+              "API Gateway"
+            ],
+            "root_cause": "Config change",
+            "url": "",
+            "date": "2024-01-09",
+            "doc_type": "incident",
+            "why": "Retrieved from the alert symptoms.",
+            "via": null,
+            "score": null
+          },
+          {
+            "id": "INC-089",
+            "title": "Registry uploads stalled after a policy rollout",
+            "description": "Container image uploads stalled during manifest publication. Clients retried and the registry returned incomplete upload responses.",
+            "services": [
+              "Container Registry"
+            ],
+            "root_cause": "Config change",
+            "url": "",
+            "date": "2024-01-08",
+            "doc_type": "incident",
+            "why": "A responder confirmed both incidents recovered after restoring the previous configuration.",
+            "via": "INC-142",
+            "score": null
+          }
+        ],
+        "paths": [
+          {
+            "source": "INC-142",
+            "target": "INC-089",
+            "type": "SAME_FIX_AS",
+            "reason": "A responder confirmed both incidents recovered after restoring the previous configuration."
+          }
+        ],
+        "graph_context": [],
+        "runbooks": [
+          {
+            "id": "rb-dependency",
+            "title": "Check upstream service health",
+            "description": "Review the affected upstream services and compare timeout rates by region.",
+            "services": [],
+            "root_cause": "unlabeled",
+            "url": "",
+            "date": "2023-12-31",
+            "doc_type": "runbook",
+            "why": "Retrieved as a possible diagnostic reference.",
+            "via": null,
+            "score": null
+          },
+          {
+            "id": "rb-gateway",
+            "title": "Validate a configuration rollout",
+            "description": "Compare the effective settings with their previous known-good version. Check the rollout timeline against the first errors.",
+            "services": [],
+            "root_cause": "unlabeled",
+            "url": "",
+            "date": "2023-12-31",
+            "doc_type": "runbook",
+            "why": "Retrieved as a possible diagnostic reference.",
+            "via": null,
+            "score": null
+          },
+          {
+            "id": "rb-capacity",
+            "title": "Inspect worker saturation",
+            "description": "Compare queue depth, worker utilization and request volume while errors are active.",
+            "services": [],
+            "root_cause": "unlabeled",
+            "url": "",
+            "date": "2023-12-31",
+            "doc_type": "runbook",
+            "why": "Retrieved as a possible diagnostic reference.",
+            "via": null,
+            "score": null
+          }
+        ],
+        "briefing": {
+          "abstain": false,
+          "likely_root_cause_classes": [
+            {
+              "label": "Config change",
+              "evidence_ids": [
+                "INC-089"
+              ],
+              "confidence": "low"
+            }
+          ],
+          "precedents": [
+            {
+              "id": "INC-089",
+              "why_relevant": "Registry uploads stalled after a policy rollout was classified as Config change.",
+              "path": ""
+            }
+          ],
+          "suggested_runbooks": [
+            {
+              "id": "rb-dependency",
+              "why": "Check upstream service health"
+            },
+            {
+              "id": "rb-gateway",
+              "why": "Validate a configuration rollout"
+            }
+          ],
+          "check_first": [
+            "Compare current symptoms with INC-089 before using its resolution."
+          ]
+        },
+        "tokens": {
+          "vector": 238,
+          "precedent": 257
+        },
+        "latency_ms": null,
+        "provenance": "recorded",
+        "upstream_request_id": null
+      },
+      "after": {
+        "vector": [
+          {
+            "id": "INC-051",
+            "title": "Mirroring requests stalled",
+            "description": "Git repository mirror requests were slow and shared storage operations timed out in the primary region.",
+            "services": [
+              "Git Storage"
+            ],
+            "root_cause": "Dependency",
+            "url": "",
+            "date": "2024-01-03",
+            "doc_type": "incident",
+            "why": "Matched the language of the alert.",
+            "via": null,
+            "score": 0.689
+          },
+          {
+            "id": "INC-117",
+            "title": "Regional gateway saturation",
+            "description": "API gateway requests returned intermittent HTTP 503s in one region. The active request queue grew steadily during the traffic peak.",
+            "services": [
+              "API Gateway"
+            ],
+            "root_cause": "Capacity",
+            "url": "",
+            "date": "2024-01-07",
+            "doc_type": "incident",
+            "why": "Matched the language of the alert.",
+            "via": null,
+            "score": 0.226
+          },
+          {
+            "id": "INC-103",
+            "title": "Upstream timeouts on public API",
+            "description": "Public API requests timed out across multiple regions. Upstream connections stalled and public endpoint health checks were flapping.",
+            "services": [
+              "Public API"
+            ],
+            "root_cause": "Dependency",
+            "url": "",
+            "date": "2024-01-06",
+            "doc_type": "incident",
+            "why": "Matched the language of the alert.",
+            "via": null,
+            "score": 0.205
+          },
+          {
+            "id": "INC-076",
+            "title": "CI jobs queued behind idle runners",
+            "description": "Jobs waited in the pending queue for several minutes. Runners were idle and the job scheduler showed assignment delays.",
+            "services": [
+              "CI Runners"
+            ],
+            "root_cause": "Config change",
+            "url": "",
+            "date": "2024-01-05",
+            "doc_type": "incident",
+            "why": "Matched the language of the alert.",
+            "via": null,
+            "score": 0.188
+          },
+          {
+            "id": "INC-142",
+            "title": "API requests returned intermittent 503s",
+            "description": "API gateway requests returned intermittent HTTP 503s across multiple regions. Health checks were flapping and error rates rose while request volume remained steady.",
+            "services": [
+              "API Gateway"
+            ],
+            "root_cause": "Config change",
+            "url": "",
+            "date": "2024-01-09",
+            "doc_type": "incident",
+            "why": "Matched the language of the alert.",
+            "via": null,
+            "score": 0.171
+          }
+        ],
+        "precedent": [
+          {
+            "id": "INC-051",
+            "title": "Mirroring requests stalled",
+            "description": "Git repository mirror requests were slow and shared storage operations timed out in the primary region.",
+            "services": [
+              "Git Storage"
+            ],
+            "root_cause": "Dependency",
+            "url": "",
+            "date": "2024-01-03",
+            "doc_type": "incident",
+            "why": "Retrieved from the alert symptoms.",
+            "via": null,
+            "score": null
+          },
+          {
+            "id": "INC-028",
+            "title": "Webhook deliveries retried",
+            "description": "Webhooks returned HTTP 502 and end-to-end deliveries retried across multiple regions.",
+            "services": [
+              "Webhooks"
+            ],
+            "root_cause": "Dependency",
+            "url": "",
+            "date": "2024-01-01",
+            "doc_type": "incident",
+            "why": "Responder confirmed this precedent helped resolve INC-051.",
+            "via": "INC-051",
+            "score": null
+          },
+          {
+            "id": "INC-117",
+            "title": "Regional gateway saturation",
+            "description": "API gateway requests returned intermittent HTTP 503s in one region. The active request queue grew steadily during the traffic peak.",
+            "services": [
+              "API Gateway"
+            ],
+            "root_cause": "Capacity",
+            "url": "",
+            "date": "2024-01-07",
+            "doc_type": "incident",
+            "why": "Retrieved from the alert symptoms.",
+            "via": null,
+            "score": null
+          },
+          {
+            "id": "INC-103",
+            "title": "Upstream timeouts on public API",
+            "description": "Public API requests timed out across multiple regions. Upstream connections stalled and public endpoint health checks were flapping.",
+            "services": [
+              "Public API"
+            ],
+            "root_cause": "Dependency",
+            "url": "",
+            "date": "2024-01-06",
+            "doc_type": "incident",
+            "why": "Retrieved from the alert symptoms.",
+            "via": null,
+            "score": null
+          },
+          {
+            "id": "INC-076",
+            "title": "CI jobs queued behind idle runners",
+            "description": "Jobs waited in the pending queue for several minutes. Runners were idle and the job scheduler showed assignment delays.",
+            "services": [
+              "CI Runners"
+            ],
+            "root_cause": "Config change",
+            "url": "",
+            "date": "2024-01-05",
+            "doc_type": "incident",
+            "why": "Retrieved from the alert symptoms.",
+            "via": null,
+            "score": null
+          }
+        ],
+        "paths": [
+          {
+            "source": "INC-051",
+            "target": "INC-028",
+            "type": "SAME_FIX_AS",
+            "reason": "Responder confirmed this precedent helped resolve INC-051."
+          }
+        ],
+        "graph_context": [],
+        "runbooks": [
+          {
+            "id": "rb-dependency",
+            "title": "Check upstream service health",
+            "description": "Review the affected upstream services and compare timeout rates by region.",
+            "services": [],
+            "root_cause": "unlabeled",
+            "url": "",
+            "date": "2023-12-31",
+            "doc_type": "runbook",
+            "why": "Retrieved as a possible diagnostic reference.",
+            "via": null,
+            "score": null
+          },
+          {
+            "id": "rb-gateway",
+            "title": "Validate a configuration rollout",
+            "description": "Compare the effective settings with their previous known-good version. Check the rollout timeline against the first errors.",
+            "services": [],
+            "root_cause": "unlabeled",
+            "url": "",
+            "date": "2023-12-31",
+            "doc_type": "runbook",
+            "why": "Retrieved as a possible diagnostic reference.",
+            "via": null,
+            "score": null
+          },
+          {
+            "id": "rb-capacity",
+            "title": "Inspect worker saturation",
+            "description": "Compare queue depth, worker utilization and request volume while errors are active.",
+            "services": [],
+            "root_cause": "unlabeled",
+            "url": "",
+            "date": "2023-12-31",
+            "doc_type": "runbook",
+            "why": "Retrieved as a possible diagnostic reference.",
+            "via": null,
+            "score": null
+          }
+        ],
+        "briefing": {
+          "abstain": false,
+          "likely_root_cause_classes": [
+            {
+              "label": "Dependency",
+              "evidence_ids": [
+                "INC-028"
+              ],
+              "confidence": "low"
+            }
+          ],
+          "precedents": [
+            {
+              "id": "INC-028",
+              "why_relevant": "Webhook deliveries retried was classified as Dependency.",
+              "path": ""
+            }
+          ],
+          "suggested_runbooks": [
+            {
+              "id": "rb-dependency",
+              "why": "Check upstream service health"
+            },
+            {
+              "id": "rb-gateway",
+              "why": "Validate a configuration rollout"
+            }
+          ],
+          "check_first": [
+            "Compare current symptoms with INC-028 before using its resolution."
+          ]
+        },
+        "tokens": {
+          "vector": 238,
+          "precedent": 219
+        },
+        "latency_ms": null,
+        "provenance": "recorded",
+        "upstream_request_id": null
+      },
+      "edge": {
+        "source": "INC-051",
+        "target": "INC-028",
+        "type": "SAME_FIX_AS",
+        "reason": "Responder confirmed this precedent helped resolve INC-051.",
+        "confirmed_at": "2024-01-10T00:00:00+00:00"
+      }
+    }
+  }
+}

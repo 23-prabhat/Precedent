@@ -1,0 +1,487 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-16T08:07:18+00:00",
+  "title": "Design System: Precedent",
+  "extensions": {
+    "colorMeta": {
+      "ground": {
+        "role": "neutral",
+        "displayName": "Ground",
+        "tonalRamp": [
+          "hsl(0.0 0.0% 15%)",
+          "hsl(0.0 0.0% 25%)",
+          "hsl(0.0 0.0% 36%)",
+          "hsl(0.0 0.0% 47%)",
+          "hsl(0.0 0.0% 59%)",
+          "hsl(0.0 0.0% 70%)",
+          "hsl(0.0 0.0% 82%)",
+          "hsl(0.0 0.0% 95%)"
+        ]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Paper",
+        "tonalRamp": [
+          "hsl(30.0 2.5% 15%)",
+          "hsl(30.0 3.9% 25%)",
+          "hsl(30.0 5.0% 36%)",
+          "hsl(30.0 5.6% 47%)",
+          "hsl(30.0 5.6% 59%)",
+          "hsl(30.0 4.8% 70%)",
+          "hsl(30.0 3.9% 82%)",
+          "hsl(30.0 2.4% 95%)"
+        ]
+      },
+      "surface-raised": {
+        "role": "neutral",
+        "displayName": "Surface raised",
+        "tonalRamp": [
+          "hsl(25.7 6.4% 15%)",
+          "hsl(25.7 10.0% 25%)",
+          "hsl(25.7 12.9% 36%)",
+          "hsl(25.7 14.3% 47%)",
+          "hsl(25.7 14.3% 59%)",
+          "hsl(25.7 12.4% 70%)",
+          "hsl(25.7 10.0% 82%)",
+          "hsl(25.7 6.3% 95%)"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "tonalRamp": [
+          "hsl(37.5 20.0% 15%)",
+          "hsl(37.5 31.1% 25%)",
+          "hsl(37.5 40.0% 36%)",
+          "hsl(37.5 44.4% 47%)",
+          "hsl(37.5 44.4% 59%)",
+          "hsl(37.5 38.7% 70%)",
+          "hsl(37.5 31.1% 82%)",
+          "hsl(37.5 19.6% 95%)"
+        ]
+      },
+      "quiet": {
+        "role": "neutral",
+        "displayName": "Quiet",
+        "tonalRamp": [
+          "hsl(28.7 6.1% 15%)",
+          "hsl(28.7 9.4% 25%)",
+          "hsl(28.7 12.1% 36%)",
+          "hsl(28.7 13.5% 47%)",
+          "hsl(28.7 13.5% 59%)",
+          "hsl(28.7 11.7% 70%)",
+          "hsl(28.7 9.4% 82%)",
+          "hsl(28.7 5.9% 95%)"
+        ]
+      },
+      "border": {
+        "role": "neutral",
+        "displayName": "Border",
+        "tonalRamp": [
+          "hsl(24.7 7.7% 15%)",
+          "hsl(24.7 12.0% 25%)",
+          "hsl(24.7 15.5% 36%)",
+          "hsl(24.7 17.2% 47%)",
+          "hsl(24.7 17.2% 59%)",
+          "hsl(24.7 14.9% 70%)",
+          "hsl(24.7 12.0% 82%)",
+          "hsl(24.7 7.6% 95%)"
+        ]
+      },
+      "hairline": {
+        "role": "neutral",
+        "displayName": "Hairline",
+        "tonalRamp": [
+          "hsl(25.0 7.5% 15%)",
+          "hsl(25.0 11.7% 25%)",
+          "hsl(25.0 15.0% 36%)",
+          "hsl(25.0 16.7% 47%)",
+          "hsl(25.0 16.7% 59%)",
+          "hsl(25.0 14.5% 70%)",
+          "hsl(25.0 11.7% 82%)",
+          "hsl(25.0 7.3% 95%)"
+        ]
+      },
+      "accent": {
+        "role": "primary",
+        "displayName": "Accent",
+        "tonalRamp": [
+          "hsl(21.0 45.0% 15%)",
+          "hsl(21.0 70.0% 25%)",
+          "hsl(21.0 90.0% 36%)",
+          "hsl(21.0 100.0% 47%)",
+          "hsl(21.0 100.0% 59%)",
+          "hsl(21.0 87.0% 70%)",
+          "hsl(21.0 70.0% 82%)",
+          "hsl(21.0 44.0% 95%)"
+        ]
+      },
+      "accent-hover": {
+        "role": "primary",
+        "displayName": "Accent hover",
+        "tonalRamp": [
+          "hsl(21.3 45.0% 15%)",
+          "hsl(21.3 70.0% 25%)",
+          "hsl(21.3 90.0% 36%)",
+          "hsl(21.3 100.0% 47%)",
+          "hsl(21.3 100.0% 59%)",
+          "hsl(21.3 87.0% 70%)",
+          "hsl(21.3 70.0% 82%)",
+          "hsl(21.3 44.0% 95%)"
+        ]
+      },
+      "accent-text": {
+        "role": "primary",
+        "displayName": "Accent text",
+        "tonalRamp": [
+          "hsl(20.4 45.0% 15%)",
+          "hsl(20.4 70.0% 25%)",
+          "hsl(20.4 90.0% 36%)",
+          "hsl(20.4 100.0% 47%)",
+          "hsl(20.4 100.0% 59%)",
+          "hsl(20.4 87.0% 70%)",
+          "hsl(20.4 70.0% 82%)",
+          "hsl(20.4 44.0% 95%)"
+        ]
+      },
+      "accent-soft": {
+        "role": "primary",
+        "displayName": "Accent soft",
+        "tonalRamp": [
+          "hsl(22.2 21.3% 15%)",
+          "hsl(22.2 33.2% 25%)",
+          "hsl(22.2 42.6% 36%)",
+          "hsl(22.2 47.4% 47%)",
+          "hsl(22.2 47.4% 59%)",
+          "hsl(22.2 41.2% 70%)",
+          "hsl(22.2 33.2% 82%)",
+          "hsl(22.2 20.8% 95%)"
+        ]
+      },
+      "action-ink": {
+        "role": "primary",
+        "displayName": "Action ink",
+        "tonalRamp": [
+          "hsl(18.9 25.9% 15%)",
+          "hsl(18.9 40.3% 25%)",
+          "hsl(18.9 51.8% 36%)",
+          "hsl(18.9 57.6% 47%)",
+          "hsl(18.9 57.6% 59%)",
+          "hsl(18.9 50.1% 70%)",
+          "hsl(18.9 40.3% 82%)",
+          "hsl(18.9 25.3% 95%)"
+        ]
+      },
+      "field": {
+        "role": "neutral",
+        "displayName": "Field",
+        "tonalRamp": [
+          "hsl(30.0 6.4% 15%)",
+          "hsl(30.0 10.0% 25%)",
+          "hsl(30.0 12.9% 36%)",
+          "hsl(30.0 14.3% 47%)",
+          "hsl(30.0 14.3% 59%)",
+          "hsl(30.0 12.4% 70%)",
+          "hsl(30.0 10.0% 82%)",
+          "hsl(30.0 6.3% 95%)"
+        ]
+      },
+      "field-border": {
+        "role": "neutral",
+        "displayName": "Field border",
+        "tonalRamp": [
+          "hsl(22.0 11.6% 15%)",
+          "hsl(22.0 18.1% 25%)",
+          "hsl(22.0 23.3% 36%)",
+          "hsl(22.0 25.9% 47%)",
+          "hsl(22.0 25.9% 59%)",
+          "hsl(22.0 22.5% 70%)",
+          "hsl(22.0 18.1% 82%)",
+          "hsl(22.0 11.4% 95%)"
+        ]
+      },
+      "map-ground": {
+        "role": "neutral",
+        "displayName": "Map ground",
+        "tonalRamp": [
+          "hsl(30.0 3.7% 15%)",
+          "hsl(30.0 5.8% 25%)",
+          "hsl(30.0 7.5% 36%)",
+          "hsl(30.0 8.3% 47%)",
+          "hsl(30.0 8.3% 59%)",
+          "hsl(30.0 7.2% 70%)",
+          "hsl(30.0 5.8% 82%)",
+          "hsl(30.0 3.7% 95%)"
+        ]
+      },
+      "map-selection": {
+        "role": "primary",
+        "displayName": "Map selection",
+        "tonalRamp": [
+          "hsl(21.0 14.1% 15%)",
+          "hsl(21.0 21.9% 25%)",
+          "hsl(21.0 28.1% 36%)",
+          "hsl(21.0 31.2% 47%)",
+          "hsl(21.0 31.2% 59%)",
+          "hsl(21.0 27.2% 70%)",
+          "hsl(21.0 21.9% 82%)",
+          "hsl(21.0 13.8% 95%)"
+        ]
+      },
+      "map-proximity": {
+        "role": "neutral",
+        "displayName": "Map proximity",
+        "tonalRamp": [
+          "hsl(24.8 16.4% 15%)",
+          "hsl(24.8 25.6% 25%)",
+          "hsl(24.8 32.9% 36%)",
+          "hsl(24.8 36.5% 47%)",
+          "hsl(24.8 36.5% 59%)",
+          "hsl(24.8 31.8% 70%)",
+          "hsl(24.8 25.6% 82%)",
+          "hsl(24.8 16.1% 95%)"
+        ]
+      },
+      "method-fill": {
+        "role": "neutral",
+        "displayName": "Method fill",
+        "tonalRamp": [
+          "hsl(26.7 9.4% 15%)",
+          "hsl(26.7 14.7% 25%)",
+          "hsl(26.7 18.8% 36%)",
+          "hsl(26.7 20.9% 47%)",
+          "hsl(26.7 20.9% 59%)",
+          "hsl(26.7 18.2% 70%)",
+          "hsl(26.7 14.7% 82%)",
+          "hsl(26.7 9.2% 95%)"
+        ]
+      },
+      "featured-evidence": {
+        "role": "primary",
+        "displayName": "Featured evidence",
+        "tonalRamp": [
+          "hsl(22.5 20.0% 15%)",
+          "hsl(22.5 31.1% 25%)",
+          "hsl(22.5 40.0% 36%)",
+          "hsl(22.5 44.4% 47%)",
+          "hsl(22.5 44.4% 59%)",
+          "hsl(22.5 38.7% 70%)",
+          "hsl(22.5 31.1% 82%)",
+          "hsl(22.5 19.6% 95%)"
+        ]
+      },
+      "featured-border": {
+        "role": "primary",
+        "displayName": "Featured border",
+        "tonalRamp": [
+          "hsl(20.0 19.5% 15%)",
+          "hsl(20.0 30.4% 25%)",
+          "hsl(20.0 39.1% 36%)",
+          "hsl(20.0 43.4% 47%)",
+          "hsl(20.0 43.4% 59%)",
+          "hsl(20.0 37.8% 70%)",
+          "hsl(20.0 30.4% 82%)",
+          "hsl(20.0 19.1% 95%)"
+        ]
+      },
+      "featured-muted": {
+        "role": "primary",
+        "displayName": "Featured muted",
+        "tonalRamp": [
+          "hsl(23.2 20.5% 15%)",
+          "hsl(23.2 31.9% 25%)",
+          "hsl(23.2 41.0% 36%)",
+          "hsl(23.2 45.6% 47%)",
+          "hsl(23.2 45.6% 59%)",
+          "hsl(23.2 39.7% 70%)",
+          "hsl(23.2 31.9% 82%)",
+          "hsl(23.2 20.1% 95%)"
+        ]
+      },
+      "featured-focus": {
+        "role": "primary",
+        "displayName": "Featured focus",
+        "tonalRamp": [
+          "hsl(21.5 45.0% 15%)",
+          "hsl(21.5 70.0% 25%)",
+          "hsl(21.5 90.0% 36%)",
+          "hsl(21.5 100.0% 47%)",
+          "hsl(21.5 100.0% 59%)",
+          "hsl(21.5 87.0% 70%)",
+          "hsl(21.5 70.0% 82%)",
+          "hsl(21.5 44.0% 95%)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "hero": {
+        "displayName": "Homepage headline",
+        "purpose": "Introduces the opening signal scene before the scroll story."
+      },
+      "analysis-title": {
+        "displayName": "Analysis title",
+        "purpose": "Introduces the incident workspace."
+      },
+      "featured-title": {
+        "displayName": "Connected incident title",
+        "purpose": "Leads the evidence pane."
+      },
+      "identifier": {
+        "displayName": "Incident identifier",
+        "purpose": "Labels sources, endpoints, and technical evidence."
+      }
+    },
+    "motion": [
+      {
+        "name": "scene-progress",
+        "value": "Motion spring with stiffness 155 and damping 30",
+        "purpose": "Connects scroll progress to the continuous spiral, text clusters, recorded graph edge, and memory orbit."
+      },
+      {
+        "name": "retrieval-selection",
+        "value": "Motion spring with stiffness 135 and damping 27",
+        "purpose": "Draws or retracts the recorded relationship when the visitor switches retrieval methods."
+      },
+      {
+        "name": "opening-headline",
+        "value": "950ms with a 75ms stagger between words",
+        "purpose": "Reveals the opening headline once. Reduced motion presents the words immediately."
+      },
+      {
+        "name": "switch-thumb",
+        "value": "transform 160ms ease",
+        "purpose": "Moves the recorded-results switch thumb when changing modes."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "homepage-gutters",
+        "value": "950px"
+      },
+      {
+        "name": "homepage-copy-above-field",
+        "value": "779px"
+      },
+      {
+        "name": "analysis-stack",
+        "value": "760px"
+      },
+      {
+        "name": "workspace-compact",
+        "value": "560px"
+      },
+      {
+        "name": "relationship-action-wrap",
+        "value": "420px"
+      },
+      {
+        "name": "text-only-compact-navigation",
+        "value": "400px"
+      },
+      {
+        "name": "homepage-single-case-column",
+        "value": "370px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Runs incident analysis or saves a confirmed action.",
+      "html": "<button class=\"ds-primary\">Analyze alert <svg aria-hidden=\"true\" width=\"16\" height=\"16\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 32 32\"><path fill=\"currentColor\" d=\"M30.48 9.14h-1.53V6.09h-1.52V4.57h-1.52V3.05h-3.05V1.52h-3.05V0h-7.62v1.52H9.14v1.53H6.1v1.52H4.57v1.52H3.05v3.05H1.52v3.05H0v7.62h1.52v3.05h1.53v3.04h1.52v1.53H6.1v1.52h3.04v1.53h3.05V32h7.62v-1.52h3.05v-1.53h3.05v-1.52h1.52V25.9h1.52v-3.04h1.53v-3.05H32v-7.62h-1.52Zm-4.57 6.1h-1.53v1.52h-1.52v1.53h-1.53v1.52h-1.52v1.52h-1.52v-3.04h-6.1v1.52h-1.52v1.52h1.52v1.53h1.52v1.52H9.14v-1.52H7.62v-1.53H6.1v-7.62h1.52v-1.52h1.52v-1.52h9.15V7.62h1.52v1.52h1.52v1.53h1.53v1.52h1.52v1.52h1.53Z\"/></svg></button>",
+      "css": ".ds-primary{display:inline-flex;align-items:center;justify-content:center;gap:7px;min-height:36px;padding:8px 12px;border-radius:2px;font:670 12px/1.5 \"Bricolage Grotesque Variable\",\"Segoe UI\",sans-serif;cursor:pointer;background:var(--accent,#ff6a1a);border:1px solid var(--accent,#ff6a1a);color:#1a0d07}.ds-primary:hover{background:#ff9b64;border-color:#ff9b64}.ds-primary:focus-visible{outline:2px solid var(--accent,#ff6a1a);outline-offset:3px}.ds-primary:disabled{opacity:.63;cursor:not-allowed}"
+    },
+    {
+      "name": "Secondary button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Supporting actions in the workspace.",
+      "html": "<button class=\"ds-secondary\">Record resolution</button>",
+      "css": ".ds-secondary{display:inline-flex;align-items:center;justify-content:center;gap:7px;min-height:36px;padding:8px 12px;border-radius:2px;font:670 12px/1.5 \"Bricolage Grotesque Variable\",\"Segoe UI\",sans-serif;cursor:pointer;background:var(--paper,#131211);border:1px solid var(--border,#3a3029);color:var(--ink,#faf7f2)}.ds-secondary:hover{background:#241b16;border-color:#684836}.ds-secondary:focus-visible{outline:2px solid var(--accent,#ff6a1a);outline-offset:3px}.ds-secondary:disabled{opacity:.63;cursor:not-allowed}"
+    },
+    {
+      "name": "Homepage action",
+      "kind": "button",
+      "refersTo": "hero-action",
+      "description": "Moves the reader from the opening signal to the text-similarity scene.",
+      "html": "<a class=\"ds-home-action\" href=\"#how\">Follow the signal <span aria-hidden=\"true\">\u2193</span></a>",
+      "css": ".ds-home-action{box-sizing:border-box;display:inline-flex;align-items:center;justify-content:center;gap:16px;min-height:44px;padding:10px 15px;background:var(--accent,#ff6a1a);color:#1d0e07;font:700 .85rem/1.5 \"Bricolage Grotesque Variable\",\"Segoe UI\",sans-serif;text-decoration:none}.ds-home-action:hover{background:#ff9b64}.ds-home-action:focus-visible{outline:2px solid var(--accent,#ff6a1a);outline-offset:3px}"
+    },
+    {
+      "name": "Alert field",
+      "kind": "input",
+      "refersTo": "alert-field",
+      "description": "Editable, labeled incident symptoms.",
+      "html": "<textarea aria-label=\"Describe the alert\" class=\"ds-alert-field\">API requests returned intermittent HTTP 503 responses.</textarea>",
+      "css": ".ds-alert-field{box-sizing:border-box;display:block;width:100%;min-height:140px;resize:vertical;padding:10px 12px;border:1px solid #49362b;border-radius:2px;background:#100e0c;color:var(--ink,#faf7f2);font:14px/1.5 \"Bricolage Grotesque Variable\",\"Segoe UI\",sans-serif}.ds-alert-field:focus-visible{outline:2px solid var(--accent,#ff6a1a);outline-offset:3px}@media(max-width:760px){.ds-alert-field{min-height:114px}}"
+    },
+    {
+      "name": "Workspace navigation",
+      "kind": "nav",
+      "refersTo": "nav-item-active",
+      "description": "Shared mark, labeled pixel icons, and an orange current-page underline.",
+      "html": "<header class=\"ds-header\"><a class=\"ds-brand\" href=\"/\" aria-label=\"Precedent home\"><svg aria-hidden=\"true\" width=\"35\" height=\"35\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 40 40\" fill=\"none\">\n  <path d=\"M7 28l13-13 12 9M20 15l7-8\" stroke=\"#ff6a1a\" stroke-width=\"2\"/>\n  <path fill=\"#ff6a1a\" d=\"M4 25h6v6H4zm13-13h6v6h-6z\"/>\n  <path fill=\"#faf7f2\" d=\"M29 21h6v6h-6zM25 5h4v4h-4z\"/>\n</svg><span>Precedent</span></a><nav class=\"ds-nav\" aria-label=\"Workspace\"><button aria-current=\"page\"><svg aria-hidden=\"true\" width=\"16\" height=\"16\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 32 32\"><path fill=\"currentColor\" d=\"M23.62 20.57H22.1v1.52h-1.53v1.53h-3.04v1.52h3.04v1.52h1.53v1.53h1.52v1.52h1.52v1.53h4.58v-1.53h1.52v-4.57h-1.52v-1.52h-1.53v-1.53h-1.52v-1.52h-1.53v-3.05h-1.52Zm1.52 3.05h1.53v1.52h1.52v1.52h1.53v1.53h-1.53v-1.53h-1.52v-1.52h-1.53Zm0-13.72h1.53v7.62h-1.53Zm-1.52-3.05h1.52V9.9h-1.52ZM22.1 5.33h1.52v1.52H22.1Zm-1.53-1.52h1.53v1.52h-1.53Zm-3.04-1.53h3.04v1.53h-3.04ZM5.34 16h1.52v1.52h1.52v1.52h1.53v1.53h3.04v-1.53h1.53v-1.52H16V16h1.53v-1.53h1.52v-1.52h1.52v-1.52h1.53V9.9h-1.53V8.38h-1.52V9.9h-1.52v1.53H16v1.52h-1.52v1.52h-1.53V16H9.91v-1.53H8.38v-1.52H6.86v1.52H5.34zm4.57 9.14h7.62v1.52H9.91Zm0-24.38h7.62v1.52H9.91ZM6.86 23.62h3.05v1.52H6.86Zm0-21.34h3.05v1.53H6.86ZM5.34 22.09h1.52v1.53H5.34Zm0-18.28h1.52v1.52H5.34ZM3.81 20.57h1.53v1.52H3.81Zm0-15.24h1.53v1.52H3.81ZM2.29 17.52h1.52v3.05H2.29Zm0-10.67h1.52V9.9H2.29ZM.76 9.9h1.53v7.62H.76Z\"/></svg>Analysis</button><button><svg aria-hidden=\"true\" width=\"16\" height=\"16\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 32 32\"><path fill=\"currentColor\" d=\"M28.195 20.575h1.52v6.09h-1.52Zm-1.53 6.09h1.53v1.53h-1.53Zm0-7.61h1.53v1.52h-1.53Zm-1.52-1.53h1.52v1.53h-1.52Zm-4.57 10.67h6.09v1.52h-6.09Zm3.04-12.19h1.53v1.52h-1.53Zm-4.57-1.53h4.57v1.53h-4.57Zm0 12.19h1.53v1.53h-1.53Zm-1.52-1.52h1.52v1.52h-1.52Z\"/><path fill=\"currentColor\" d=\"M14.475 11.435h-3.05v3.04h1.53v1.53h1.52v1.52h1.53v1.53h1.52v1.52h3.05v-3.05h-1.53v-1.52h-1.52v-1.53h-1.52v-1.52h-1.53zm1.53 12.19h1.52v1.52h-1.52Zm0-15.24h1.52v4.57h-1.52Z\"/><path fill=\"currentColor\" d=\"M14.475 19.055h1.53v4.57h-1.53Zm0-12.19h1.53v1.52h-1.53Zm-1.52-1.53h1.52v1.53h-1.52Zm-1.53-1.52h1.53v1.52h-1.53Zm-3.04 12.19h4.57v1.52h-4.57Zm-1.53-1.53h1.53v1.53h-1.53Zm-1.52-12.19h6.09v1.53h-6.09Zm0 10.67h1.52v1.52h-1.52Zm-1.52-1.52h1.52v1.52h-1.52Zm0-7.62h1.52v1.52h-1.52Zm-1.53 1.52h1.53v6.1h-1.53Z\"/></svg>Memory graph</button></nav></header>",
+      "css": ".ds-header{display:flex;align-items:center;flex-wrap:wrap;gap:18px;padding:0 10px;background:var(--paper,#131211);border-bottom:1px solid var(--border,#3a3029)}.ds-brand{display:inline-flex;align-items:center;gap:7px;color:var(--ink,#faf7f2);font:700 1.32rem/1 \"Bricolage Grotesque Variable\",\"Segoe UI\",sans-serif;letter-spacing:-.036em;text-decoration:none}.ds-nav{display:flex;gap:19px;min-height:54px}.ds-nav button{display:inline-flex;align-items:center;gap:7px;padding:2px 3px 0;border:0;border-bottom:2px solid transparent;background:none;color:var(--quiet,#b5a99e);font:500 13px \"Bricolage Grotesque Variable\",\"Segoe UI\",sans-serif;cursor:pointer}.ds-nav button:hover{color:var(--ink,#faf7f2);text-decoration:underline}.ds-nav button[aria-current=page]{color:var(--ink,#faf7f2);border-bottom-color:var(--accent,#ff6a1a);font-weight:700}.ds-nav button[aria-current=page] svg{color:var(--accent,#ff6a1a)}.ds-nav button:focus-visible,.ds-brand:focus-visible{outline:2px solid var(--accent,#ff6a1a);outline-offset:3px}"
+    },
+    {
+      "name": "Evidence method control",
+      "kind": "custom",
+      "refersTo": "evidence-method",
+      "description": "Selects graph evidence or vector baseline in the evidence pane.",
+      "html": "<div class=\"ds-methods\" role=\"group\" aria-label=\"Retrieval method\"><button aria-pressed=\"true\">Graph evidence</button><button aria-pressed=\"false\">Vector baseline</button></div>",
+      "css": ".ds-methods{display:inline-flex;align-items:stretch;gap:2px;padding:3px;background:#1a1511;flex-wrap:wrap}.ds-methods button{background:none;border:1px solid transparent;padding:6px 8px;color:var(--quiet,#b5a99e);min-height:34px;font:600 .72rem/1.5 \"Bricolage Grotesque Variable\",\"Segoe UI\",sans-serif;cursor:pointer}.ds-methods button[aria-pressed=true]{background:var(--paper,#131211);color:var(--ink,#faf7f2);border-color:var(--border,#3a3029)}.ds-methods button:hover{color:var(--ink,#faf7f2);text-decoration:underline}.ds-methods button:focus-visible{outline:2px solid var(--accent,#ff6a1a);outline-offset:3px}"
+    },
+    {
+      "name": "Work panel",
+      "kind": "card",
+      "refersTo": "work-panel",
+      "description": "Charcoal panel for standard incident or report content.",
+      "html": "<section class=\"ds-panel\"><h3>Evidence briefing</h3><p>Review the related incident before applying a fix.</p></section>",
+      "css": ".ds-panel{padding:14px 16px;border:1px solid var(--border,#3a3029);border-radius:var(--radius,5px);background:var(--paper,#131211);color:var(--ink,#faf7f2);font:14px/1.5 \"Bricolage Grotesque Variable\",\"Segoe UI\",sans-serif}.ds-panel h3{margin:0;font-size:16px;line-height:1.2;font-weight:700;letter-spacing:-.012em}.ds-panel p{margin:5px 0 0;max-width:72ch;color:var(--quiet,#b5a99e)}"
+    },
+    {
+      "name": "Featured incident evidence",
+      "kind": "card",
+      "refersTo": "featured-evidence",
+      "description": "Shows a connected precedent, its confirmed reason, endpoints, and relationship action.",
+      "html": "<article class=\"ds-featured\"><div class=\"ds-source\"><span><svg aria-hidden=\"true\" width=\"16\" height=\"16\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 32 32\"><path fill=\"currentColor\" d=\"M28.195 20.575h1.52v6.09h-1.52Zm-1.53 6.09h1.53v1.53h-1.53Zm0-7.61h1.53v1.52h-1.53Zm-1.52-1.53h1.52v1.53h-1.52Zm-4.57 10.67h6.09v1.52h-6.09Zm3.04-12.19h1.53v1.52h-1.53Zm-4.57-1.53h4.57v1.53h-4.57Zm0 12.19h1.53v1.53h-1.53Zm-1.52-1.52h1.52v1.52h-1.52Z\"/><path fill=\"currentColor\" d=\"M14.475 11.435h-3.05v3.04h1.53v1.53h1.52v1.52h1.53v1.53h1.52v1.52h3.05v-3.05h-1.53v-1.52h-1.52v-1.53h-1.52v-1.52h-1.53zm1.53 12.19h1.52v1.52h-1.52Zm0-15.24h1.52v4.57h-1.52Z\"/><path fill=\"currentColor\" d=\"M14.475 19.055h1.53v4.57h-1.53Zm0-12.19h1.53v1.52h-1.53Zm-1.52-1.53h1.52v1.53h-1.52Zm-1.53-1.52h1.53v1.52h-1.53Zm-3.04 12.19h4.57v1.52h-4.57Zm-1.53-1.53h1.53v1.53h-1.53Zm-1.52-12.19h6.09v1.53h-6.09Zm0 10.67h1.52v1.52h-1.52Zm-1.52-1.52h1.52v1.52h-1.52Zm0-7.62h1.52v1.52h-1.52Zm-1.53 1.52h1.53v6.1h-1.53Z\"/></svg> Connected precedent</span><span>Container Registry</span></div><h3><button>Registry uploads stalled after a policy rollout</button></h3><p>A responder confirmed both incidents recovered after restoring the previous configuration.</p><div class=\"ds-path\"><span>INC-142</span><span class=\"ds-edge\"><i></i>SAME_FIX_AS<i></i></span><span>INC-089</span><button>Inspect relationship</button></div></article>",
+      "css": ".ds-featured{border:1px solid #6d412b;border-radius:7px;background:#27180f;color:var(--ink,#faf7f2);padding:clamp(16px,2.4vw,27px);font:14px/1.5 \"Bricolage Grotesque Variable\",\"Segoe UI\",sans-serif}.ds-source{display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px;color:#ddbaa4;font-size:.73rem}.ds-source span:first-child{display:inline-flex;align-items:center;gap:6px;color:#ffad7b;font-weight:600}.ds-source span+span{border-left:1px solid #5c3726;padding-left:10px}.ds-featured h3{font:650 clamp(1.65rem,2.95vw,2.45rem)/1.06 \"Bricolage Grotesque Variable\",\"Segoe UI\",sans-serif;letter-spacing:-.025em;max-width:25ch;margin:9px 0}.ds-featured h3 button{padding:0;border:0;background:none;color:inherit;font:inherit;text-align:left;cursor:pointer}.ds-featured h3 button:hover{text-decoration:underline}.ds-featured p{max-width:55ch;margin:0;color:#ddbaa4;font-size:.87rem;line-height:1.55}.ds-path{display:flex;flex-wrap:wrap;align-items:center;gap:6px 9px;padding-top:13px;margin-top:15px;border-top:1px solid #67412c;color:#ffd2b5}.ds-path span{font:500 .72rem \"IBM Plex Mono\",monospace}.ds-path .ds-edge{display:flex;align-items:center;gap:5px;font-size:.66rem;color:#ffa06f}.ds-edge i{width:9px;height:1px;background:var(--accent,#ff6a1a)}.ds-path button{margin-left:auto;color:#ffb087;border:0;background:none;padding:4px 0 4px 4px;text-decoration:underline;font:inherit;font-size:.76rem;cursor:pointer}.ds-featured :focus-visible{outline:2px solid #ffc2a0;outline-offset:3px}@media(max-width:420px){.ds-path button{margin-left:0;flex-basis:100%;text-align:left;padding-left:0}}"
+    },
+    {
+      "name": "Open graph scene",
+      "kind": "custom",
+      "refersTo": "incident-map",
+      "description": "Static crop of the full-width graph scene. The live scene draws the recorded edge when HydraDB graph is selected.",
+      "html": "<figure class=\"ds-open-scene\"><figcaption class=\"ds-graph-copy\"><h3>Follow the<br>shared fix.</h3><div class=\"ds-retrieval\" role=\"group\" aria-label=\"Retrieval comparison\"><button type=\"button\" aria-pressed=\"false\">Vector only</button><button type=\"button\" aria-pressed=\"true\">HydraDB graph</button></div><p class=\"ds-route\">INC-142 <span></span> SAME_FIX_AS <span></span> INC-089</p></figcaption><svg viewBox=\"301 44 317 301\" role=\"img\" aria-label=\"A faint line goes from the incoming alert to the API gateway. A brighter curved line links the API gateway to the container registry.\"><g fill=\"#d7bca9\"><circle cx=\"349.6\" cy=\"150.5\" r=\"0.5\" opacity=\"0.34\"/><circle cx=\"403.5\" cy=\"113.8\" r=\"0.6\" opacity=\"0.25\"/><circle cx=\"357.0\" cy=\"96.2\" r=\"1.0\" opacity=\"0.41\"/><circle cx=\"350.0\" cy=\"64.2\" r=\"0.5\" opacity=\"0.30\"/><circle cx=\"375.6\" cy=\"112.0\" r=\"1.3\" opacity=\"0.49\"/><circle cx=\"360.4\" cy=\"50.9\" r=\"1.0\" opacity=\"0.43\"/><circle cx=\"364.6\" cy=\"104.5\" r=\"1.2\" opacity=\"0.39\"/><circle cx=\"387.2\" cy=\"99.4\" r=\"0.8\" opacity=\"0.24\"/><circle cx=\"361.9\" cy=\"57.9\" r=\"1.1\" opacity=\"0.31\"/><circle cx=\"384.6\" cy=\"86.1\" r=\"0.8\" opacity=\"0.31\"/><circle cx=\"352.3\" cy=\"113.9\" r=\"0.7\" opacity=\"0.40\"/><circle cx=\"325.3\" cy=\"101.6\" r=\"0.6\" opacity=\"0.49\"/><circle cx=\"352.9\" cy=\"79.8\" r=\"1.3\" opacity=\"0.50\"/><circle cx=\"407.9\" cy=\"100.0\" r=\"0.8\" opacity=\"0.54\"/><circle cx=\"346.7\" cy=\"100.6\" r=\"1.2\" opacity=\"0.49\"/><circle cx=\"329.6\" cy=\"87.8\" r=\"1.3\" opacity=\"0.32\"/><circle cx=\"344.5\" cy=\"52.3\" r=\"0.9\" opacity=\"0.28\"/><circle cx=\"407.9\" cy=\"103.6\" r=\"1.0\" opacity=\"0.47\"/><circle cx=\"384.6\" cy=\"156.4\" r=\"1.1\" opacity=\"0.30\"/><circle cx=\"331.3\" cy=\"130.3\" r=\"0.9\" opacity=\"0.20\"/><circle cx=\"356.7\" cy=\"85.1\" r=\"1.0\" opacity=\"0.31\"/><circle cx=\"370.6\" cy=\"56.7\" r=\"0.8\" opacity=\"0.55\"/><circle cx=\"372.0\" cy=\"65.9\" r=\"0.9\" opacity=\"0.20\"/><circle cx=\"351.8\" cy=\"77.5\" r=\"1.1\" opacity=\"0.21\"/><circle cx=\"586.2\" cy=\"138.8\" r=\"1.3\" opacity=\"0.33\"/><circle cx=\"585.5\" cy=\"98.0\" r=\"1.1\" opacity=\"0.55\"/><circle cx=\"557.6\" cy=\"78.9\" r=\"1.2\" opacity=\"0.26\"/><circle cx=\"570.0\" cy=\"88.0\" r=\"1.0\" opacity=\"0.28\"/><circle cx=\"528.2\" cy=\"116.3\" r=\"1.2\" opacity=\"0.32\"/><circle cx=\"585.0\" cy=\"109.5\" r=\"1.0\" opacity=\"0.27\"/><circle cx=\"549.2\" cy=\"101.8\" r=\"0.6\" opacity=\"0.23\"/><circle cx=\"536.5\" cy=\"133.5\" r=\"1.1\" opacity=\"0.27\"/><circle cx=\"580.1\" cy=\"131.1\" r=\"0.5\" opacity=\"0.33\"/><circle cx=\"565.9\" cy=\"63.2\" r=\"1.3\" opacity=\"0.43\"/><circle cx=\"563.4\" cy=\"126.0\" r=\"1.1\" opacity=\"0.47\"/><circle cx=\"562.1\" cy=\"89.1\" r=\"1.2\" opacity=\"0.36\"/><circle cx=\"563.6\" cy=\"86.9\" r=\"1.2\" opacity=\"0.53\"/><circle cx=\"564.9\" cy=\"57.8\" r=\"0.6\" opacity=\"0.50\"/><circle cx=\"568.7\" cy=\"93.6\" r=\"0.7\" opacity=\"0.45\"/><circle cx=\"562.1\" cy=\"126.7\" r=\"0.6\" opacity=\"0.32\"/><circle cx=\"543.1\" cy=\"142.8\" r=\"0.8\" opacity=\"0.32\"/><circle cx=\"565.4\" cy=\"114.7\" r=\"0.8\" opacity=\"0.52\"/><circle cx=\"548.5\" cy=\"144.7\" r=\"1.0\" opacity=\"0.49\"/><circle cx=\"555.8\" cy=\"131.0\" r=\"0.9\" opacity=\"0.25\"/><circle cx=\"582.3\" cy=\"78.2\" r=\"1.2\" opacity=\"0.23\"/><circle cx=\"553.6\" cy=\"85.6\" r=\"0.7\" opacity=\"0.42\"/><circle cx=\"578.9\" cy=\"70.2\" r=\"1.1\" opacity=\"0.51\"/><circle cx=\"577.9\" cy=\"86.5\" r=\"0.7\" opacity=\"0.37\"/><circle cx=\"409.5\" cy=\"253.1\" r=\"1.0\" opacity=\"0.32\"/><circle cx=\"423.8\" cy=\"281.4\" r=\"1.3\" opacity=\"0.28\"/><circle cx=\"350.2\" cy=\"304.5\" r=\"1.0\" opacity=\"0.46\"/><circle cx=\"364.9\" cy=\"291.9\" r=\"0.9\" opacity=\"0.50\"/><circle cx=\"350.1\" cy=\"281.9\" r=\"0.6\" opacity=\"0.46\"/><circle cx=\"408.1\" cy=\"302.5\" r=\"0.9\" opacity=\"0.53\"/><circle cx=\"348.2\" cy=\"274.4\" r=\"1.2\" opacity=\"0.38\"/><circle cx=\"394.3\" cy=\"272.7\" r=\"0.7\" opacity=\"0.49\"/><circle cx=\"418.0\" cy=\"305.7\" r=\"1.2\" opacity=\"0.48\"/><circle cx=\"416.2\" cy=\"301.1\" r=\"1.3\" opacity=\"0.38\"/><circle cx=\"375.0\" cy=\"281.9\" r=\"0.7\" opacity=\"0.54\"/><circle cx=\"381.2\" cy=\"257.2\" r=\"0.6\" opacity=\"0.38\"/><circle cx=\"417.6\" cy=\"298.5\" r=\"0.7\" opacity=\"0.19\"/><circle cx=\"420.9\" cy=\"275.0\" r=\"0.7\" opacity=\"0.39\"/><circle cx=\"356.3\" cy=\"269.4\" r=\"0.5\" opacity=\"0.37\"/><circle cx=\"390.9\" cy=\"263.4\" r=\"1.1\" opacity=\"0.37\"/><circle cx=\"346.2\" cy=\"280.9\" r=\"0.8\" opacity=\"0.39\"/><circle cx=\"381.4\" cy=\"233.2\" r=\"1.1\" opacity=\"0.40\"/><circle cx=\"347.6\" cy=\"286.6\" r=\"0.8\" opacity=\"0.20\"/><circle cx=\"407.7\" cy=\"247.9\" r=\"1.3\" opacity=\"0.29\"/><circle cx=\"364.2\" cy=\"295.1\" r=\"1.0\" opacity=\"0.43\"/><circle cx=\"382.2\" cy=\"246.0\" r=\"0.6\" opacity=\"0.44\"/><circle cx=\"391.3\" cy=\"280.1\" r=\"0.6\" opacity=\"0.48\"/><circle cx=\"374.7\" cy=\"301.6\" r=\"1.2\" opacity=\"0.33\"/><circle cx=\"552.7\" cy=\"323.9\" r=\"1.3\" opacity=\"0.20\"/><circle cx=\"585.6\" cy=\"317.0\" r=\"0.8\" opacity=\"0.57\"/><circle cx=\"597.9\" cy=\"295.3\" r=\"1.3\" opacity=\"0.32\"/><circle cx=\"593.4\" cy=\"283.9\" r=\"0.8\" opacity=\"0.50\"/><circle cx=\"580.2\" cy=\"296.3\" r=\"0.7\" opacity=\"0.52\"/><circle cx=\"571.7\" cy=\"286.0\" r=\"0.6\" opacity=\"0.35\"/><circle cx=\"550.5\" cy=\"268.5\" r=\"1.3\" opacity=\"0.52\"/><circle cx=\"580.2\" cy=\"272.2\" r=\"1.0\" opacity=\"0.25\"/><circle cx=\"539.4\" cy=\"312.5\" r=\"0.5\" opacity=\"0.26\"/><circle cx=\"543.9\" cy=\"284.8\" r=\"1.2\" opacity=\"0.54\"/><circle cx=\"588.7\" cy=\"276.4\" r=\"0.5\" opacity=\"0.30\"/><circle cx=\"549.6\" cy=\"264.7\" r=\"0.9\" opacity=\"0.32\"/><circle cx=\"576.6\" cy=\"297.2\" r=\"1.1\" opacity=\"0.27\"/><circle cx=\"553.7\" cy=\"293.9\" r=\"0.6\" opacity=\"0.54\"/><circle cx=\"542.2\" cy=\"318.4\" r=\"0.7\" opacity=\"0.24\"/><circle cx=\"596.6\" cy=\"298.0\" r=\"0.8\" opacity=\"0.22\"/><circle cx=\"540.9\" cy=\"283.7\" r=\"1.2\" opacity=\"0.25\"/><circle cx=\"586.1\" cy=\"314.8\" r=\"0.7\" opacity=\"0.55\"/><circle cx=\"562.4\" cy=\"285.0\" r=\"0.8\" opacity=\"0.50\"/><circle cx=\"552.3\" cy=\"284.3\" r=\"0.6\" opacity=\"0.23\"/><circle cx=\"591.1\" cy=\"322.0\" r=\"0.9\" opacity=\"0.23\"/><circle cx=\"582.0\" cy=\"279.2\" r=\"1.1\" opacity=\"0.30\"/><circle cx=\"542.9\" cy=\"326.8\" r=\"1.3\" opacity=\"0.28\"/><circle cx=\"558.1\" cy=\"272.3\" r=\"1.3\" opacity=\"0.56\"/></g><path d=\"M329 247L427 185\" fill=\"none\" stroke=\"#d7bca9\" stroke-width=\".8\" opacity=\".5\"/><path d=\"M427 185Q524 106 570 134\" fill=\"none\" stroke=\"#ff6a1a\" stroke-width=\"1.25\"/><g class=\"ds-points\" fill=\"#ffefdc\"><circle cx=\"329\" cy=\"247\" r=\"3.4\"/><circle cx=\"427\" cy=\"185\" r=\"3.7\"/><circle cx=\"570\" cy=\"134\" r=\"4.2\" fill=\"#ff9b64\"/></g><g class=\"ds-node-labels\"><text x=\"329\" y=\"262\">Incoming alert</text><text x=\"427\" y=\"201\">INC-142</text><text x=\"427\" y=\"212\" class=\"ds-service\">API gateway</text><text x=\"570\" y=\"150\">INC-089</text><text x=\"570\" y=\"161\" class=\"ds-service\">Container registry</text></g></svg></figure>",
+      "css": ".ds-open-scene{display:grid;grid-template-columns:minmax(0,.93fr) minmax(0,1.07fr);align-items:center;gap:12px;margin:0;padding:14px;background:radial-gradient(ellipse at 71% 48%,#28150d 0%,#140e0b 42%,#090909 74%);color:#faf7f2;font:14px/1.5 \"Bricolage Grotesque Variable\",\"Segoe UI\",sans-serif}.ds-graph-copy h3{margin:0;font-size:clamp(1.85rem,5vw,3.3rem);font-weight:650;line-height:.9;letter-spacing:-.04em}.ds-retrieval{display:flex;gap:14px;margin-top:16px;flex-wrap:wrap}.ds-retrieval button{background:none;border:0;border-bottom:1px solid transparent;padding:7px 0;color:#c6b2a3;font:620 .75rem/1.5 \"Bricolage Grotesque Variable\",\"Segoe UI\",sans-serif;cursor:pointer}.ds-retrieval button:is(:hover,[aria-pressed=true]){color:#faf7f2;border-color:#ff6a1a}.ds-retrieval button:focus-visible{outline:2px solid #ff6a1a;outline-offset:3px}.ds-open-scene .ds-route{display:flex;align-items:center;gap:5px;margin-top:10px;color:#ffa06f;font:.62rem \"IBM Plex Mono\",monospace;white-space:nowrap}.ds-open-scene .ds-route span{flex:1;min-width:3px;height:1px;background:#ff6a1a}.ds-open-scene>svg{display:block;width:100%;height:auto;overflow:visible}.ds-node-labels{fill:#ffefdc;text-anchor:middle;font:9px \"IBM Plex Mono\",monospace}.ds-node-labels .ds-service{fill:#e9b290;font-size:8px}@media(max-width:420px){.ds-open-scene{grid-template-columns:minmax(0,1fr);gap:0}.ds-open-scene>svg{max-height:190px}}"
+    }
+  ],
+  "narrative": {
+    "northStar": "Find the fix in the noise.",
+    "overview": "The homepage opens with a gateway 503 alert and follows it from the closest text match to a recorded relationship and a suggested check. In the final chapter, the repository mirror replay shows how the results change when a responder saves a fix. The full-bleed field draws or retracts each path when the comparison changes.\n\nThe workspace carries that vocabulary into a focused evidence pane. Warm charcoal surfaces set off a connected precedent, source identifiers, and relationship actions.",
+    "keyCharacteristics": [
+      "Near-black surfaces with warm white type and orange actions.",
+      "Bricolage Grotesque for reading and IBM Plex Mono for labels and identifiers.",
+      "Streamline Pixel Mono Free icons with functional text.",
+      "A scroll-driven constellation, open evidence comparisons, and a focused console evidence pane."
+    ],
+    "rules": [
+      {
+        "name": "The Relationship Rule",
+        "body": "Pair the orange path with a relationship label, source identifiers, and a caption or explanation.",
+        "section": "colors"
+      }
+    ],
+    "dos": [
+      "**Do** pair orange relationship paths with labels and source identifiers.",
+      "**Do** keep Streamline Pixel icons alongside action text where space allows.",
+      "**Do** keep the vector baseline reachable from the evidence pane at all widths.",
+      "**Do** distinguish illustrative layout from the recorded relationship."
+    ],
+    "donts": [
+      "**Don't** apply the constellation halo to general panels or actions."
+    ]
+  }
+}

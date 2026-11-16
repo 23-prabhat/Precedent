@@ -1,0 +1,2202 @@
+{
+  "manifest": {
+    "run_id": "synthetic-recording",
+    "provenance": "synthetic",
+    "policy": "assisted",
+    "query_variant": "primary",
+    "graded": true,
+    "seed": 2026,
+    "typed": true,
+    "arms": [
+      "A",
+      "B",
+      "C",
+      "C+",
+      "D",
+      "random",
+      "prior"
+    ],
+    "sdk": null,
+    "contract": null,
+    "model": "Sparse lexical fixture",
+    "token_budget": 1500,
+    "model_revision": null,
+    "database": null,
+    "isolation": null,
+    "tokenization": "lexical proxy",
+    "hard_threshold": 0.06666666666666665,
+    "fallback_queries": 0,
+    "split_boundaries": [
+      {
+        "start": "2024-01-01T00:00:00+00:00",
+        "end": "2024-01-20T00:00:00+00:00",
+        "n": 19
+      },
+      {
+        "start": "2024-01-21T00:00:00+00:00",
+        "end": "2024-01-30T00:00:00+00:00",
+        "n": 10
+      },
+      {
+        "start": "2024-01-31T00:00:00+00:00",
+        "end": "2024-02-09T00:00:00+00:00",
+        "n": 10
+      },
+      {
+        "start": "2024-02-10T00:00:00+00:00",
+        "end": "2024-02-19T00:00:00+00:00",
+        "n": 10
+      },
+      {
+        "start": "2024-02-20T00:00:00+00:00",
+        "end": "2024-02-29T00:00:00+00:00",
+        "n": 10
+      },
+      {
+        "start": "2024-03-01T00:00:00+00:00",
+        "end": "2024-03-10T00:00:00+00:00",
+        "n": 10
+      },
+      {
+        "start": "2024-03-11T00:00:00+00:00",
+        "end": "2024-03-20T00:00:00+00:00",
+        "n": 10
+      },
+      {
+        "start": "2024-03-21T00:00:00+00:00",
+        "end": "2024-03-30T00:00:00+00:00",
+        "n": 10
+      },
+      {
+        "start": "2024-03-31T00:00:00+00:00",
+        "end": "2024-04-09T00:00:00+00:00",
+        "n": 10
+      }
+    ],
+    "snapshot": "1cd2c2c79e93174f43c74f3ea3dd0a29f7d54ab2cc964a1f41f51cd0c5a74a1d",
+    "alpha": 0.8,
+    "status": "complete",
+    "counters": null
+  },
+  "series": [
+    {
+      "batch": 1,
+      "arms": {
+        "A": {
+          "n": 10,
+          "reachable_n": 10,
+          "reachable": 1,
+          "ceiling": 1,
+          "reachable_ceiling": 1,
+          "ndcg": 0.56876,
+          "all_ndcg": 0.56876,
+          "hard_n": 1,
+          "hard_ndcg": 0.13121,
+          "cross_hit": 0.4,
+          "reachable_cross_hit": 0.4,
+          "fix_recall": 0.8,
+          "reachable_fix_recall": 0.8,
+          "tokens": 213.5,
+          "reachable_tokens": 213.5,
+          "budget_tokens": 213.5,
+          "budget_ndcg": 0.56876,
+          "p50": 0,
+          "p95": 0,
+          "ci": [
+            0.56876,
+            0.45281,
+            0.66876
+          ],
+          "hard_ci": [
+            0.13121,
+            0.13121,
+            0.13121
+          ]
+        },
+        "B": {
+          "n": 10,
+          "reachable_n": 10,
+          "reachable": 1,
+          "ceiling": 1,
+          "reachable_ceiling": 1,
+          "ndcg": 0.56876,
+          "all_ndcg": 0.56876,
+          "hard_n": 1,
+          "hard_ndcg": 0.13121,
+          "cross_hit": 0.4,
+          "reachable_cross_hit": 0.4,
+          "fix_recall": 0.8,
+          "reachable_fix_recall": 0.8,
+          "tokens": 213.5,
+          "reachable_tokens": 213.5,
+          "budget_tokens": 213.5,
+          "budget_ndcg": 0.56876,
+          "p50": 0,
+          "p95": 0,
+          "ci": [
+            0.56876,
+            0.45281,
+            0.66876
+          ],
+          "hard_ci": [
+            0.13121,
+            0.13121,
+            0.13121
+          ]
+        },
+        "C": {
+          "n": 10,
+          "reachable_n": 10,
+          "reachable": 1,
+          "ceiling": 1,
+          "reachable_ceiling": 1,
+          "ndcg": 0.55948,
+          "all_ndcg": 0.55948,
+          "hard_n": 1,
+          "hard_ndcg": 0.16958,
+          "cross_hit": 0.3,
+          "reachable_cross_hit": 0.3,
+          "fix_recall": 0.8,
+          "reachable_fix_recall": 0.8,
+          "tokens": 213.3,
+          "reachable_tokens": 213.3,
+          "budget_tokens": 213.3,
+          "budget_ndcg": 0.55948,
+          "p50": 0,
+          "p95": 0,
+          "ci": [
+            0.55948,
+            0.4512,
+            0.66096
+          ],
+          "hard_ci": [
+            0.16958,
+            0.16958,
+            0.16958
+          ]
+        },
+        "C+": {
+          "n": 10,
+          "reachable_n": 10,
+          "reachable": 1,
+          "ceiling": 1,
+          "reachable_ceiling": 1,
+          "ndcg": 0.55948,
+          "all_ndcg": 0.55948,
+          "hard_n": 1,
+          "hard_ndcg": 0.16958,
+          "cross_hit": 0.3,
+          "reachable_cross_hit": 0.3,
+          "fix_recall": 0.8,
+          "reachable_fix_recall": 0.8,
+          "tokens": 213.3,
+          "reachable_tokens": 213.3,
+          "budget_tokens": 213.3,
+          "budget_ndcg": 0.55948,
+          "p50": 0,
+          "p95": 0,
+          "ci": [
+            0.55948,
+            0.4512,
+            0.66096
+          ],
+          "hard_ci": [
+            0.16958,
+            0.16958,
+            0.16958
+          ]
+        },
+        "D": {
+          "n": 10,
+          "reachable_n": 10,
+          "reachable": 1,
+          "ceiling": 1,
+          "reachable_ceiling": 1,
+          "ndcg": 0.55948,
+          "all_ndcg": 0.55948,
+          "hard_n": 1,
+          "hard_ndcg": 0.16958,
+          "cross_hit": 0.3,
+          "reachable_cross_hit": 0.3,
+          "fix_recall": 0.8,
+          "reachable_fix_recall": 0.8,
+          "tokens": 213.3,
+          "reachable_tokens": 213.3,
+          "budget_tokens": 213.3,
+          "budget_ndcg": 0.55948,
+          "p50": 0,
+          "p95": 0,
+          "ci": [
+            0.55948,
+            0.4512,
+            0.66096
+          ],
+          "hard_ci": [
+            0.16958,
+            0.16958,
+            0.16958
+          ]
+        },
+        "random": {
+          "n": 10,
+          "reachable_n": 10,
+          "reachable": 1,
+          "ceiling": 1,
+          "reachable_ceiling": 1,
+          "ndcg": 0.36002,
+          "all_ndcg": 0.36002,
+          "hard_n": 1,
+          "hard_ndcg": 0.50874,
+          "cross_hit": 0.8,
+          "reachable_cross_hit": 0.8,
+          "fix_recall": 0.7,
+          "reachable_fix_recall": 0.7,
+          "tokens": 207.5,
+          "reachable_tokens": 207.5,
+          "budget_tokens": 207.5,
+          "budget_ndcg": 0.36002,
+          "p50": 0,
+          "p95": 0,
+          "ci": [
+            0.36002,
+            0.26958,
+            0.45644
+          ],
+          "hard_ci": [
+            0.50874,
+            0.50874,
+            0.50874
+          ]
+        },
+        "prior": {
+          "n": 10,
+          "reachable_n": 10,
+          "reachable": 1,
+          "ceiling": 1,
+          "reachable_ceiling": 1,
+          "ndcg": 0.3,
+          "all_ndcg": 0.3,
+          "hard_n": 1,
+          "hard_ndcg": 0.0,
+          "cross_hit": 0.3,
+          "reachable_cross_hit": 0.3,
+          "fix_recall": 0.0,
+          "reachable_fix_recall": 0.0,
+          "tokens": 210,
+          "reachable_tokens": 210,
+          "budget_tokens": 210,
+          "budget_ndcg": 0.3,
+          "p50": 0,
+          "p95": 0,
+          "ci": [
+            0.3,
+            0.0,
+            0.6
+          ],
+          "hard_ci": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    },
+    {
+      "batch": 2,
+      "arms": {
+        "A": {
+          "n": 10,
+          "reachable_n": 10,
+          "reachable": 1,
+          "ceiling": 1,
+          "reachable_ceiling": 1,
+          "ndcg": 0.70591,
+          "all_ndcg": 0.70591,
+          "hard_n": 0,
+          "hard_ndcg": null,
+          "cross_hit": 0.2,
+          "reachable_cross_hit": 0.2,
+          "fix_recall": 0.7,
+          "reachable_fix_recall": 0.7,
+          "tokens": 207.8,
+          "reachable_tokens": 207.8,
+          "budget_tokens": 207.8,
+          "budget_ndcg": 0.70591,
+          "p50": 0,
+          "p95": 0,
+          "ci": [
+            0.70591,
+            0.58909,
+            0.80591
+          ],
+          "hard_ci": null
+        },
+        "B": {
+          "n": 10,
+          "reachable_n": 10,
+          "reachable": 1,
+          "ceiling": 1,
+          "reachable_ceiling": 1,
+          "ndcg": 0.70591,
+          "all_ndcg": 0.70591,
+          "hard_n": 0,
+          "hard_ndcg": null,
+          "cross_hit": 0.2,
+          "reachable_cross_hit": 0.2,
+          "fix_recall": 0.7,
+          "reachable_fix_recall": 0.7,
+          "tokens": 207.8,
+          "reachable_tokens": 207.8,
+          "budget_tokens": 207.8,
+          "budget_ndcg": 0.70591,
+          "p50": 0,
+          "p95": 0,
+          "ci": [
+            0.70591,
+            0.58909,
+            0.80591
+          ],
+          "hard_ci": null
+        },
+        "C": {
+          "n": 10,
+          "reachable_n": 10,
+          "reachable": 1,
+          "ceiling": 1,
+          "reachable_ceiling": 1,
+          "ndcg": 0.70591,
+          "all_ndcg": 0.70591,
+          "hard_n": 0,
+          "hard_ndcg": null,
+          "cross_hit": 0.2,
+          "reachable_cross_hit": 0.2,
+          "fix_recall": 0.7,
+          "reachable_fix_recall": 0.7,
+          "tokens": 207.8,
+          "reachable_tokens": 207.8,
+          "budget_tokens": 207.8,
+          "budget_ndcg": 0.70591,
+          "p50": 0,
+          "p95": 0,
+          "ci": [
+            0.70591,
+            0.58909,
+            0.80591
+          ],
+          "hard_ci": null
+        },
+        "C+": {
+          "n": 10,
+          "reachable_n": 10,
+          "reachable": 1,
+          "ceiling": 1,
+          "reachable_ceiling": 1,
+          "ndcg": 0.70591,
+          "all_ndcg": 0.70591,
+          "hard_n": 0,
+          "hard_ndcg": null,
+          "cross_hit": 0.2,
+          "reachable_cross_hit": 0.2,
+          "fix_recall": 0.7,
+          "reachable_fix_recall": 0.7,
+          "tokens": 207.8,
+          "reachable_tokens": 207.8,
+          "budget_tokens": 207.8,
+          "budget_ndcg": 0.70591,
+          "p50": 0,
+          "p95": 0,
+          "ci": [
+            0.70591,
+            0.58909,
+            0.80591
+          ],
+          "hard_ci": null
+        },
+        "D": {
+          "n": 10,
+          "reachable_n": 10,
+          "reachable": 1,
+          "ceiling": 1,
+          "reachable_ceiling": 1,
+          "ndcg": 0.74973,
+          "all_ndcg": 0.74973,
+          "hard_n": 0,
+          "hard_ndcg": null,
+          "cross_hit": 0.5,
+          "reachable_cross_hit": 0.5,
+          "fix_recall": 0.7,
+          "reachable_fix_recall": 0.7,
+          "tokens": 203.4,
+          "reachable_tokens": 203.4,
+          "budget_tokens": 203.4,
+          "budget_ndcg": 0.74973,
+          "p50": 0,
+          "p95": 0,
+          "ci": [
+            0.74973,
+            0.6183,
+            0.84973
+          ],
+          "hard_ci": null
+        },
+        "random": {
+          "n": 10,
+          "reachable_n": 10,
+          "reachable": 1,
+          "ceiling": 1,
+          "reachable_ceiling": 1,
+          "ndcg": 0.35236,
+          "all_ndcg": 0.35236,
+          "hard_n": 0,
+          "hard_ndcg": null,
+          "cross_hit": 0.9,
+          "reachable_cross_hit": 0.9,
+          "fix_recall": 0.4,
+          "reachable_fix_recall": 0.4,
+          "tokens": 206.8,
+          "reachable_tokens": 206.8,
+          "budget_tokens": 206.8,
+          "budget_ndcg": 0.35236,
+          "p50": 0,
+          "p95": 0,
+          "ci": [
+            0.35236,
+            0.24732,
+            0.46359
+          ],
+          "hard_ci": null
+        },
+        "prior": {
+          "n": 10,
+          "reachable_n": 10,
+          "reachable": 1,
+          "ceiling": 1,
+          "reachable_ceiling": 1,
+          "ndcg": 0.3,
+          "all_ndcg": 0.3,
+          "hard_n": 0,
+          "hard_ndcg": null,
+          "cross_hit": 0.6,
+          "reachable_cross_hit": 0.6,
+          "fix_recall": 0.0,
+          "reachable_fix_recall": 0.0,
+          "tokens": 200,
+          "reachable_tokens": 200,
+          "budget_tokens": 200,
+          "budget_ndcg": 0.3,
+          "p50": 0,
+          "p95": 0,
+          "ci": [
+            0.3,
+            0.14852,
+            0.45148
+          ],
+          "hard_ci": null
+        }
+      }
+    },
+    {
+      "batch": 3,
+      "arms": {
+        "A": {
+          "n": 10,
+          "reachable_n": 10,
+          "reachable": 1,
+          "ceiling": 1,
+          "reachable_ceiling": 1,
+          "ndcg": 0.80816,
+          "all_ndcg": 0.80816,
+          "hard_n": 0,
+          "hard_ndcg": null,
+          "cross_hit": 0.2,
+          "reachable_cross_hit": 0.2,
+          "fix_recall": 0.3,
+          "reachable_fix_recall": 0.3,
+          "tokens": 197.6,
+          "reachable_tokens": 197.6,
+          "budget_tokens": 197.6,
+          "budget_ndcg": 0.80816,
+          "p50": 0,
+          "p95": 0,
+          "ci": [
+            0.80816,
+            0.64752,
+            0.90816
+          ],
+          "hard_ci": null
+        },
+        "B": {
+          "n": 10,
+          "reachable_n": 10,
+          "reachable": 1,
+          "ceiling": 1,
+          "reachable_ceiling": 1,
+          "ndcg": 0.80816,
+          "all_ndcg": 0.80816,
+          "hard_n": 0,
+          "hard_ndcg": null,
+          "cross_hit": 0.2,
+          "reachable_cross_hit": 0.2,
+          "fix_recall": 0.3,
+          "reachable_fix_recall": 0.3,
+          "tokens": 197.6,
+          "reachable_tokens": 197.6,
+          "budget_tokens": 197.6,
+          "budget_ndcg": 0.80816,
+          "p50": 0,
+          "p95": 0,
+          "ci": [
+            0.80816,
+            0.64752,
+            0.90816
+          ],
+          "hard_ci": null
+        },
+        "C": {
+          "n": 10,
+          "reachable_n": 10,
+          "reachable": 1,
+          "ceiling": 1,
+          "reachable_ceiling": 1,
+          "ndcg": 0.80816,
+          "all_ndcg": 0.80816,
+          "hard_n": 0,
+          "hard_ndcg": null,
+          "cross_hit": 0.2,
+          "reachable_cross_hit": 0.2,
+          "fix_recall": 0.3,
+          "reachable_fix_recall": 0.3,
+          "tokens": 197.6,
+          "reachable_tokens": 197.6,
+          "budget_tokens": 197.6,
+          "budget_ndcg": 0.80816,
+          "p50": 0,
+          "p95": 0,
+          "ci": [
+            0.80816,
+            0.64752,
+            0.90816
+          ],
+          "hard_ci": null
+        },
+        "C+": {
+          "n": 10,
+          "reachable_n": 10,
+          "reachable": 1,
+          "ceiling": 1,
+          "reachable_ceiling": 1,
+          "ndcg": 0.8344,
+          "all_ndcg": 0.8344,
+          "hard_n": 0,
+          "hard_ndcg": null,
+          "cross_hit": 0.4,
+          "reachable_cross_hit": 0.4,
+          "fix_recall": 0.3,
+          "reachable_fix_recall": 0.3,
+          "tokens": 195.7,
+          "reachable_tokens": 195.7,
+          "budget_tokens": 195.7,
+          "budget_ndcg": 0.8344,
+          "p50": 0,
+          "p95": 0,
+          "ci": [
+            0.8344,
+            0.66064,
+            0.9344
+          ],
+          "hard_ci": null
+        },
+        "D": {
+          "n": 10,
+          "reachable_n": 10,
+          "reachable": 1,
+          "ceiling": 1,
+          "reachable_ceiling": 1,
+          "ndcg": 0.8344,
+          "all_ndcg": 0.8344,
+          "hard_n": 0,
+          "hard_ndcg": null,
+          "cross_hit": 0.4,
+          "reachable_cross_hit": 0.4,
+          "fix_recall": 0.3,
+          "reachable_fix_recall": 0.3,
+          "tokens": 192,
+          "reachable_tokens": 192,
+          "budget_tokens": 192,
+          "budget_ndcg": 0.8344,
+          "p50": 0,
+          "p95": 0,
+          "ci": [
+            0.8344,
+            0.6344,
+            0.96064
+          ],
+          "hard_ci": null
+        },
+        "random": {
+          "n": 10,
+          "reachable_n": 10,
+          "reachable": 1,
+          "ceiling": 1,
+          "reachable_ceiling": 1,
+          "ndcg": 0.29172,
+          "all_ndcg": 0.29172,
+          "hard_n": 0,
+          "hard_ndcg": null,
+          "cross_hit": 0.8,
+          "reachable_cross_hit": 0.8,
+          "fix_recall": 0.4,
+          "reachable_fix_recall": 0.4,
+          "tokens": 202.8,
+          "reachable_tokens": 202.8,
+          "budget_tokens": 202.8,
+          "budget_ndcg": 0.29172,
+          "p50": 0,
+          "p95": 0,
+          "ci": [
+            0.29172,
+            0.18156,
+            0.41435
+          ],
+          "hard_ci": null
+        },
+        "prior": {
+          "n": 10,
+          "reachable_n": 10,
+          "reachable": 1,
+          "ceiling": 1,
+          "reachable_ceiling": 1,
+          "ndcg": 0.33836,
+          "all_ndcg": 0.33836,
+          "hard_n": 0,
+          "hard_ndcg": null,
+          "cross_hit": 0.9,
+          "reachable_cross_hit": 0.9,
+          "fix_recall": 0.0,
+          "reachable_fix_recall": 0.0,
+          "tokens": 204,
+          "reachable_tokens": 204,
+          "budget_tokens": 204,
+          "budget_ndcg": 0.33836,
+          "p50": 0,
+          "p95": 0,
+          "ci": [
+            0.33836,
+            0.24975,
+            0.4119
+          ],
+          "hard_ci": null
+        }
+      }
+    },
+    {
+      "batch": 4,
+      "arms": {
+        "A": {
+          "n": 10,
+          "reachable_n": 10,
+          "reachable": 1,
+          "ceiling": 1,
+          "reachable_ceiling": 1,
+          "ndcg": 0.9214,
+          "all_ndcg": 0.9214,
+          "hard_n": 0,
+          "hard_ndcg": null,
+          "cross_hit": 0.1,
+          "reachable_cross_hit": 0.1,
+          "fix_recall": 0.1,
+          "reachable_fix_recall": 0.1,
+          "tokens": 182.5,
+          "reachable_tokens": 182.5,
+          "budget_tokens": 182.5,
+          "budget_ndcg": 0.9214,
+          "p50": 0,
+          "p95": 0,
+          "ci": [
+            0.9214,
+            0.7642,
+            1.0
+          ],
+          "hard_ci": null
+        },
+        "B": {
+          "n": 10,
+          "reachable_n": 10,
+          "reachable": 1,
+          "ceiling": 1,
+          "reachable_ceiling": 1,
+          "ndcg": 0.9214,
+          "all_ndcg": 0.9214,
+          "hard_n": 0,
+          "hard_ndcg": null,
+          "cross_hit": 0.1,
+          "reachable_cross_hit": 0.1,
+          "fix_recall": 0.1,
+          "reachable_fix_recall": 0.1,
+          "tokens": 182.5,
+          "reachable_tokens": 182.5,
+          "budget_tokens": 182.5,
+          "budget_ndcg": 0.9214,
+          "p50": 0,
+          "p95": 0,
+          "ci": [
+            0.9214,
+            0.7642,
+            1.0
+          ],
+          "hard_ci": null
+        },
+        "C": {
+          "n": 10,
+          "reachable_n": 10,
+          "reachable": 1,
+          "ceiling": 1,
+          "reachable_ceiling": 1,
+          "ndcg": 0.9214,
+          "all_ndcg": 0.9214,
+          "hard_n": 0,
+          "hard_ndcg": null,
+          "cross_hit": 0.1,
+          "reachable_cross_hit": 0.1,
+          "fix_recall": 0.1,
+          "reachable_fix_recall": 0.1,
+          "tokens": 182.5,
+          "reachable_tokens": 182.5,
+          "budget_tokens": 182.5,
+          "budget_ndcg": 0.9214,
+          "p50": 0,
+          "p95": 0,
+          "ci": [
+            0.9214,
+            0.7642,
+            1.0
+          ],
+          "hard_ci": null
+        },
+        "C+": {
+          "n": 10,
+          "reachable_n": 10,
+          "reachable": 1,
+          "ceiling": 1,
+          "reachable_ceiling": 1,
+          "ndcg": 0.95296,
+          "all_ndcg": 0.95296,
+          "hard_n": 0,
+          "hard_ndcg": null,
+          "cross_hit": 0.1,
+          "reachable_cross_hit": 0.1,
+          "fix_recall": 0.1,
+          "reachable_fix_recall": 0.1,
+          "tokens": 182.7,
+          "reachable_tokens": 182.7,
+          "budget_tokens": 182.7,
+          "budget_ndcg": 0.95296,
+          "p50": 0,
+          "p95": 0,
+          "ci": [
+            0.95296,
+            0.85889,
+            1.0
+          ],
+          "hard_ci": null
+        },
+        "D": {
+          "n": 10,
+          "reachable_n": 10,
+          "reachable": 1,
+          "ceiling": 1,
+          "reachable_ceiling": 1,
+          "ndcg": 0.98304,
+          "all_ndcg": 0.98304,
+          "hard_n": 0,
+          "hard_ndcg": null,
+          "cross_hit": 0.4,
+          "reachable_cross_hit": 0.4,
+          "fix_recall": 0.1,
+          "reachable_fix_recall": 0.1,
+          "tokens": 181.7,
+          "reachable_tokens": 181.7,
+          "budget_tokens": 181.7,
+          "budget_ndcg": 0.98304,
+          "p50": 0,
+          "p95": 0,
+          "ci": [
+            0.98304,
+            0.94913,
+            1.0
+          ],
+          "hard_ci": null
+        },
+        "random": {
+          "n": 10,
+          "reachable_n": 10,
+          "reachable": 1,
+          "ceiling": 1,
+          "reachable_ceiling": 1,
+          "ndcg": 0.40796,
+          "all_ndcg": 0.40796,
+          "hard_n": 0,
+          "hard_ndcg": null,
+          "cross_hit": 0.9,
+          "reachable_cross_hit": 0.9,
+          "fix_recall": 0.1,
+          "reachable_fix_recall": 0.1,
+          "tokens": 191.7,
+          "reachable_tokens": 191.7,
+          "budget_tokens": 191.7,
+          "budget_ndcg": 0.40796,
+          "p50": 0,
+          "p95": 0,
+          "ci": [
+            0.40796,
+            0.29733,
+            0.51925
+          ],
+          "hard_ci": null
+        },
+        "prior": {
+          "n": 10,
+          "reachable_n": 10,
+          "reachable": 1,
+          "ceiling": 1,
+          "reachable_ceiling": 1,
+          "ndcg": 0.3,
+          "all_ndcg": 0.3,
+          "hard_n": 0,
+          "hard_ndcg": null,
+          "cross_hit": 0.3,
+          "reachable_cross_hit": 0.3,
+          "fix_recall": 0.0,
+          "reachable_fix_recall": 0.0,
+          "tokens": 207,
+          "reachable_tokens": 207,
+          "budget_tokens": 207,
+          "budget_ndcg": 0.3,
+          "p50": 0,
+          "p95": 0,
+          "ci": [
+            0.3,
+            0.0,
+            0.6
+          ],
+          "hard_ci": null
+        }
+      }
+    },
+    {
+      "batch": 5,
+      "arms": {
+        "A": {
+          "n": 10,
+          "reachable_n": 10,
+          "reachable": 1,
+          "ceiling": 1,
+          "reachable_ceiling": 1,
+          "ndcg": 0.9,
+          "all_ndcg": 0.9,
+          "hard_n": 1,
+          "hard_ndcg": 0.0,
+          "cross_hit": 0.0,
+          "reachable_cross_hit": 0.0,
+          "fix_recall": 0.0,
+          "reachable_fix_recall": 0.0,
+          "tokens": 191.6,
+          "reachable_tokens": 191.6,
+          "budget_tokens": 191.6,
+          "budget_ndcg": 0.9,
+          "p50": 0,
+          "p95": 0,
+          "ci": [
+            0.9,
+            0.7,
+            1.0
+          ],
+          "hard_ci": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "B": {
+          "n": 10,
+          "reachable_n": 10,
+          "reachable": 1,
+          "ceiling": 1,
+          "reachable_ceiling": 1,
+          "ndcg": 0.9,
+          "all_ndcg": 0.9,
+          "hard_n": 1,
+          "hard_ndcg": 0.0,
+          "cross_hit": 0.0,
+          "reachable_cross_hit": 0.0,
+          "fix_recall": 0.0,
+          "reachable_fix_recall": 0.0,
+          "tokens": 191.6,
+          "reachable_tokens": 191.6,
+          "budget_tokens": 191.6,
+          "budget_ndcg": 0.9,
+          "p50": 0,
+          "p95": 0,
+          "ci": [
+            0.9,
+            0.7,
+            1.0
+          ],
+          "hard_ci": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "C": {
+          "n": 10,
+          "reachable_n": 10,
+          "reachable": 1,
+          "ceiling": 1,
+          "reachable_ceiling": 1,
+          "ndcg": 0.9,
+          "all_ndcg": 0.9,
+          "hard_n": 1,
+          "hard_ndcg": 0.0,
+          "cross_hit": 0.0,
+          "reachable_cross_hit": 0.0,
+          "fix_recall": 0.0,
+          "reachable_fix_recall": 0.0,
+          "tokens": 191.6,
+          "reachable_tokens": 191.6,
+          "budget_tokens": 191.6,
+          "budget_ndcg": 0.9,
+          "p50": 0,
+          "p95": 0,
+          "ci": [
+            0.9,
+            0.7,
+            1.0
+          ],
+          "hard_ci": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "C+": {
+          "n": 10,
+          "reachable_n": 10,
+          "reachable": 1,
+          "ceiling": 1,
+          "reachable_ceiling": 1,
+          "ndcg": 0.9,
+          "all_ndcg": 0.9,
+          "hard_n": 1,
+          "hard_ndcg": 0.0,
+          "cross_hit": 0.0,
+          "reachable_cross_hit": 0.0,
+          "fix_recall": 0.0,
+          "reachable_fix_recall": 0.0,
+          "tokens": 191.6,
+          "reachable_tokens": 191.6,
+          "budget_tokens": 191.6,
+          "budget_ndcg": 0.9,
+          "p50": 0,
+          "p95": 0,
+          "ci": [
+            0.9,
+            0.7,
+            1.0
+          ],
+          "hard_ci": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "D": {
+          "n": 10,
+          "reachable_n": 10,
+          "reachable": 1,
+          "ceiling": 1,
+          "reachable_ceiling": 1,
+          "ndcg": 0.9,
+          "all_ndcg": 0.9,
+          "hard_n": 1,
+          "hard_ndcg": 0.0,
+          "cross_hit": 0.3,
+          "reachable_cross_hit": 0.3,
+          "fix_recall": 0.0,
+          "reachable_fix_recall": 0.0,
+          "tokens": 189.9,
+          "reachable_tokens": 189.9,
+          "budget_tokens": 189.9,
+          "budget_ndcg": 0.9,
+          "p50": 0,
+          "p95": 0,
+          "ci": [
+            0.9,
+            0.7,
+            1.0
+          ],
+          "hard_ci": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "random": {
+          "n": 10,
+          "reachable_n": 10,
+          "reachable": 1,
+          "ceiling": 1,
+          "reachable_ceiling": 1,
+          "ndcg": 0.33365,
+          "all_ndcg": 0.33365,
+          "hard_n": 1,
+          "hard_ndcg": 0.31565,
+          "cross_hit": 0.9,
+          "reachable_cross_hit": 0.9,
+          "fix_recall": 0.3,
+          "reachable_fix_recall": 0.3,
+          "tokens": 180.2,
+          "reachable_tokens": 180.2,
+          "budget_tokens": 180.2,
+          "budget_ndcg": 0.33365,
+          "p50": 0,
+          "p95": 0,
+          "ci": [
+            0.33365,
+            0.24928,
+            0.43096
+          ],
+          "hard_ci": [
+            0.31565,
+            0.31565,
+            0.31565
+          ]
+        },
+        "prior": {
+          "n": 10,
+          "reachable_n": 10,
+          "reachable": 1,
+          "ceiling": 1,
+          "reachable_ceiling": 1,
+          "ndcg": 0.3,
+          "all_ndcg": 0.3,
+          "hard_n": 1,
+          "hard_ndcg": 0.0,
+          "cross_hit": 0.6,
+          "reachable_cross_hit": 0.6,
+          "fix_recall": 0.0,
+          "reachable_fix_recall": 0.0,
+          "tokens": 198,
+          "reachable_tokens": 198,
+          "budget_tokens": 198,
+          "budget_ndcg": 0.3,
+          "p50": 0,
+          "p95": 0,
+          "ci": [
+            0.3,
+            0.14852,
+            0.45148
+          ],
+          "hard_ci": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    },
+    {
+      "batch": 6,
+      "arms": {
+        "A": {
+          "n": 10,
+          "reachable_n": 10,
+          "reachable": 1,
+          "ceiling": 1,
+          "reachable_ceiling": 1,
+          "ndcg": 1.0,
+          "all_ndcg": 1.0,
+          "hard_n": 0,
+          "hard_ndcg": null,
+          "cross_hit": 0.1,
+          "reachable_cross_hit": 0.1,
+          "fix_recall": 0.0,
+          "reachable_fix_recall": 0.0,
+          "tokens": 186,
+          "reachable_tokens": 186,
+          "budget_tokens": 186,
+          "budget_ndcg": 1.0,
+          "p50": 0,
+          "p95": 0,
+          "ci": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hard_ci": null
+        },
+        "B": {
+          "n": 10,
+          "reachable_n": 10,
+          "reachable": 1,
+          "ceiling": 1,
+          "reachable_ceiling": 1,
+          "ndcg": 1.0,
+          "all_ndcg": 1.0,
+          "hard_n": 0,
+          "hard_ndcg": null,
+          "cross_hit": 0.1,
+          "reachable_cross_hit": 0.1,
+          "fix_recall": 0.0,
+          "reachable_fix_recall": 0.0,
+          "tokens": 186,
+          "reachable_tokens": 186,
+          "budget_tokens": 186,
+          "budget_ndcg": 1.0,
+          "p50": 0,
+          "p95": 0,
+          "ci": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hard_ci": null
+        },
+        "C": {
+          "n": 10,
+          "reachable_n": 10,
+          "reachable": 1,
+          "ceiling": 1,
+          "reachable_ceiling": 1,
+          "ndcg": 1.0,
+          "all_ndcg": 1.0,
+          "hard_n": 0,
+          "hard_ndcg": null,
+          "cross_hit": 0.1,
+          "reachable_cross_hit": 0.1,
+          "fix_recall": 0.0,
+          "reachable_fix_recall": 0.0,
+          "tokens": 186,
+          "reachable_tokens": 186,
+          "budget_tokens": 186,
+          "budget_ndcg": 1.0,
+          "p50": 0,
+          "p95": 0,
+          "ci": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hard_ci": null
+        },
+        "C+": {
+          "n": 10,
+          "reachable_n": 10,
+          "reachable": 1,
+          "ceiling": 1,
+          "reachable_ceiling": 1,
+          "ndcg": 1.0,
+          "all_ndcg": 1.0,
+          "hard_n": 0,
+          "hard_ndcg": null,
+          "cross_hit": 0.1,
+          "reachable_cross_hit": 0.1,
+          "fix_recall": 0.0,
+          "reachable_fix_recall": 0.0,
+          "tokens": 186,
+          "reachable_tokens": 186,
+          "budget_tokens": 186,
+          "budget_ndcg": 1.0,
+          "p50": 0,
+          "p95": 0,
+          "ci": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hard_ci": null
+        },
+        "D": {
+          "n": 10,
+          "reachable_n": 10,
+          "reachable": 1,
+          "ceiling": 1,
+          "reachable_ceiling": 1,
+          "ndcg": 1.0,
+          "all_ndcg": 1.0,
+          "hard_n": 0,
+          "hard_ndcg": null,
+          "cross_hit": 0.4,
+          "reachable_cross_hit": 0.4,
+          "fix_recall": 0.0,
+          "reachable_fix_recall": 0.0,
+          "tokens": 184.3,
+          "reachable_tokens": 184.3,
+          "budget_tokens": 184.3,
+          "budget_ndcg": 1.0,
+          "p50": 0,
+          "p95": 0,
+          "ci": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "hard_ci": null
+        },
+        "random": {
+          "n": 10,
+          "reachable_n": 10,
+          "reachable": 1,
+          "ceiling": 1,
+          "reachable_ceiling": 1,
+          "ndcg": 0.39455,
+          "all_ndcg": 0.39455,
+          "hard_n": 0,
+          "hard_ndcg": null,
+          "cross_hit": 0.9,
+          "reachable_cross_hit": 0.9,
+          "fix_recall": 0.3,
+          "reachable_fix_recall": 0.3,
+          "tokens": 190.6,
+          "reachable_tokens": 190.6,
+          "budget_tokens": 190.6,
+          "budget_ndcg": 0.39455,
+          "p50": 0,
+          "p95": 0,
+          "ci": [
+            0.39455,
+            0.26906,
+            0.50545
+          ],
+          "hard_ci": null
+        },
+        "prior": {
+          "n": 10,
+          "reachable_n": 10,
+          "reachable": 1,
+          "ceiling": 1,
+          "reachable_ceiling": 1,
+          "ndcg": 0.33836,
+          "all_ndcg": 0.33836,
+          "hard_n": 0,
+          "hard_ndcg": null,
+          "cross_hit": 0.9,
+          "reachable_cross_hit": 0.9,
+          "fix_recall": 0.0,
+          "reachable_fix_recall": 0.0,
+          "tokens": 208,
+          "reachable_tokens": 208,
+          "budget_tokens": 208,
+          "budget_ndcg": 0.33836,
+          "p50": 0,
+          "p95": 0,
+          "ci": [
+            0.33836,
+            0.24975,
+            0.4119
+          ],
+          "hard_ci": null
+        }
+      }
+    },
+    {
+      "batch": 7,
+      "arms": {
+        "A": {
+          "n": 10,
+          "reachable_n": 10,
+          "reachable": 1,
+          "ceiling": 1,
+          "reachable_ceiling": 1,
+          "ndcg": 0.93392,
+          "all_ndcg": 0.93392,
+          "hard_n": 0,
+          "hard_ndcg": null,
+          "cross_hit": 0.1,
+          "reachable_cross_hit": 0.1,
+          "fix_recall": 0.1,
+          "reachable_fix_recall": 0.1,
+          "tokens": 178.3,
+          "reachable_tokens": 178.3,
+          "budget_tokens": 178.3,
+          "budget_ndcg": 0.93392,
+          "p50": 0,
+          "p95": 0,
+          "ci": [
+            0.93392,
+            0.80175,
+            1.0
+          ],
+          "hard_ci": null
+        },
+        "B": {
+          "n": 10,
+          "reachable_n": 10,
+          "reachable": 1,
+          "ceiling": 1,
+          "reachable_ceiling": 1,
+          "ndcg": 0.93392,
+          "all_ndcg": 0.93392,
+          "hard_n": 0,
+          "hard_ndcg": null,
+          "cross_hit": 0.1,
+          "reachable_cross_hit": 0.1,
+          "fix_recall": 0.1,
+          "reachable_fix_recall": 0.1,
+          "tokens": 178.3,
+          "reachable_tokens": 178.3,
+          "budget_tokens": 178.3,
+          "budget_ndcg": 0.93392,
+          "p50": 0,
+          "p95": 0,
+          "ci": [
+            0.93392,
+            0.80175,
+            1.0
+          ],
+          "hard_ci": null
+        },
+        "C": {
+          "n": 10,
+          "reachable_n": 10,
+          "reachable": 1,
+          "ceiling": 1,
+          "reachable_ceiling": 1,
+          "ndcg": 0.93392,
+          "all_ndcg": 0.93392,
+          "hard_n": 0,
+          "hard_ndcg": null,
+          "cross_hit": 0.1,
+          "reachable_cross_hit": 0.1,
+          "fix_recall": 0.1,
+          "reachable_fix_recall": 0.1,
+          "tokens": 178.3,
+          "reachable_tokens": 178.3,
+          "budget_tokens": 178.3,
+          "budget_ndcg": 0.93392,
+          "p50": 0,
+          "p95": 0,
+          "ci": [
+            0.93392,
+            0.80175,
+            1.0
+          ],
+          "hard_ci": null
+        },
+        "C+": {
+          "n": 10,
+          "reachable_n": 10,
+          "reachable": 1,
+          "ceiling": 1,
+          "reachable_ceiling": 1,
+          "ndcg": 0.95531,
+          "all_ndcg": 0.95531,
+          "hard_n": 0,
+          "hard_ndcg": null,
+          "cross_hit": 0.1,
+          "reachable_cross_hit": 0.1,
+          "fix_recall": 0.1,
+          "reachable_fix_recall": 0.1,
+          "tokens": 178.8,
+          "reachable_tokens": 178.8,
+          "budget_tokens": 178.8,
+          "budget_ndcg": 0.95531,
+          "p50": 0,
+          "p95": 0,
+          "ci": [
+            0.95531,
+            0.86594,
+            1.0
+          ],
+          "hard_ci": null
+        },
+        "D": {
+          "n": 10,
+          "reachable_n": 10,
+          "reachable": 1,
+          "ceiling": 1,
+          "reachable_ceiling": 1,
+          "ndcg": 0.94469,
+          "all_ndcg": 0.94469,
+          "hard_n": 0,
+          "hard_ndcg": null,
+          "cross_hit": 0.4,
+          "reachable_cross_hit": 0.4,
+          "fix_recall": 0.1,
+          "reachable_fix_recall": 0.1,
+          "tokens": 180.6,
+          "reachable_tokens": 180.6,
+          "budget_tokens": 180.6,
+          "budget_ndcg": 0.94469,
+          "p50": 0,
+          "p95": 0,
+          "ci": [
+            0.94469,
+            0.83406,
+            1.0
+          ],
+          "hard_ci": null
+        },
+        "random": {
+          "n": 10,
+          "reachable_n": 10,
+          "reachable": 1,
+          "ceiling": 1,
+          "reachable_ceiling": 1,
+          "ndcg": 0.38009,
+          "all_ndcg": 0.38009,
+          "hard_n": 0,
+          "hard_ndcg": null,
+          "cross_hit": 0.7,
+          "reachable_cross_hit": 0.7,
+          "fix_recall": 0.0,
+          "reachable_fix_recall": 0.0,
+          "tokens": 177.4,
+          "reachable_tokens": 177.4,
+          "budget_tokens": 177.4,
+          "budget_ndcg": 0.38009,
+          "p50": 0,
+          "p95": 0,
+          "ci": [
+            0.38009,
+            0.24927,
+            0.51549
+          ],
+          "hard_ci": null
+        },
+        "prior": {
+          "n": 10,
+          "reachable_n": 10,
+          "reachable": 1,
+          "ceiling": 1,
+          "reachable_ceiling": 1,
+          "ndcg": 0.3,
+          "all_ndcg": 0.3,
+          "hard_n": 0,
+          "hard_ndcg": null,
+          "cross_hit": 0.3,
+          "reachable_cross_hit": 0.3,
+          "fix_recall": 0.0,
+          "reachable_fix_recall": 0.0,
+          "tokens": 207,
+          "reachable_tokens": 207,
+          "budget_tokens": 207,
+          "budget_ndcg": 0.3,
+          "p50": 0,
+          "p95": 0,
+          "ci": [
+            0.3,
+            0.0,
+            0.6
+          ],
+          "hard_ci": null
+        }
+      }
+    },
+    {
+      "batch": 8,
+      "arms": {
+        "A": {
+          "n": 10,
+          "reachable_n": 10,
+          "reachable": 1,
+          "ceiling": 1,
+          "reachable_ceiling": 1,
+          "ndcg": 0.9,
+          "all_ndcg": 0.9,
+          "hard_n": 0,
+          "hard_ndcg": null,
+          "cross_hit": 0.0,
+          "reachable_cross_hit": 0.0,
+          "fix_recall": 0.0,
+          "reachable_fix_recall": 0.0,
+          "tokens": 185.2,
+          "reachable_tokens": 185.2,
+          "budget_tokens": 185.2,
+          "budget_ndcg": 0.9,
+          "p50": 0,
+          "p95": 0,
+          "ci": [
+            0.9,
+            0.7,
+            1.0
+          ],
+          "hard_ci": null
+        },
+        "B": {
+          "n": 10,
+          "reachable_n": 10,
+          "reachable": 1,
+          "ceiling": 1,
+          "reachable_ceiling": 1,
+          "ndcg": 0.9,
+          "all_ndcg": 0.9,
+          "hard_n": 0,
+          "hard_ndcg": null,
+          "cross_hit": 0.0,
+          "reachable_cross_hit": 0.0,
+          "fix_recall": 0.0,
+          "reachable_fix_recall": 0.0,
+          "tokens": 185.2,
+          "reachable_tokens": 185.2,
+          "budget_tokens": 185.2,
+          "budget_ndcg": 0.9,
+          "p50": 0,
+          "p95": 0,
+          "ci": [
+            0.9,
+            0.7,
+            1.0
+          ],
+          "hard_ci": null
+        },
+        "C": {
+          "n": 10,
+          "reachable_n": 10,
+          "reachable": 1,
+          "ceiling": 1,
+          "reachable_ceiling": 1,
+          "ndcg": 0.9,
+          "all_ndcg": 0.9,
+          "hard_n": 0,
+          "hard_ndcg": null,
+          "cross_hit": 0.0,
+          "reachable_cross_hit": 0.0,
+          "fix_recall": 0.0,
+          "reachable_fix_recall": 0.0,
+          "tokens": 185.2,
+          "reachable_tokens": 185.2,
+          "budget_tokens": 185.2,
+          "budget_ndcg": 0.9,
+          "p50": 0,
+          "p95": 0,
+          "ci": [
+            0.9,
+            0.7,
+            1.0
+          ],
+          "hard_ci": null
+        },
+        "C+": {
+          "n": 10,
+          "reachable_n": 10,
+          "reachable": 1,
+          "ceiling": 1,
+          "reachable_ceiling": 1,
+          "ndcg": 0.9,
+          "all_ndcg": 0.9,
+          "hard_n": 0,
+          "hard_ndcg": null,
+          "cross_hit": 0.0,
+          "reachable_cross_hit": 0.0,
+          "fix_recall": 0.0,
+          "reachable_fix_recall": 0.0,
+          "tokens": 185.2,
+          "reachable_tokens": 185.2,
+          "budget_tokens": 185.2,
+          "budget_ndcg": 0.9,
+          "p50": 0,
+          "p95": 0,
+          "ci": [
+            0.9,
+            0.7,
+            1.0
+          ],
+          "hard_ci": null
+        },
+        "D": {
+          "n": 10,
+          "reachable_n": 10,
+          "reachable": 1,
+          "ceiling": 1,
+          "reachable_ceiling": 1,
+          "ndcg": 0.9,
+          "all_ndcg": 0.9,
+          "hard_n": 0,
+          "hard_ndcg": null,
+          "cross_hit": 0.3,
+          "reachable_cross_hit": 0.3,
+          "fix_recall": 0.0,
+          "reachable_fix_recall": 0.0,
+          "tokens": 183.5,
+          "reachable_tokens": 183.5,
+          "budget_tokens": 183.5,
+          "budget_ndcg": 0.9,
+          "p50": 0,
+          "p95": 0,
+          "ci": [
+            0.9,
+            0.7,
+            1.0
+          ],
+          "hard_ci": null
+        },
+        "random": {
+          "n": 10,
+          "reachable_n": 10,
+          "reachable": 1,
+          "ceiling": 1,
+          "reachable_ceiling": 1,
+          "ndcg": 0.39232,
+          "all_ndcg": 0.39232,
+          "hard_n": 0,
+          "hard_ndcg": null,
+          "cross_hit": 0.9,
+          "reachable_cross_hit": 0.9,
+          "fix_recall": 0.2,
+          "reachable_fix_recall": 0.2,
+          "tokens": 186.2,
+          "reachable_tokens": 186.2,
+          "budget_tokens": 186.2,
+          "budget_ndcg": 0.39232,
+          "p50": 0,
+          "p95": 0,
+          "ci": [
+            0.39232,
+            0.25397,
+            0.51905
+          ],
+          "hard_ci": null
+        },
+        "prior": {
+          "n": 10,
+          "reachable_n": 10,
+          "reachable": 1,
+          "ceiling": 1,
+          "reachable_ceiling": 1,
+          "ndcg": 0.3,
+          "all_ndcg": 0.3,
+          "hard_n": 0,
+          "hard_ndcg": null,
+          "cross_hit": 0.6,
+          "reachable_cross_hit": 0.6,
+          "fix_recall": 0.0,
+          "reachable_fix_recall": 0.0,
+          "tokens": 198,
+          "reachable_tokens": 198,
+          "budget_tokens": 198,
+          "budget_ndcg": 0.3,
+          "p50": 0,
+          "p95": 0,
+          "ci": [
+            0.3,
+            0.14852,
+            0.45148
+          ],
+          "hard_ci": null
+        }
+      }
+    }
+  ],
+  "summary": {
+    "A": {
+      "n": 80,
+      "reachable_n": 80,
+      "reachable": 1,
+      "ceiling": 1,
+      "reachable_ceiling": 1,
+      "ndcg": 0.84227,
+      "all_ndcg": 0.84227,
+      "hard_n": 2,
+      "hard_ndcg": 0.0656,
+      "cross_hit": 0.1375,
+      "reachable_cross_hit": 0.1375,
+      "fix_recall": 0.25,
+      "reachable_fix_recall": 0.25,
+      "tokens": 192.8125,
+      "reachable_tokens": 192.8125,
+      "budget_tokens": 192.8125,
+      "budget_ndcg": 0.84227,
+      "p50": 0,
+      "p95": 0
+    },
+    "B": {
+      "n": 80,
+      "reachable_n": 80,
+      "reachable": 1,
+      "ceiling": 1,
+      "reachable_ceiling": 1,
+      "ndcg": 0.84227,
+      "all_ndcg": 0.84227,
+      "hard_n": 2,
+      "hard_ndcg": 0.0656,
+      "cross_hit": 0.1375,
+      "reachable_cross_hit": 0.1375,
+      "fix_recall": 0.25,
+      "reachable_fix_recall": 0.25,
+      "tokens": 192.8125,
+      "reachable_tokens": 192.8125,
+      "budget_tokens": 192.8125,
+      "budget_ndcg": 0.84227,
+      "p50": 0,
+      "p95": 0
+    },
+    "C": {
+      "n": 80,
+      "reachable_n": 80,
+      "reachable": 1,
+      "ceiling": 1,
+      "reachable_ceiling": 1,
+      "ndcg": 0.84111,
+      "all_ndcg": 0.84111,
+      "hard_n": 2,
+      "hard_ndcg": 0.08479,
+      "cross_hit": 0.125,
+      "reachable_cross_hit": 0.125,
+      "fix_recall": 0.25,
+      "reachable_fix_recall": 0.25,
+      "tokens": 192.7875,
+      "reachable_tokens": 192.7875,
+      "budget_tokens": 192.7875,
+      "budget_ndcg": 0.84111,
+      "p50": 0,
+      "p95": 0
+    },
+    "C+": {
+      "n": 80,
+      "reachable_n": 80,
+      "reachable": 1,
+      "ceiling": 1,
+      "reachable_ceiling": 1,
+      "ndcg": 0.85101,
+      "all_ndcg": 0.85101,
+      "hard_n": 2,
+      "hard_ndcg": 0.08479,
+      "cross_hit": 0.15,
+      "reachable_cross_hit": 0.15,
+      "fix_recall": 0.25,
+      "reachable_fix_recall": 0.25,
+      "tokens": 192.6375,
+      "reachable_tokens": 192.6375,
+      "budget_tokens": 192.6375,
+      "budget_ndcg": 0.85101,
+      "p50": 0,
+      "p95": 0
+    },
+    "D": {
+      "n": 80,
+      "reachable_n": 80,
+      "reachable": 1,
+      "ceiling": 1,
+      "reachable_ceiling": 1,
+      "ndcg": 0.85892,
+      "all_ndcg": 0.85892,
+      "hard_n": 2,
+      "hard_ndcg": 0.08479,
+      "cross_hit": 0.375,
+      "reachable_cross_hit": 0.375,
+      "fix_recall": 0.25,
+      "reachable_fix_recall": 0.25,
+      "tokens": 191.0875,
+      "reachable_tokens": 191.0875,
+      "budget_tokens": 191.0875,
+      "budget_ndcg": 0.85892,
+      "p50": 0,
+      "p95": 0
+    },
+    "random": {
+      "n": 80,
+      "reachable_n": 80,
+      "reachable": 1,
+      "ceiling": 1,
+      "reachable_ceiling": 1,
+      "ndcg": 0.36408,
+      "all_ndcg": 0.36408,
+      "hard_n": 2,
+      "hard_ndcg": 0.41219,
+      "cross_hit": 0.85,
+      "reachable_cross_hit": 0.85,
+      "fix_recall": 0.3,
+      "reachable_fix_recall": 0.3,
+      "tokens": 192.9,
+      "reachable_tokens": 192.9,
+      "budget_tokens": 192.9,
+      "budget_ndcg": 0.36408,
+      "p50": 0,
+      "p95": 0
+    },
+    "prior": {
+      "n": 80,
+      "reachable_n": 80,
+      "reachable": 1,
+      "ceiling": 1,
+      "reachable_ceiling": 1,
+      "ndcg": 0.30959,
+      "all_ndcg": 0.30959,
+      "hard_n": 2,
+      "hard_ndcg": 0.0,
+      "cross_hit": 0.5625,
+      "reachable_cross_hit": 0.5625,
+      "fix_recall": 0.0,
+      "reachable_fix_recall": 0.0,
+      "tokens": 204,
+      "reachable_tokens": 204,
+      "budget_tokens": 204,
+      "budget_ndcg": 0.30959,
+      "p50": 0,
+      "p95": 0
+    }
+  },
+  "differences": {
+    "D−C+": [
+      -0.00354,
+      -0.01063,
+      0.0
+    ],
+    "D−C": [
+      0.00359,
+      0.0,
+      0.01077
+    ],
+    "D−A": [
+      0.00359,
+      0.0,
+      0.01077
+    ]
+  },
+  "criteria": [
+    {
+      "label": "Learning improves reachable nDCG@5 over declared structure",
+      "met": false
+    },
+    {
+      "label": "Precedent improves hard-subset nDCG@5 over vector",
+      "met": null
+    },
+    {
+      "label": "No material quality regression versus vector",
+      "met": true
+    },
+    {
+      "label": "Quality holds at a lower token budget or improves at equal budget",
+      "met": true
+    }
+  ],
+  "wins": [
+    {
+      "id": "fixture-hard-5",
+      "root_cause": "Capacity",
+      "delta": 0.6164,
+      "vector": {
+        "incident": [
+          "fixture-hard-1",
+          "fixture-hard-2",
+          "INC-028",
+          "fixture-1-0",
+          "fixture-2-0"
+        ],
+        "runbook": [
+          "rb-capacity",
+          "rb-dependency",
+          "rb-gateway"
+        ]
+      },
+      "precedent": {
+        "incident": [
+          "fixture-2-1",
+          "fixture-2-3",
+          "fixture-hard-1",
+          "fixture-hard-2",
+          "INC-064"
+        ],
+        "runbook": [
+          "rb-capacity",
+          "rb-dependency",
+          "rb-gateway"
+        ]
+      }
+    },
+    {
+      "id": "fixture-3-3",
+      "root_cause": "Capacity",
+      "delta": 0.1461,
+      "vector": {
+        "incident": [
+          "INC-064",
+          "fixture-1-3",
+          "fixture-2-3",
+          "INC-076",
+          "fixture-1-4"
+        ],
+        "runbook": [
+          "rb-gateway",
+          "rb-capacity"
+        ]
+      },
+      "precedent": {
+        "incident": [
+          "INC-064",
+          "fixture-2-3",
+          "fixture-hard-2",
+          "fixture-1-3",
+          "INC-076"
+        ],
+        "runbook": [
+          "rb-gateway",
+          "rb-capacity"
+        ]
+      }
+    },
+    {
+      "id": "fixture-3-5",
+      "root_cause": "Dependency",
+      "delta": 0.1461,
+      "vector": {
+        "incident": [
+          "INC-103",
+          "fixture-1-5",
+          "fixture-2-5",
+          "INC-142",
+          "fixture-1-8"
+        ],
+        "runbook": [
+          "rb-dependency"
+        ]
+      },
+      "precedent": {
+        "incident": [
+          "INC-103",
+          "fixture-2-2",
+          "fixture-2-5",
+          "fixture-1-5",
+          "INC-142"
+        ],
+        "runbook": [
+          "rb-dependency"
+        ]
+      }
+    },
+    {
+      "id": "fixture-3-6",
+      "root_cause": "Capacity",
+      "delta": 0.1461,
+      "vector": {
+        "incident": [
+          "INC-117",
+          "fixture-1-6",
+          "fixture-2-6",
+          "INC-142",
+          "fixture-1-8"
+        ],
+        "runbook": [
+          "rb-gateway"
+        ]
+      },
+      "precedent": {
+        "incident": [
+          "INC-117",
+          "fixture-2-3",
+          "fixture-2-6",
+          "fixture-1-6",
+          "INC-142"
+        ],
+        "runbook": [
+          "rb-gateway"
+        ]
+      }
+    },
+    {
+      "id": "fixture-4-3",
+      "root_cause": "Capacity",
+      "delta": 0.1312,
+      "vector": {
+        "incident": [
+          "INC-064",
+          "fixture-1-3",
+          "fixture-2-3",
+          "fixture-3-3",
+          "INC-076"
+        ],
+        "runbook": [
+          "rb-gateway",
+          "rb-capacity"
+        ]
+      },
+      "precedent": {
+        "incident": [
+          "INC-064",
+          "fixture-2-3",
+          "fixture-hard-2",
+          "fixture-1-3",
+          "fixture-3-3"
+        ],
+        "runbook": [
+          "rb-gateway",
+          "rb-capacity"
+        ]
+      }
+    },
+    {
+      "id": "fixture-4-5",
+      "root_cause": "Dependency",
+      "delta": 0.1312,
+      "vector": {
+        "incident": [
+          "INC-103",
+          "fixture-1-5",
+          "fixture-2-5",
+          "fixture-3-5",
+          "INC-142"
+        ],
+        "runbook": []
+      },
+      "precedent": {
+        "incident": [
+          "INC-103",
+          "fixture-2-2",
+          "fixture-2-5",
+          "fixture-1-5",
+          "fixture-3-5"
+        ],
+        "runbook": []
+      }
+    },
+    {
+      "id": "fixture-4-6",
+      "root_cause": "Capacity",
+      "delta": 0.1312,
+      "vector": {
+        "incident": [
+          "INC-117",
+          "fixture-1-6",
+          "fixture-2-6",
+          "fixture-3-6",
+          "INC-142"
+        ],
+        "runbook": [
+          "rb-gateway"
+        ]
+      },
+      "precedent": {
+        "incident": [
+          "INC-117",
+          "fixture-2-3",
+          "fixture-2-6",
+          "fixture-1-6",
+          "fixture-3-6"
+        ],
+        "runbook": [
+          "rb-gateway"
+        ]
+      }
+    },
+    {
+      "id": "fixture-hard-8",
+      "root_cause": "Capacity",
+      "delta": 0.1077,
+      "vector": {
+        "incident": [
+          "fixture-hard-5",
+          "INC-028",
+          "fixture-1-0",
+          "fixture-2-0",
+          "fixture-3-0"
+        ],
+        "runbook": [
+          "rb-gateway",
+          "rb-capacity"
+        ]
+      },
+      "precedent": {
+        "incident": [
+          "fixture-2-4",
+          "fixture-2-7",
+          "fixture-2-1",
+          "fixture-2-3",
+          "fixture-hard-5"
+        ],
+        "runbook": [
+          "rb-gateway",
+          "rb-capacity"
+        ]
+      }
+    },
+    {
+      "id": "fixture-hard-2",
+      "root_cause": "Capacity",
+      "delta": 0.0384,
+      "vector": {
+        "incident": [
+          "INC-076",
+          "fixture-1-4",
+          "INC-028",
+          "fixture-1-0",
+          "INC-039"
+        ],
+        "runbook": [
+          "rb-dependency",
+          "rb-capacity"
+        ]
+      },
+      "precedent": {
+        "incident": [
+          "INC-076",
+          "fixture-1-4",
+          "INC-064",
+          "INC-028",
+          "fixture-1-0"
+        ],
+        "runbook": [
+          "rb-dependency",
+          "rb-capacity"
+        ]
+      }
+    }
+  ],
+  "failures": [
+    {
+      "id": "fixture-2-5",
+      "root_cause": "Dependency",
+      "delta": -0.1312,
+      "vector": {
+        "incident": [
+          "INC-103",
+          "fixture-1-5",
+          "INC-142",
+          "fixture-1-8",
+          "INC-051"
+        ],
+        "runbook": [
+          "rb-dependency"
+        ]
+      },
+      "precedent": {
+        "incident": [
+          "INC-103",
+          "fixture-1-5",
+          "INC-142",
+          "fixture-1-8",
+          "INC-117"
+        ],
+        "runbook": [
+          "rb-dependency"
+        ]
+      }
+    },
+    {
+      "id": "fixture-hard-4",
+      "root_cause": "Config change",
+      "delta": -0.1312,
+      "vector": {
+        "incident": [
+          "INC-103",
+          "fixture-1-5",
+          "fixture-2-5",
+          "fixture-3-5",
+          "INC-089"
+        ],
+        "runbook": []
+      },
+      "precedent": {
+        "incident": [
+          "INC-103",
+          "fixture-2-2",
+          "fixture-2-5",
+          "fixture-1-5",
+          "fixture-3-5"
+        ],
+        "runbook": []
+      }
+    }
+  ]
+}
