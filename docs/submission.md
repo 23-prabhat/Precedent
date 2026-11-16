@@ -3,7 +3,7 @@
 | Requirement | Status |
 | --- | --- |
 | Readable repository plus reproducible commands | Run `make check` locally or use the Release check workflow |
-| Public source repository | The GitHub project is private. Judges need repository access or a public source release |
+| Public source repository | [github.com/23-prabhat/Precedent](https://github.com/23-prabhat/Precedent) is public |
 | HydraDB features and reason to use a graph | Documented. Hosted validation requires a key |
 | Track and pre-registered criteria | Track 1. Live outcomes pending |
 | Curve, ablations, reachable ceiling, error examples and limitations | GitLab baseline, synthetic ablations and report bundled. Hosted comparison pending |
